@@ -1,0 +1,34 @@
+.home {
+    font-family: "Avenir Light", Helvetica, Arial, sans-serif;
+    background-color: #f6f6ef;
+    display: flex;
+    flex-direction: column;
+}
+
+.selected {
+    font-weight: bold;
+}
+
+.home header {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+}
+
+.home aside {
+    display: block;
+    color: #999;
+    padding-left: 52px;
+}
+
+.home article {
+    padding: 0 0 0 52px;
+}
+
+.home figure {
+    flex-shrink: 1;
+}
+
+.home figure img {
+    width: 100%;
+}
