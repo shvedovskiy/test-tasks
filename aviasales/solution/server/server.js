@@ -2,13 +2,10 @@ const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
 const cors = require('cors');
-const qs = require('qs');
+const getTickets = require('./api/tickets');
 
-const { fetchCounter } = require('./api/counter');
-const { fetchNews } = require('./api/news');
 
 require('dotenv').config();
-
 
 const PORT = process.env.SERVER_PORT || 3000;
 const app = express();
@@ -17,7 +14,6 @@ app.use(cors());
 
 if (process.env.NODE_ENV === 'development') {
   const config = require('../config/webpack.config.dev');
-  console.log('kek');
   const compiler = webpack(config);
   app.use(require('webpack-dev-middleware')(compiler, {
     noInfo: true,
@@ -39,19 +35,12 @@ if (process.env.NODE_ENV === 'development') {
   app.use('/static/', express.static(path.resolve(__dirname, '..', 'dist')));
 }
 
-app.get('/api/news', (req, res) => {
-  fetchNews().then(news => res.json(news));
-});
-
-app.get('/api/counter', (req, res) => {
-  // Queries работает, но не используется:
-  const params = qs.parse(req.query);
-  const counter = parseInt(params.counter, 10);
-
-  if (counter) {
-    res.json(counter);
+app.get('/api/tickets', (req, res) => {
+  const response = getTickets();
+  if (!response) {
+    res.status(204).send({});
   } else {
-    fetchCounter(counter).then(counter => res.json(counter));
+    res.json(response);
   }
 });
 
