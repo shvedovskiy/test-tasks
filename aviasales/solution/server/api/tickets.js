@@ -1,13 +1,17 @@
-const fs = require('fs');
+const uuidv4 = require('uuid/v4');
+const data = require('./tickets.json');
 
 
 function getTickets() {
-  fs.readFile('./tickets.json', (err, data) => {
-    if (err) {
-      return null;
-    }
-    return JSON.parse(data);
+  if (!data) {
+    return null;
+  }
+
+  data.tickets.forEach((ticket) => {
+    ticket.id = uuidv4();
   });
+
+  return data;
 }
 
-export default getTickets;
+module.exports = getTickets;

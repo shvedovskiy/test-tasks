@@ -35,10 +35,11 @@ if (process.env.NODE_ENV === 'development') {
   app.use('/static/', express.static(path.resolve(__dirname, '..', 'dist')));
 }
 
-app.get('/api/tickets', (req, res) => {
+app.get('/api/tickets/', (req, res) => {
   const response = getTickets();
+
   if (!response) {
-    res.status(204).send({});
+    res.status(204).json({});
   } else {
     res.json(response);
   }
