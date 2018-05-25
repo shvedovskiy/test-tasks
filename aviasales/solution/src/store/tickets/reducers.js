@@ -6,30 +6,35 @@ import {
 
 
 const initialState = {
+  data: {},
   isFetching: false,
   errorMessage: null,
-  data: {}
 };
 
 const tickets = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_TICKETS_REQUEST: {
       return {
+        data: {},
         isFetching: true,
-        errorMessage: null
+        errorMessage: null,
       };
     }
     case FETCH_TICKETS_SUCCESS: {
+      const data = {};
+      action.payload.tickets.forEach(ticket => data[ticket.id] = ticket);
+
       return {
-        ...action.payload.tickets,
+        data,
         isFetching: false,
-        errorMessage: null
+        errorMessage: null,
       }
     }
     case FETCH_TICKETS_FAILURE: {
       return {
+        ...state,
         isFetching: false,
-        errorMessage: action.payload.errorMessage
+        errorMessage: action.payload.errorMessage,
       };
     }
     default:
@@ -40,16 +45,19 @@ const tickets = (state = initialState, action) => {
 export default tickets;
 
 export const getIsFetching = (state) => state.isFetching;
+
 export const getErrorMessage = (state) => state.errorMessage;
+
 export const getTicket = (state, id) => state.data[id];
-export const getFilteredTickets = (state, ...filters) => {
+
+export const getFilteredIds = (state, ...filters) => {
   if (filters.length === 0) {
     return Object.keys(state.data);
   }
 
   return Object.keys(state.data).map(id => {
     if (filters.includes(state.data[id].stops)) {
-      return getTicket(state, id);
+      return id;
     }
   });
 };

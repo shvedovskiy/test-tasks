@@ -7,8 +7,8 @@ import {
   getIsFetching,
   getErrorMessage,
   getFilteredTickets,
-} from '~/store/tickets/reducers';
-import { getCurrentFilters } from '~/store/settings/reducers';
+  getCurrentFilters
+} from '~/store/rootReducer';
 
 
 class Tickets extends Component {
@@ -22,7 +22,7 @@ class Tickets extends Component {
   };
 
   render() {
-    const { tickets } = this.props;
+    const { tickets, isFetching, errorMessage } = this.props;
     return (
       <FilteredTickets tickets={tickets} />
     );
@@ -31,8 +31,28 @@ class Tickets extends Component {
 
 const mapStateToProps = (state) => {
   const filters = getCurrentFilters(state);
+  const rawTickets = getFilteredTickets(state, ...filters);
+  const tickets = rawTickets.map(ticket => ({
+    id: ticket.id,
+    origin: {
+      code: ticket.origin,
+      name: ticket.origin_name,
+      date: ticket.departure_date,
+      time: ticket.detarture_time,
+    },
+    destination: {
+      code: ticket.destination,
+      name: ticket.destination_name,
+      date: ticket.arrival_date,
+      time: ticket.arrival_time
+    },
+    carrier: ticket.carrier,
+    stops: ticket.stops,
+    price: ticket.price
+  }));
+
   return {
-    tickets: getFilteredTickets(state, ...filters),
+    tickets,
     isFetching: getIsFetching(state),
     errorMessage: getErrorMessage(state),
   }

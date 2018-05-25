@@ -7,3 +7,7 @@ export function pluralStops(number) {
 export function isProd() {
   return NODE_ENV === 'production';
 }
+
+export function calculateCurrency() {
+
+}

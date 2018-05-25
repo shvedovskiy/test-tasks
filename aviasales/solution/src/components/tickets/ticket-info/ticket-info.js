@@ -7,9 +7,9 @@ const TicketInfo = (props) => {
   const {
     children,
     carrierLogo,
-    cities,
-    dates,
-    transfers,
+    origin,
+    destination,
+    stops
   } = props;
   return (
     <div className="ticket-info">
@@ -20,15 +20,15 @@ const TicketInfo = (props) => {
         {children}
       </div>
       <div className="origin">
-        {cities.origin}
-        {dates.departure}
+        {origin.name} {origin.code}
+        {origin.date}, {origin.time}
       </div>
       <div className="path">
-        {pluralStops(transfers)}
+        {pluralStops(stops)}
       </div>
       <div className="destination">
-        {cities.destination}
-        {dates.arrival}
+        {destination.name} {destination.code}
+        {destination.date}, {destination.time}
       </div>
     </div>
   );

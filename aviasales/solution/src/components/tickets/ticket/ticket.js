@@ -24,15 +24,14 @@ const currencySymbols = {
 
 class Ticket extends Component {
   render() {
-    const { id } = this.props;
+    const { price, carrier, ...rest } = this.props;
+    const carrierLogo = carrierLogos[carrier];
 
     return (
       <li>
-        <TicketInfo>
+        <TicketInfo carrierLogo={carrierLogo} {...rest}>
           <BuyButton>
-            {
-
-            }
+            {price}
           </BuyButton>
         </TicketInfo>
       </li>

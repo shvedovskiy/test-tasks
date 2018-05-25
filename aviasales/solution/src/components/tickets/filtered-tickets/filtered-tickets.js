@@ -2,18 +2,16 @@ import React from 'react';
 import Ticket from '../ticket';
 
 const FilteredTickets = ({ tickets }) => {
-  const renderTicket = (ticket) => (
+  const renderTicket = ({id, ...rest}) => (
     <Ticket
-      key={ticket.id}
-      {...ticket}
+      key={id}
+      {...rest}
     />
   );
 
   return (
     <ul>
-      {
-        tickets.map(renderTicket)
-      }
+      {tickets.map(renderTicket)}
     </ul>
   );
 };
