@@ -1,7 +1,7 @@
 {
   "name": "aviasales-test-task",
   "version": "0.0.1",
-  "description": "",
+  "description": "Search Application",
   "keywords": [
     "react",
     "pwa",
@@ -31,7 +31,8 @@
     "react-router-dom": "^4.1.2",
     "redux": "^3.5.2",
     "redux-thunk": "^2.2.0",
-    "rimraf": "^2.5.4"
+    "rimraf": "^2.5.4",
+    "uuid": "^3.2.1"
   },
   "devDependencies": {
     "autoprefixer": "^8.3.0",
