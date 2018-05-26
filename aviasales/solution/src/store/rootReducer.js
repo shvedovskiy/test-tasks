@@ -22,8 +22,8 @@ export const getFilteredTickets = (state, ...filters) => {
   return ids.map(id => fromTickets.getTicket(state.getIn(['tickets']), id));
 };
 
-export const getCurrentFilters = (state) =>
-  fromSettings.getCurrentFilters(state.getIn(['settings']));
+export const getFilters = (state) =>
+  fromSettings.getFilters(state.getIn(['settings']));
 
 export const getCurrency = (state) =>
   fromSettings.getCurrency(state.getIn(['settings']));

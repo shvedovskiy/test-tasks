@@ -1,1 +1,2 @@
 export const CHANGE_CURRENCY = 'CHANGE_CURRENCY';
+export const CHANGE_FILTER = 'CHANGE_FILTER';
