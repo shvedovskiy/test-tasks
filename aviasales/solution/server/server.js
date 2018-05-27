@@ -13,7 +13,7 @@ const app = express();
 app.use(cors());
 
 if (process.env.NODE_ENV === 'development') {
-  const config = require('../config/webpack.config.dev');
+  const config = require('../webpack/webpack.config.dev');
   const compiler = webpack(config);
   app.use(require('webpack-dev-middleware')(compiler, {
     noInfo: true,
@@ -26,8 +26,8 @@ if (process.env.NODE_ENV === 'development') {
       timings: false,
       chunks: false,
       chunkModules: false,
-      writeToDisk: true
-    }
+      writeToDisk: true,
+    },
   }));
   app.use(require('webpack-hot-middleware')(compiler));
   app.use('/static/', express.static(path.resolve(__dirname, '..', 'src')));
@@ -76,10 +76,12 @@ app.get('*', (req, res) => {
   `);
 });
 
-app.listen(PORT, err => {
+app.listen(PORT, (err) => {
+  /* eslint-disable no-console */
   if (err) {
     console.error(err);
   } else {
     console.info(`==> 🌎 Listening on port ${PORT}. Open up http://localhost:${PORT}/ in your browser.`);
   }
+  /* eslint-enable no-console */
 });

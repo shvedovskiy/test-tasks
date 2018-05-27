@@ -1,24 +1,20 @@
-const path = require('path');
-const webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
-const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
-const rimraf = require('rimraf');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+import path from 'path';
+import webpack from 'webpack';
+import autoprefixer from 'autoprefixer';
+import DirectoryNamedWebpackPlugin from 'directory-named-webpack-plugin';
 
 
 const srcPath = path.join(__dirname, '..', 'src');
-const outputPath = path.join(__dirname, '..', 'dist');
 
-module.exports = {
-  mode: 'production',
+export default {
+  mode: 'development',
   context: srcPath,
   entry: [
+    'webpack-hot-middleware/client',
     './index.js',
   ],
   output: {
-    path: outputPath,
+    path: srcPath,
     filename: 'bundle.js',
     publicPath: '/static/',
   },
@@ -44,10 +40,11 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          'style-loader',
           {
             loader: 'css-loader',
             options: {
+              sourceMap: true,
               importLoaders: 1,
             },
           },
@@ -69,20 +66,8 @@ module.exports = {
       },
     ],
   },
-  optimization: {
-    minimizer: [
-      new UglifyJsPlugin({
-        cache: true,
-        parallel: true,
-      }),
-      new OptimizeCSSAssetsPlugin(),
-    ],
-  },
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css',
-    }),
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
@@ -90,14 +75,7 @@ module.exports = {
         SERVER_PORT: JSON.stringify(process.env.SERVER_PORT),
       },
     }),
-    () => {
-      console.info('Clearing /dist directory');
-      rimraf.sync(outputPath, require('fs'), err => {
-        if (err) {
-          console.error('Clearing of /dist directory failed', err);
-        }
-      });
-    },
   ],
   target: 'web',
+  devtool: 'source-map',
 };
