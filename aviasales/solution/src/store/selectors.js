@@ -13,7 +13,7 @@ export const getErrorMessage = (state) =>
 const getTicketsIds = (state) =>
   fromTickets.getIds(state.getIn(['tickets']));
 
-export const getTickets = (state) =>
+const getTickets = (state) =>
   fromTickets.getTickets(state.getIn(['tickets']));
 
 export const getCurrentFilter = (state) =>
@@ -22,26 +22,20 @@ export const getCurrentFilter = (state) =>
 export const getCurrency = (state) =>
   fromSettings.getCurrency(state.getIn(['settings']));
 
-const getFilteredIds = createSelector(
-  getTicketsIds,
+export const getFilteredTickets = createSelector(
+  (state) => state.getIn(['tickets']),
   getTickets,
   getCurrentFilter,
-  (allIds, tickets, filter) => {
+  (ticketsStore, tickets, filter) => {
     if (filter.length === 0) {
-      return allIds;
+      return Object.values(tickets);
     }
 
-    return allIds.map((id) => {
-      if (filter.includes(tickets[id].stops)) {
-        return id;
+    return Object.entries(tickets).map(([ id, ticket ]) => {
+      const stops = fromTickets.getTicketStops(ticketsStore, id);
+      if (filter.includes(stops)) {
+        return ticket;
       }
     });
   },
-);
-
-export const getFilteredTickets = createSelector(
-  (state) => state.getIn(['tickets']),
-  getFilteredIds,
-  (ticketsStore, ids) =>
-    ids.map((id) => fromTickets.getTicket(ticketsStore, id))
 );

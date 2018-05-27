@@ -62,3 +62,6 @@ export const getTickets = (state) =>
 
 export const getTicket = (state, id) =>
   state.getIn(['data'])[id];
+
+export const getTicketStops = (state, id) =>
+  state.getIn(['data'])[id].stops;
