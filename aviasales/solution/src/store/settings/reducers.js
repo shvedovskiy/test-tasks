@@ -28,6 +28,6 @@ const settings = (state = initialState, action) => {
 
 export default settings;
 
-export const getFilters = (state) => state.getIn(['filters']);
+export const getFilter = (state) => state.getIn(['filters']);
 
 export const getCurrency = (state) => state.getIn(['currency']);

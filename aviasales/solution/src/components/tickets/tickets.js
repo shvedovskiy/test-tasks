@@ -7,8 +7,8 @@ import {
   getIsFetching,
   getErrorMessage,
   getFilteredTickets,
-  getCurrentFilters
-} from '~/store/rootReducer';
+  getCurrentFilter
+} from '~/store/selectors';
 
 
 class Tickets extends Component {
@@ -30,8 +30,7 @@ class Tickets extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const filters = getCurrentFilters(state);
-  const rawTickets = getFilteredTickets(state, ...filters);
+  const rawTickets = getFilteredTickets(state);
   const tickets = rawTickets.map(ticket => ({
     id: ticket.id,
     origin: {

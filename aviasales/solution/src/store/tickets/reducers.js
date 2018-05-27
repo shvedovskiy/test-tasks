@@ -48,26 +48,17 @@ const tickets = (state = initialState, action) => {
 
 export default tickets;
 
-export const getIsFetching = (state) => state.getIn(['isFetching']);
+export const getIsFetching = (state) =>
+  state.getIn(['isFetching']);
 
-export const getErrorMessage = (state) => state.getIn(['errorMessage']);
+export const getErrorMessage = (state) =>
+  state.getIn(['errorMessage']);
 
-export const getTicket = (state, id) => {
-  const tickets = state.getIn(['data']);
-  return tickets[id];
-};
+export const getIds = (state) =>
+  Object.keys(state.getIn(['data']));
 
-export const getFilteredIds = (state, ...filters) => {
-  const tickets = state.getIn(['data']);
-  const allIds = Object.keys(tickets);
+export const getTickets = (state) =>
+  state.getIn(['data']);
 
-  if (filters.length === 0) {
-    return allIds;
-  }
-
-  return allIds.map((id) => {
-    if (filters.includes(tickets[id].stops)) {
-      return id;
-    }
-  });
-};
+export const getTicket = (state, id) =>
+  state.getIn(['data'])[id];

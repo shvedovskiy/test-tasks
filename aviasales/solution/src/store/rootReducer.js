@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux-seamless-immutable';
 
-import tickets, * as fromTickets from './tickets/reducers';
-import settings, * as fromSettings from './settings/reducers';
+import tickets from './tickets/reducers';
+import settings from './settings/reducers';
 
 
 const rootReducer = combineReducers({
@@ -10,20 +10,3 @@ const rootReducer = combineReducers({
 });
 
 export default rootReducer;
-
-export const getIsFetching = (state) =>
-  fromTickets.getIsFetching(state.getIn(['tickets']));
-
-export const getErrorMessage = (state) =>
-  fromTickets.getErrorMessage(state.getIn(['tickets']));
-
-export const getFilteredTickets = (state, ...filters) => {
-  const ids = fromTickets.getFilteredIds(state.getIn(['tickets']), ...filters);
-  return ids.map(id => fromTickets.getTicket(state.getIn(['tickets']), id));
-};
-
-export const getFilters = (state) =>
-  fromSettings.getFilters(state.getIn(['settings']));
-
-export const getCurrency = (state) =>
-  fromSettings.getCurrency(state.getIn(['settings']));
