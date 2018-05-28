@@ -12,28 +12,30 @@ const app = express();
 
 app.use(cors());
 
-if (process.env.NODE_ENV === 'development') {
-  const config = require('../webpack/webpack.config.dev');
-  const compiler = webpack(config);
-  app.use(require('webpack-dev-middleware')(compiler, {
-    noInfo: true,
-    publicPath: config.output.publicPath,
-    stats: {
-      assets: false,
-      colors: true,
-      version: false,
-      hash: false,
-      timings: false,
-      chunks: false,
-      chunkModules: false,
-      writeToDisk: true,
-    },
-  }));
-  app.use(require('webpack-hot-middleware')(compiler));
-  app.use('/static/', express.static(path.resolve(__dirname, '..', 'src')));
-} else if (process.env.NODE_ENV === 'production') {
+// if (process.env.NODE_ENV === 'development') {
+//   const config = require('@babel/core').transform(require('../../webpack/webpack.config.dev.babel'), {
+//     plugins: ['@babel/plugin-syntax-dynamic-import'],
+//   });
+//   const compiler = webpack(config);
+//   app.use(require('webpack-dev-middleware')(compiler, {
+//     noInfo: true,
+//     publicPath: config.output.publicPath,
+//     stats: {
+//       assets: false,
+//       colors: true,
+//       version: false,
+//       hash: false,
+//       timings: false,
+//       chunks: false,
+//       chunkModules: false,
+//       writeToDisk: true,
+//     },
+//   }));
+//   app.use(require('webpack-hot-middleware')(compiler));
+//   app.use('/static/', express.static(path.resolve(__dirname, '..', 'src')));
+// } else if (process.env.NODE_ENV === 'production') {
   app.use('/static/', express.static(path.resolve(__dirname, '..', 'dist')));
-}
+// }
 
 app.get('/api/tickets/', (req, res) => {
   const response = getTickets();
@@ -45,7 +47,7 @@ app.get('/api/tickets/', (req, res) => {
   }
 });
 
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
   res.status(200).send(`
     <!DOCTYPE html>
     <html>

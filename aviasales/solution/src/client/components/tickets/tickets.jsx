@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import FilteredTickets from './filtered-tickets';
-import * as actions from '~/store/tickets/actions';
+import * as actions from 'store/tickets/actions';
 import {
   getIsFetching,
   getErrorMessage,
   getFilteredTickets,
   getCurrentFilter
-} from '~/store/selectors';
+} from 'store/selectors';
 
 
 class Tickets extends Component {

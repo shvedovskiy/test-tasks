@@ -6,7 +6,7 @@ import {
   RUSSIAN_ROUBLE,
   US_DOLLAR,
   EURO,
-} from '~/config';
+} from 'config';
 
 
 const carrierLogos = {
