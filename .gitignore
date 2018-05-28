@@ -1,5 +1,7 @@
-/aviasales/solution/node_modules/
+**/node_modules/
+.DS_Store
 /.idea/*
-/.idea/jsLibraryMappings.xml
-.env
-dist/
+**/.env
+**/dist/
+**/coverage/
+**/*.log
