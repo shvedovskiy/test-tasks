@@ -8,21 +8,15 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import merge from 'webpack-merge';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
-import CleanWebpackPlugin from 'clean-webpack-plugin';
 import CompressionWebpackPlugin from 'compression-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import dotenv from 'dotenv';
 
 
-const {
-  NODE_ENV,
-  SERVER_HOSTNAME,
-  SERVER_PORT,
-  HTTPS,
-  WDS_PORT,
-} = process.env;
+dotenv.config();
+
 const srcPath = path.resolve(__dirname, 'src');
 const distPath = path.resolve(__dirname, 'dist');
-
 
 const common = {
   context: srcPath,
@@ -60,7 +54,7 @@ const common = {
         loader: 'file-loader',
         options: {
           name: 'media/[name].[ext]',
-          publicPath: '/static/',
+          publicPath: process.env.STATIC_PATH,
         },
       },
     ],
@@ -68,10 +62,11 @@ const common = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify(NODE_ENV),
-        HTTPS: JSON.stringify(HTTPS),
-        SERVER_HOSTNAME: JSON.stringify(SERVER_HOSTNAME),
-        SERVER_PORT: JSON.stringify(SERVER_PORT),
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        SERVER_HOSTNAME: JSON.stringify(process.env.SERVER_HOSTNAME),
+        SERVER_PORT: JSON.stringify(process.env.SERVER_PORT),
+        DEV_SERVER_PORT: JSON.stringify(process.env.DEV_SERVER_PORT),
+        HTTPS: JSON.stringify(process.env.HTTPS),
       },
     }),
   ],
@@ -84,7 +79,7 @@ const development = {
     'webpack-hot-middleware/client',
   ],
   output: {
-    publicPath: `http://localhost:${WDS_PORT}/dist/`,
+    publicPath: `http://localhost:${process.env.WDS_PORT}/dist/`,
   },
   module: {
     rules: [
@@ -122,7 +117,7 @@ const development = {
     new webpack.NamedModulesPlugin(),
   ],
   devServer: {
-    port: WDS_PORT,
+    port: process.env.WDS_PORT,
     hot: true,
     headers: {
       'Access-Control-Allow-Origin': '*',
@@ -135,7 +130,7 @@ const production = {
   devtool: 'source-map',
   target: 'web',
   output: {
-    path: /static/,
+    publicPath: process.env.STATIC_PATH,
   },
   module: {
     rules: [
@@ -178,7 +173,6 @@ const production = {
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
-    new CleanWebpackPlugin(['dist'], { root: __dirname }),
     new CompressionWebpackPlugin({
       asset: '[path].gz[query]',
       algorithm: 'gzip',
@@ -193,7 +187,7 @@ if (process.env.NODE_ANALYZE) {
   production.plugins.push(new BundleAnalyzerPlugin());
 }
 
-export default (NODE_ENV === 'development'
+export default (process.env.NODE_ENV === 'development'
   ? merge(common, development)
   : merge(common, production)
 );

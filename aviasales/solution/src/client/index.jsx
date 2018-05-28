@@ -4,7 +4,9 @@ import { Provider } from 'react-redux';
 
 import Search from 'components/search';
 import configureStore from 'store/configureStore';
-import { APP_COMPONENT_SELECTOR } from './config';
+import { APP_COMPONENT_SELECTOR } from 'config';
+
+import './index.css';
 
 const rootEl = document.getElementById(APP_COMPONENT_SELECTOR);
 

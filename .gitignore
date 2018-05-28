@@ -3,5 +3,6 @@
 /.idea/*
 **/.env
 **/dist/
+**/lib/
 **/coverage/
 **/*.log

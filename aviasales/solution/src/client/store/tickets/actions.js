@@ -4,10 +4,13 @@ import {
   FETCH_TICKETS_FAILURE,
 } from './consts';
 
+import { isProd } from 'utils';
 import {
-  HOSTNAME,
-  PORT
-} from '~/config';
+  SERVER_HOSTNAME,
+  SERVER_PORT,
+  DEV_SERVER_PORT,
+  HTTPS,
+} from 'config';
 
 
 export const fetchTickets = () => (dispatch) => {
@@ -15,7 +18,11 @@ export const fetchTickets = () => (dispatch) => {
     type: FETCH_TICKETS_REQUEST
   });
 
-  return fetch(`http://${HOSTNAME}:${PORT}/api/tickets/`)
+  const url = isProd()
+    ? `http${HTTPS ? 's' : ''}://${SERVER_HOSTNAME}:${SERVER_PORT}/api/tickets`
+    : `http://localhost:${DEV_SERVER_PORT}/api/tickets`;
+
+  return fetch(url)
     .then((response) => response.json())
     .then((data) => {
       const { tickets } = data;

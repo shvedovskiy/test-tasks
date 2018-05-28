@@ -1,5 +1,5 @@
-const uuidv4 = require('uuid/v4');
-const data = require('./tickets.json');
+import uuidv4 from 'uuid/v4';
+import data from './tickets.json'
 
 
 function getTickets() {
@@ -14,4 +14,4 @@ function getTickets() {
   return data;
 }
 
-module.exports = getTickets;
+export default getTickets;

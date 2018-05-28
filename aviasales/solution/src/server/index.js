@@ -1,41 +1,25 @@
-const path = require('path');
-const express = require('express');
-const webpack = require('webpack');
-const cors = require('cors');
-const getTickets = require('./api/tickets');
+import './env'
+import express from 'express';
+import cors from 'cors';
+
+import getTickets from './api/tickets';
+import renderApp from './render';
+
+import {
+  NODE_ENV,
+  STATIC_PATH,
+  SERVER_HOSTNAME,
+  SERVER_PORT,
+  DEV_SERVER_PORT,
+  HTTPS,
+} from './config';
 
 
-require('dotenv').config();
-
-const PORT = process.env.SERVER_PORT || 3000;
+const PORT = (NODE_ENV === 'production' ? SERVER_PORT : DEV_SERVER_PORT) || 3000;
 const app = express();
 
 app.use(cors());
-
-// if (process.env.NODE_ENV === 'development') {
-//   const config = require('@babel/core').transform(require('../../webpack/webpack.config.dev.babel'), {
-//     plugins: ['@babel/plugin-syntax-dynamic-import'],
-//   });
-//   const compiler = webpack(config);
-//   app.use(require('webpack-dev-middleware')(compiler, {
-//     noInfo: true,
-//     publicPath: config.output.publicPath,
-//     stats: {
-//       assets: false,
-//       colors: true,
-//       version: false,
-//       hash: false,
-//       timings: false,
-//       chunks: false,
-//       chunkModules: false,
-//       writeToDisk: true,
-//     },
-//   }));
-//   app.use(require('webpack-hot-middleware')(compiler));
-//   app.use('/static/', express.static(path.resolve(__dirname, '..', 'src')));
-// } else if (process.env.NODE_ENV === 'production') {
-  app.use('/static/', express.static(path.resolve(__dirname, '..', 'dist')));
-// }
+app.use(STATIC_PATH, express.static('dist'));
 
 app.get('/api/tickets/', (req, res) => {
   const response = getTickets();
@@ -48,34 +32,7 @@ app.get('/api/tickets/', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.status(200).send(`
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Demo</title>
-        <style>
-            body {
-                font-family: Helvetica Neue, Arial, sans-serif;
-                margin: 0;
-            }
-            html {
-                box-sizing: border-box;
-            }
-            *,
-            *:before,
-            *:after {
-                box-sizing: inherit;
-            }
-        </style>
-        <link rel="stylesheet" href="/static/main.css">
-        <script src="/static/bundle.js" defer></script>
-    </head>
-    <body>
-        <div id="app"></div>
-    </body>
-    </html>
-  `);
+  res.status(200).send(renderApp());
 });
 
 app.listen(PORT, (err) => {
@@ -83,7 +40,9 @@ app.listen(PORT, (err) => {
   if (err) {
     console.error(err);
   } else {
-    console.info(`==> 🌎 Listening on port ${PORT}. Open up http://localhost:${PORT}/ in your browser.`);
+    console.info(`==> 🌎 Server running on port ${PORT} ${NODE_ENV === 'production'
+      ? `(production).\nOpen up http${HTTPS ? 's' : ''}://${SERVER_HOSTNAME}:${PORT}/ in your browser`
+      : `(development).\nOpen up http://localhost:${PORT}/ in your browser.\nKeep "npm run dev:wds" running in an other terminal`}.`);
   }
   /* eslint-enable no-console */
 });

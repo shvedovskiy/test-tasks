@@ -17,7 +17,7 @@
     "url": "https://github.com/shvedovskiy/test-tasks"
   },
   "scripts": {
-    "dev:start": "nodemon -e js,jsx --ignore lib --ignore dist --exec babel-node src/server",
+    "dev:start": "cross-env NODE_ENV=development nodemon -e js,jsx --ignore lib --ignore dist --exec babel-node src/server",
     "dev:wds": "cross-env NODE_ENV=development webpack-dev-server --progress",
     "prod:build": "rimraf lib dist && babel src -d lib --ignore .test.js && cross-env NODE_ENV=production webpack -p --progress",
     "prod:start": "cross-env NODE_ENV=production pm2 start lib/server && pm2 logs",
@@ -65,7 +65,7 @@
     "babel-jest": "^23.0.1",
     "babel-loader": "^8.0.0-beta",
     "babel-plugin-flow-react-proptypes": "^24.0.1",
-    "clean-webpack-plugin": "^0.1.19",
+    "babel-plugin-inline-json-import": "^0.2.1",
     "compression-webpack-plugin": "^1.1.11",
     "cross-env": "^5.1.6",
     "css-loader": "^0.28.4",

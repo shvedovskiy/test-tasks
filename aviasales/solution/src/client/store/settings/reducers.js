@@ -1,6 +1,6 @@
 import Immutable from 'seamless-immutable';
 
-import * as currencies from '~/config/currencies';
+import * as currencies from 'config/currencies';
 import {
   CHANGE_CURRENCY,
   CHANGE_FILTER,
