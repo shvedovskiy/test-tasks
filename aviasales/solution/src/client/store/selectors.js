@@ -4,9 +4,9 @@ import * as fromTickets from './tickets/reducers';
 import * as fromSettings from './settings/reducers';
 
 
-const getTicketsIds = state => fromTickets.getIds(state.getIn(['tickets']));
+const getAllTicketIds = state => fromTickets.getIds(state.getIn(['tickets']));
 
-const getTickets = state => fromTickets.getTickets(state.getIn(['tickets']));
+const getAllTickets = state => fromTickets.getTickets(state.getIn(['tickets']));
 
 export const getIsFetching = state => fromTickets.getIsFetching(state.getIn(['tickets']));
 
@@ -18,8 +18,8 @@ export const getCurrency = state => fromSettings.getCurrency(state.getIn(['setti
 
 export const getTickets = createSelector(
   state => state.getIn(['tickets']),
-  getTicketsIds,
-  getTickets,
+  getAllTicketIds,
+  getAllTickets,
   getCurrentFilter,
   (ticketsStore, allIds, tickets, filter) => {
     if (filter.length === 0) {

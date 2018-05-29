@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+import { CurrencyContext } from '~/store/context';
 import TicketInfo from '../ticket-info';
 import BuyButton from '../buy-button';
 
@@ -30,9 +32,13 @@ class Ticket extends Component {
     return (
       <li>
         <TicketInfo carrierLogo={carrierLogo} {...rest}>
-          <BuyButton>
-            {price}
-          </BuyButton>
+          <CurrencyContext.Consumer>
+            {({ currency }) => (
+              <BuyButton>
+                {price} {currencySymbols[currency]}
+              </BuyButton>
+            )}
+          </CurrencyContext.Consumer>
         </TicketInfo>
       </li>
     )
