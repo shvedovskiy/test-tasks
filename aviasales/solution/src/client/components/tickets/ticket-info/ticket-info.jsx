@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { pluralStops } from 'utils';
+import { pluralStops } from '~/utils';
 
 
 const TicketInfo = (props) => {

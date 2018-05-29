@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 class Head extends Component {
   shouldComponentUpdate() {
     return false;

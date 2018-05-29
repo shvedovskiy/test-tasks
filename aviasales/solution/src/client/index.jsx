@@ -2,9 +2,9 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 
-import Search from 'components/search';
-import configureStore from 'store/configureStore';
-import { APP_COMPONENT_SELECTOR } from 'config';
+import Search from './components/search';
+import configureStore from '~/store/configureStore';
+import { APP_COMPONENT_SELECTOR } from '~/config';
 
 import './index.css';
 

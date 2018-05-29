@@ -3,8 +3,8 @@ import Immutable from 'seamless-immutable';
 import {
   FETCH_TICKETS_REQUEST,
   FETCH_TICKETS_SUCCESS,
-  FETCH_TICKETS_FAILURE
-} from './consts';
+  FETCH_TICKETS_FAILURE,
+} from './action-types';
 
 
 const initialState = Immutable.from({
@@ -18,18 +18,13 @@ const tickets = (state = initialState, action) => {
     case FETCH_TICKETS_REQUEST: {
       return state.merge({
         isFetching: true,
-        errorMessage: null
+        errorMessage: null,
       });
       // console.log(newState.asMutable({ deep: true }));
     }
     case FETCH_TICKETS_SUCCESS: {
-      const data = {};
-      action.payload.tickets.forEach((ticket) => {
-        data[ticket.id] = ticket
-      });
-
       return state.merge({
-        data,
+        data: action.payload.tickets,
         isFetching: false,
       }, { deep: true });
       // console.log(newState.asMutable({ deep: true }));
@@ -48,20 +43,14 @@ const tickets = (state = initialState, action) => {
 
 export default tickets;
 
-export const getIsFetching = (state) =>
-  state.getIn(['isFetching']);
+export const getIsFetching = state => state.getIn(['isFetching']);
 
-export const getErrorMessage = (state) =>
-  state.getIn(['errorMessage']);
+export const getErrorMessage = state => state.getIn(['errorMessage']);
 
-export const getIds = (state) =>
-  Object.keys(state.getIn(['data']));
+export const getIds = state => Object.keys(state.getIn(['data']));
 
-export const getTickets = (state) =>
-  state.getIn(['data']);
+export const getTickets = state => state.getIn(['data']);
 
-export const getTicket = (state, id) =>
-  state.getIn(['data'])[id];
+export const getTicket = (state, id) => state.getIn(['data'])[id];
 
-export const getTicketStops = (state, id) =>
-  state.getIn(['data'])[id].stops;
+export const getTicketStops = (state, id) => state.getIn(['data'])[id].stops;

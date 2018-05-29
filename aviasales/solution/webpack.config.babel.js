@@ -17,21 +17,25 @@ dotenv.config();
 
 const srcPath = path.resolve(__dirname, 'src');
 const distPath = path.resolve(__dirname, 'dist');
+const buildPath = path.resolve(__dirname, 'build');
 
 const common = {
   context: srcPath,
   entry: [
+    '@babel/polyfill',
     './client',
   ],
   output: {
     filename: 'bundle.js',
-    path: distPath,
   },
   resolve: {
     modules: [
       'node_modules',
       'src/client',
     ],
+    alias: {
+      '~': path.resolve(srcPath, 'client'),
+    },
     extensions: [
       '.js',
       '.jsx',
@@ -79,7 +83,8 @@ const development = {
     'webpack-hot-middleware/client',
   ],
   output: {
-    publicPath: `http://localhost:${process.env.WDS_PORT}/dist/`,
+    path: buildPath,
+    publicPath: `http://localhost:${process.env.WDS_PORT}/build/`,
   },
   module: {
     rules: [
@@ -130,6 +135,7 @@ const production = {
   devtool: 'source-map',
   target: 'web',
   output: {
+    path: distPath,
     publicPath: process.env.STATIC_PATH,
   },
   module: {

@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import FilteredTickets from './filtered-tickets';
-import * as actions from 'store/tickets/actions';
+import TicketList from './ticket-list';
+import * as actions from '~/store/tickets/actions';
 import {
+  getTickets,
   getIsFetching,
   getErrorMessage,
-  getFilteredTickets,
-  getCurrentFilter
-} from 'store/selectors';
+} from '~/store/selectors';
 
 
 class Tickets extends Component {
@@ -22,39 +21,25 @@ class Tickets extends Component {
   };
 
   render() {
-    const { tickets, isFetching, errorMessage } = this.props;
+    const { ids, tickets, isFetching, errorMessage } = this.props;
     return (
-      <FilteredTickets tickets={tickets} />
+      isFetching
+        ? <p>Loading...</p>
+        : errorMessage
+          ? <p>Loading Error</p>
+          : <TicketList ids={ids} tickets={tickets} />
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  const rawTickets = getFilteredTickets(state);
-  const tickets = rawTickets.map(ticket => ({
-    id: ticket.id,
-    origin: {
-      code: ticket.origin,
-      name: ticket.origin_name,
-      date: ticket.departure_date,
-      time: ticket.detarture_time,
-    },
-    destination: {
-      code: ticket.destination,
-      name: ticket.destination_name,
-      date: ticket.arrival_date,
-      time: ticket.arrival_time
-    },
-    carrier: ticket.carrier,
-    stops: ticket.stops,
-    price: ticket.price
-  }));
-
+const mapStateToProps = state => {
+  const [ ids, tickets ] = getTickets(state);
   return {
+    ids,
     tickets,
     isFetching: getIsFetching(state),
     errorMessage: getErrorMessage(state),
-  }
+  };
 };
 
 export default connect(mapStateToProps, actions)(Tickets);

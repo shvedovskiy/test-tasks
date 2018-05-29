@@ -1,15 +1,16 @@
 import Immutable from 'seamless-immutable';
 
-import * as currencies from 'config/currencies';
+/* eslint import/no-unresolved:0 import/extensions:0 */
+import * as currencies from '~/config/currencies';
 import {
   CHANGE_CURRENCY,
   CHANGE_FILTER,
-} from './consts';
+} from './action-types';
 
 
 const initialState = Immutable.from({
   filters: [],
-  currency: currencies.RUSSIAN_ROUBLE
+  currency: currencies.RUSSIAN_ROUBLE,
 });
 
 const settings = (state = initialState, action) => {
@@ -28,6 +29,6 @@ const settings = (state = initialState, action) => {
 
 export default settings;
 
-export const getFilter = (state) => state.getIn(['filters']);
+export const getFilter = state => state.getIn(['filters']);
 
-export const getCurrency = (state) => state.getIn(['currency']);
+export const getCurrency = state => state.getIn(['currency']);

@@ -5,7 +5,7 @@ import { createLogger } from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import rootReducer from './rootReducer';
-import { isProd } from 'utils';
+import { isProd } from '~/utils';
 
 
 const composeEnhancers = isProd() ? compose : composeWithDevTools;

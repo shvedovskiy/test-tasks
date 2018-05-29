@@ -1,4 +1,4 @@
-import { NODE_ENV } from 'config';
+import { NODE_ENV } from '~/config';
 
 export function pluralStops(number) {
   return `${number} пересадок`;

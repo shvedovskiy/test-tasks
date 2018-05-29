@@ -1,7 +1,7 @@
 import {
   CHANGE_CURRENCY,
   CHANGE_FILTER,
-} from './consts';
+} from './action-types';
 
 
 export const changeCurrency = (currency) => ({

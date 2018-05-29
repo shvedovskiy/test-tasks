@@ -25,7 +25,7 @@ const renderApp = () => `
           }
       </style>
       ${NODE_ENV === 'production' ? `<link rel="stylesheet" href="${STATIC_PATH}main.css">` : ''}
-      <script src="${NODE_ENV === 'production' ? STATIC_PATH : `http://localhost:${WDS_PORT}/dist/`}bundle.js" defer></script>
+      <script src="${NODE_ENV === 'production' ? STATIC_PATH : `http://localhost:${WDS_PORT}/build/`}bundle.js" defer></script>
   </head>
   <body>
       <div id="app"></div>

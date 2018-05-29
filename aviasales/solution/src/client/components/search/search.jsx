@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 
-import Head from 'components/head';
-import Tickets from 'components/tickets';
+import Head from '../head';
+import Tickets from '../tickets';
 
 
 class Search extends Component {
