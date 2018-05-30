@@ -8,12 +8,23 @@ import {
 } from './action-types';
 /* eslint-enable import/no-unresolved import/extensions */
 
+const fetchTicketsRequest = () => ({
+  type: FETCH_TICKETS_REQUEST,
+});
+
+const fetchTicketsSuccess = tickets => ({
+  type: FETCH_TICKETS_SUCCESS,
+  payload: { tickets },
+});
+
+const fetchTicketsFailure = errorMessage => ({
+  type: FETCH_TICKETS_FAILURE,
+  payload: { errorMessage },
+});
 
 export const fetchTickets = () =>
   async (dispatch, getState) => {
-    dispatch({
-      type: FETCH_TICKETS_REQUEST,
-    });
+    dispatch(fetchTicketsRequest());
 
     try {
       const tickets = await ticketService.getTickets();
@@ -23,17 +34,9 @@ export const fetchTickets = () =>
         ticketsById[ticket.id] = ticket;
       });
 
-      dispatch({
-        type: FETCH_TICKETS_SUCCESS,
-        payload: {
-          tickets: ticketsById,
-        },
-      });
-    } catch (errorMessage) {
-      dispatch({
-        type: FETCH_TICKETS_FAILURE,
-        payload: { errorMessage },
-      });
+      dispatch(fetchTicketsSuccess(ticketsById));
+    } catch (error) {
+      dispatch(fetchTicketsFailure(error));
     }
   };
 
