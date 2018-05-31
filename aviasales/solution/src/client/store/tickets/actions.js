@@ -1,12 +1,10 @@
-/* eslint-disable import/no-unresolved import/extensions */
-import ticketService from '~/services/tickets';
+import ticketService from '~/services/tickets'; // eslint-disable-line import/extensions, import/no-unresolved
 
 import {
   FETCH_TICKETS_REQUEST,
   FETCH_TICKETS_SUCCESS,
   FETCH_TICKETS_FAILURE,
 } from './action-types';
-/* eslint-enable import/no-unresolved import/extensions */
 
 const fetchTicketsRequest = () => ({
   type: FETCH_TICKETS_REQUEST,
@@ -23,7 +21,7 @@ const fetchTicketsFailure = errorMessage => ({
 });
 
 export const fetchTickets = () =>
-  async (dispatch, getState) => {
+  async (dispatch/* , getState */) => {
     dispatch(fetchTicketsRequest());
 
     try {
@@ -40,6 +38,6 @@ export const fetchTickets = () =>
     }
   };
 
-export const buyTicket = id => {
-  // noop
+export const buyTicket = (id) => {
+  alert(`Buy ticket with ${id}`); // eslint-disable-line no-alert
 };

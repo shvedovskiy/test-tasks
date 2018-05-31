@@ -9,7 +9,7 @@ class Head extends Component {
   render() {
     return (
       <div>
-        <img src="http://via.placeholder.com/100x100" />
+        <img src="http://via.placeholder.com/100x100" alt="Logo" />
       </div>
     );
   }

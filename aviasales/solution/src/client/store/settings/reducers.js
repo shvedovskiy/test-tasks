@@ -1,7 +1,6 @@
 import Immutable from 'seamless-immutable';
 
-/* eslint import/no-unresolved:0 import/extensions:0 */
-import * as currencies from '~/config/currencies';
+import * as currencies from '~/config/currencies'; // eslint-disable-line import/no-unresolved, import/extensions
 import {
   CHANGE_CURRENCY,
   CHANGE_FILTER,
