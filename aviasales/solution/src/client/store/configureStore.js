@@ -5,7 +5,7 @@ import { createLogger } from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import rootReducer from './rootReducer';
-import { isProd } from '~/utils';
+import { isProd } from '~/utils'; // eslint-disable-line import/extensions import/first import/no-unresolved
 
 
 const composeEnhancers = isProd() ? compose : composeWithDevTools;
@@ -18,7 +18,7 @@ if (!isProd()) {
 const configureStore = () =>
   createStore(
     rootReducer,
-    composeEnhancers(applyMiddleware(...middlewares))
+    composeEnhancers(applyMiddleware(...middlewares)),
   );
 
 export default configureStore;

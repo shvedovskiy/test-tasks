@@ -4,9 +4,9 @@ import webpack from 'webpack';
 import DirectoryNamedWebpackPlugin from 'directory-named-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import merge from 'webpack-merge';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import CompressionWebpackPlugin from 'compression-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
@@ -142,24 +142,29 @@ const production = {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                url: false,
+                minimize: true,
+                sourceMap: true,
+                importLoaders: 1,
+              },
             },
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: [
-                autoprefixer('> 1%'),
-              ],
-              sourceMap: true,
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: [
+                  autoprefixer('> 1%'),
+                ],
+                sourceMap: true,
+              },
             },
-          },
-        ],
+          ],
+        }),
       },
     ],
   },
@@ -175,9 +180,9 @@ const production = {
     occurrenceOrder: true,
   },
   plugins: [
-    new MiniCssExtractPlugin({
+    new ExtractTextPlugin({
       filename: '[name].css',
-      chunkFilename: '[id].css',
+      allChunks: true,
     }),
     new CompressionWebpackPlugin({
       asset: '[path].gz[query]',
