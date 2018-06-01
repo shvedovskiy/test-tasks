@@ -87,9 +87,6 @@ const common = {
 const development = {
   mode: 'development',
   devtool: 'eval',
-  entry: [
-    'webpack-hot-middleware/client',
-  ],
   output: {
     filename: 'bundle.js',
     publicPath: `http://localhost:${process.env.WDS_PORT}/dist/`,
