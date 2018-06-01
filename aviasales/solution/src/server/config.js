@@ -5,5 +5,4 @@ export const {
   SERVER_PORT,
   DEV_SERVER_PORT,
   HTTPS,
-  WDS_PORT,
 } = process.env;

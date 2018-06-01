@@ -1,9 +1,9 @@
+import path from 'path';
 import express from 'express';
 import cors from 'cors';
 
 import './env';
 import getTickets from './api/tickets';
-import renderApp from './render';
 
 import {
   NODE_ENV,
@@ -19,7 +19,7 @@ const PORT = (NODE_ENV === 'production' ? SERVER_PORT : DEV_SERVER_PORT) || 3000
 const app = express();
 
 app.use(cors());
-app.use(STATIC_PATH, express.static(NODE_ENV === 'production' ? 'dist' : 'build'));
+app.use(STATIC_PATH, express.static('dist'));
 
 app.get('/api/tickets/', (req, res) => {
   const response = getTickets();
@@ -32,7 +32,7 @@ app.get('/api/tickets/', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.status(200).send(renderApp());
+  res.status(200).sendFile(path.resolve(__dirname, '..', '..', 'dist', 'index.html'));
 });
 
 app.listen(PORT, (err) => {

@@ -8,7 +8,10 @@ import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import merge from 'webpack-merge';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import HtmlWebpackHarddiskPlugin from 'html-webpack-harddisk-plugin';
 import CompressionWebpackPlugin from 'compression-webpack-plugin';
+import WebpackMd5Hash from 'webpack-md5-hash';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import dotenv from 'dotenv';
 
@@ -17,7 +20,6 @@ dotenv.config();
 
 const srcPath = path.resolve(__dirname, 'src');
 const distPath = path.resolve(__dirname, 'dist');
-const buildPath = path.resolve(__dirname, 'build');
 
 const common = {
   context: srcPath,
@@ -26,7 +28,7 @@ const common = {
     './client',
   ],
   output: {
-    filename: 'bundle.js',
+    path: distPath,
   },
   resolve: {
     modules: [
@@ -73,6 +75,12 @@ const common = {
         HTTPS: JSON.stringify(process.env.HTTPS),
       },
     }),
+    new HtmlWebpackPlugin({
+      template: path.join('..', 'public', 'index.html'),
+      inject: false,
+      alwaysWriteToDisk: true,
+    }),
+    new HtmlWebpackHarddiskPlugin(),
   ],
 };
 
@@ -83,8 +91,8 @@ const development = {
     'webpack-hot-middleware/client',
   ],
   output: {
-    path: buildPath,
-    publicPath: `http://localhost:${process.env.WDS_PORT}/build/`,
+    filename: 'bundle.js',
+    publicPath: `http://localhost:${process.env.WDS_PORT}/dist/`,
   },
   module: {
     rules: [
@@ -135,7 +143,7 @@ const production = {
   devtool: 'source-map',
   target: 'web',
   output: {
-    path: distPath,
+    filename: 'bundle.[chunkhash].js',
     publicPath: process.env.STATIC_PATH,
   },
   module: {
@@ -181,7 +189,7 @@ const production = {
   },
   plugins: [
     new ExtractTextPlugin({
-      filename: '[name].css',
+      filename: '[name].[hash].css',
       allChunks: true,
     }),
     new CompressionWebpackPlugin({
@@ -191,6 +199,7 @@ const production = {
       threshold: 10240,
       minRatio: 0.8,
     }),
+    new WebpackMd5Hash(),
   ],
 };
 
@@ -198,7 +207,7 @@ if (process.env.NODE_ANALYZE) {
   production.plugins.push(new BundleAnalyzerPlugin());
 }
 
-export default (process.env.NODE_ENV === 'development'
-  ? merge(common, development)
-  : merge(common, production)
+export default (process.env.NODE_ENV === 'production'
+  ? merge(common, production)
+  : merge(common, development)
 );
