@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+/* eslint-disable import/no-unresolved, import/extensions, import/first */
 import TicketList from './ticket-list';
 import Loading from '../common/loading';
 import Error from '../common/error';
 import * as actions from '~/store/tickets/actions';
 import { CurrencyContext } from '~/store/context';
+
 import {
   getTickets,
   getIsFetching,
   getErrorMessage,
   getCurrency,
 } from '~/store/selectors';
+/* eslint-enable import/no-unresolved, import/extensions, import/first */
 
 
 class Tickets extends Component {
@@ -37,18 +40,17 @@ class Tickets extends Component {
       return <Loading />;
     } else if (errorMessage !== null) {
       return <Error />;
-    } else {
-      return (
-        <CurrencyContext.Provider value={{ currency }}>
-          <TicketList ids={ids} tickets={tickets} />
-        </CurrencyContext.Provider>
-      );
     }
+    return (
+      <CurrencyContext.Provider value={{ currency }}>
+        <TicketList ids={ids} tickets={tickets} />
+      </CurrencyContext.Provider>
+    );
   }
 }
 
-const mapStateToProps = state => {
-  const [ ids, tickets ] = getTickets(state);
+const mapStateToProps = (state) => {
+  const [ids, tickets] = getTickets(state);
   return {
     ids,
     tickets,

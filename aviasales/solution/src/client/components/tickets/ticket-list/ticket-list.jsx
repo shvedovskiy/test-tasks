@@ -1,10 +1,9 @@
 import React from 'react';
 
-import Ticket from '../ticket';
+import Ticket from '../ticket'; // eslint-disable-line import/no-unresolved, import/extensions
 
 
 const TicketList = ({ ids, tickets }) => {
-
   const renderTicketById = (id) => {
     const { ...props } = tickets[id];
     return (

@@ -1,20 +1,21 @@
 import React from 'react';
 
-import { pluralStops } from '~/utils';
+import { pluralStops } from '~/utils'; // eslint-disable-line import/no-unresolved, import/extensions
 
 
 const TicketInfo = (props) => {
   const {
     children,
+    carrierName,
     carrierLogo,
     origin,
     destination,
-    stops
+    stops,
   } = props;
   return (
     <div className="ticket-info">
       <div className="carrier-logo">
-        <img src={carrierLogo} />
+        <img src={carrierLogo} alt={carrierName} />
       </div>
       <div className="buy-ticket">
         {children}

@@ -1,4 +1,4 @@
-/* eslint-disable import/no-unresolved import/extensions */
+/* eslint-disable import/no-unresolved, import/extensions */
 import { isProd } from '~/utils';
 import {
   SERVER_HOSTNAME,
@@ -6,7 +6,7 @@ import {
   DEV_SERVER_PORT,
   HTTPS,
 } from '~/config';
-/* eslint-enable import/no-unresolved import/extensions */
+/* eslint-enable import/no-unresolved, import/extensions */
 
 class TicketService {
   API_ENDPOINT = isProd()
