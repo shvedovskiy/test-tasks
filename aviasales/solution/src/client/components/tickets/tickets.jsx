@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 /* eslint-disable import/no-unresolved, import/extensions, import/first */
 import TicketList from './ticket-list';
 import Loading from '../common/loading';
-import Error from '../common/error';
+import FetchError from '../common/error';
 import * as actions from '~/store/tickets/actions';
 import { CurrencyContext } from '~/store/context';
 
@@ -36,10 +36,13 @@ class Tickets extends Component {
       currency,
     } = this.props;
 
-    if (isFetching === true) {
+    if (isFetching === true && ids.length <= 0) {
       return <Loading />;
-    } else if (errorMessage !== null) {
-      return <Error />;
+    } else if (errorMessage !== null && ids.length <= 0) {
+      return <FetchError
+        message={errorMessage.message}
+        onRetry={() => this.fetchTicketsData()}
+      />;
     }
     return (
       <CurrencyContext.Provider value={{ currency }}>

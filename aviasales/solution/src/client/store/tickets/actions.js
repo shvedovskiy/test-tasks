@@ -1,10 +1,12 @@
 import ticketService from '~/services/tickets'; // eslint-disable-line import/extensions, import/no-unresolved
+import { getIsFetching } from '../selectors';
 
 import {
   FETCH_TICKETS_REQUEST,
   FETCH_TICKETS_SUCCESS,
   FETCH_TICKETS_FAILURE,
 } from './action-types';
+
 
 const fetchTicketsRequest = () => ({
   type: FETCH_TICKETS_REQUEST,
@@ -21,20 +23,22 @@ const fetchTicketsFailure = errorMessage => ({
 });
 
 export const fetchTickets = () =>
-  async (dispatch/* , getState */) => {
-    dispatch(fetchTicketsRequest());
+  async (dispatch, getState) => {
+    if (getIsFetching(getState()) === false) {
+      dispatch(fetchTicketsRequest());
 
-    try {
-      const tickets = await ticketService.getTickets();
-      const ticketsById = {};
+      try {
+        const tickets = await ticketService.getTickets();
+        const ticketsById = {};
 
-      tickets.forEach((ticket) => {
-        ticketsById[ticket.id] = ticket;
-      });
+        tickets.forEach((ticket) => {
+          ticketsById[ticket.id] = ticket;
+        });
 
-      dispatch(fetchTicketsSuccess(ticketsById));
-    } catch (error) {
-      dispatch(fetchTicketsFailure(error));
+        dispatch(fetchTicketsSuccess(ticketsById));
+      } catch (error) {
+        dispatch(fetchTicketsFailure(error));
+      }
     }
   };
 
