@@ -1,5 +1,8 @@
+import _ from 'lodash';
+
 import ticketService from '~/services/tickets'; // eslint-disable-line import/extensions, import/no-unresolved
 import { getIsFetching } from '../selectors';
+import { setStopsFilter } from '../settings/actions';
 
 import {
   FETCH_TICKETS_REQUEST,
@@ -25,16 +28,15 @@ const fetchTicketsFailure = errorMessage => ({
 export const fetchTickets = () =>
   async (dispatch, getState) => {
     if (getIsFetching(getState()) === false) {
+      dispatch(setStopsFilter());
       dispatch(fetchTicketsRequest());
 
       try {
         const tickets = await ticketService.getTickets();
-        const ticketsById = {};
+        const ticketsById = _.keyBy(tickets, 'id');
+        const filter = _.uniq(_.map(ticketsById, 'stops'));
 
-        tickets.forEach((ticket) => {
-          ticketsById[ticket.id] = ticket;
-        });
-
+        dispatch(setStopsFilter(...filter));
         dispatch(fetchTicketsSuccess(ticketsById));
       } catch (error) {
         dispatch(fetchTicketsFailure(error));

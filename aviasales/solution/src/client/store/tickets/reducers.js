@@ -17,6 +17,7 @@ const tickets = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_TICKETS_REQUEST: {
       return state.merge({
+        data: {},
         isFetching: true,
         errorMessage: null,
       });
@@ -26,7 +27,7 @@ const tickets = (state = initialState, action) => {
       return state.merge({
         data: action.payload.tickets,
         isFetching: false,
-      }, { deep: true });
+      });
       // console.log(newState.asMutable({ deep: true }));
     }
     case FETCH_TICKETS_FAILURE: {

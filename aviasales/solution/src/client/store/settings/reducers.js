@@ -3,12 +3,15 @@ import Immutable from 'seamless-immutable';
 import * as currencies from '~/config/currencies'; // eslint-disable-line import/no-unresolved, import/extensions
 import {
   CHANGE_CURRENCY,
-  CHANGE_FILTER,
+  SET_STOPS_FILTER,
+  CHANGE_STOPS_FILTER,
 } from './action-types';
 
 
 const initialState = Immutable.from({
-  filters: [],
+  filter: {
+    stops: {},
+  },
   currency: currencies.RUSSIAN_ROUBLE,
 });
 
@@ -17,17 +20,26 @@ const settings = (state = initialState, action) => {
     case CHANGE_CURRENCY: {
       return state.set('currency', action.payload.currency);
     }
-    case CHANGE_FILTER: {
-      return state.set('filters', action.payload.filters);
+    case SET_STOPS_FILTER: {
+      return state.set('filter.stops', action.payload.stops);
+    }
+    case CHANGE_STOPS_FILTER: {
+      return state.merge({
+        filter: {
+          stops: action.payload.stops,
+        },
+      }, { deep: true });
     }
     default: {
-      return state;
+      return state.asMutable({ deep: true });
     }
   }
 };
 
 export default settings;
 
-export const getFilter = state => state.getIn(['filters']);
+export const getStopsFilter = state =>
+  _.keys(_.pickBy(state.getIn(['filter.stops']), value => value === true));
 
-export const getCurrency = state => state.getIn(['currency']);
+export const getCurrency = state =>
+  state.getIn(['currency']);
