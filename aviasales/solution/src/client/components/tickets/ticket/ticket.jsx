@@ -4,12 +4,7 @@ import React from 'react';
 import TicketInfo from '../ticket-info';
 import BuyButton from '../buy-button';
 import { CurrencyContext } from '~/store/context';
-
-import {
-  RUSSIAN_ROUBLE,
-  US_DOLLAR,
-  EURO,
-} from '~/config';
+import { currencySymbols } from '~/config/currencies';
 /* eslint-enable import/extensions, import/no-unresolved */
 
 
@@ -18,12 +13,6 @@ const carrierLogos = {
   'S7': '',
   'SU': '',
   'BA': '',
-};
-
-const currencySymbols = {
-  RUSSIAN_ROUBLE: '₽',
-  US_DOLLAR: '$',
-  EURO: '€',
 };
 
 const Ticket = ({ price, carrier, ...rest }) => {
