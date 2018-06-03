@@ -1,4 +1,6 @@
 import Immutable from 'seamless-immutable';
+import { createSelector } from 'reselect';
+import _ from 'lodash';
 
 import * as currencies from '~/config/currencies'; // eslint-disable-line import/no-unresolved, import/extensions
 import {
@@ -21,7 +23,7 @@ const settings = (state = initialState, action) => {
       return state.set('currency', action.payload.currency);
     }
     case SET_STOPS_FILTER: {
-      return state.set('filter.stops', action.payload.stops);
+      return state.setIn(['filter', 'stops'], action.payload.stops);
     }
     case CHANGE_STOPS_FILTER: {
       return state.merge({
@@ -38,8 +40,20 @@ const settings = (state = initialState, action) => {
 
 export default settings;
 
-export const getStopsFilter = state =>
-  _.keys(_.pickBy(state.getIn(['filter.stops']), value => value === true));
+export const getAllStops = state =>
+  state.getIn(['filter', 'stops']);
+
+export const getStopsFilter = createSelector(
+  getAllStops,
+  (allStops) => {
+    if (Object.values(allStops).every(stop => stop === true)) {
+      return null;
+    }
+    return _.keys(_.pickBy(allStops), stop => stop === true)
+      .map(k => Number.parseInt(k, 10));
+  },
+);
+
 
 export const getCurrency = state =>
   state.getIn(['currency']);

@@ -39,10 +39,12 @@ class Tickets extends Component {
     if (isFetching === true && ids.length <= 0) {
       return <Loading />;
     } else if (errorMessage !== null && ids.length <= 0) {
-      return <FetchError
-        message={errorMessage.message}
-        onRetry={() => this.fetchTicketsData()}
-      />;
+      return (
+        <FetchError
+          message={errorMessage.message}
+          onRetry={() => this.fetchTicketsData()}
+        />
+      );
     }
     return (
       <CurrencyContext.Provider value={{ currency }}>

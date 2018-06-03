@@ -14,6 +14,8 @@ export const getErrorMessage = state => fromTickets.getErrorMessage(state.getIn(
 
 export const getStopsFilter = state => fromSettings.getStopsFilter(state.getIn(['settings']));
 
+export const getAllStops = state => fromSettings.getAllStops(state.getIn(['settings']));
+
 export const getCurrency = state => fromSettings.getCurrency(state.getIn(['settings']));
 
 export const getTickets = createSelector(
@@ -22,8 +24,10 @@ export const getTickets = createSelector(
   getAllTickets,
   getStopsFilter,
   (ticketsStore, allIds, tickets, stopsFilter) => {
-    if (stopsFilter.length === 0) {
+    if (stopsFilter === null) {
       return [allIds, tickets];
+    } else if (stopsFilter.length === 0) {
+      return [[], []];
     }
 
     const filteredIds = allIds.filter((id) => {

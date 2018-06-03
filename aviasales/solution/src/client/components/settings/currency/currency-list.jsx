@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { currencyAliases } from '~/config/currencies';
+import { currencyAliases } from '~/config/currencies'; // eslint-disable-line import/no-unresolved, import/extensions
 
 
-const CurrencyList = ({ currency, changeCurrency }) => {
+const CurrencyList = ({ currency, handleChangeCurrency }) => {
   function handleItemChange(e) {
-    const currency = e.target.value;
-    changeCurrency(currency);
+    const newCurrency = e.target.value;
+    handleChangeCurrency(newCurrency);
   }
   return (
     <div>

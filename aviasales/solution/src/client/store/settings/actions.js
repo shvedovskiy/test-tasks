@@ -16,7 +16,8 @@ export const setStopsFilter = (...stopsArray) => {
   let stops = {};
 
   if (stopsArray.length > 0) {
-    stops = _.zipObject(stopsArray, _.map(stopsArray, () => false));
+    const minStop = _.min(stopsArray);
+    stops = _.zipObject(stopsArray, _.map(stopsArray, stop => stop === minStop));
   }
 
   return {
