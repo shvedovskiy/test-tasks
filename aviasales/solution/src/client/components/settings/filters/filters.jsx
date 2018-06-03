@@ -9,7 +9,7 @@ import Stops from './stops';
 
 
 const Filters = ({ stops, changeStops }) => (
-  <Stops stops={stops} changeStops={changeStops}/>
+  <Stops stops={stops} changeStops={changeStops} />
 );
 
 const mapStateToProps = state => ({

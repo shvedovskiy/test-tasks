@@ -2,7 +2,7 @@ import Immutable from 'seamless-immutable';
 import { createSelector } from 'reselect';
 import _ from 'lodash';
 
-import * as currencies from '~/config/currencies'; // eslint-disable-line import/no-unresolved, import/extensions
+import { RUSSIAN_ROUBLE } from '~/config/currency'; // eslint-disable-line import/no-unresolved, import/extensions
 import {
   CHANGE_CURRENCY,
   SET_STOPS_FILTER,
@@ -14,7 +14,7 @@ const initialState = Immutable.from({
   filter: {
     stops: {},
   },
-  currency: currencies.RUSSIAN_ROUBLE,
+  currency: RUSSIAN_ROUBLE,
 });
 
 const settings = (state = initialState, action) => {

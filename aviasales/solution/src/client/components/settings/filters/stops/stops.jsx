@@ -4,21 +4,21 @@ import _ from 'lodash';
 import StopsCheckbox from './stops-checkbox';
 
 
-function selectAllStops(stops, changeStops) {
-  return ({ checked }) => {
+function _selectAllStops(stops, changeStops) {
+  return ({ target: { checked }}) => {
     const newStops = _.mapValues(stops, () => checked);
 
     changeStops(newStops);
   }
 }
 
-function selectStop(changeStops) {
-  return ({ value, checked }) => {
+function _selectStop(changeStops) {
+  return ({ value, target: { checked }}) => {
     changeStops({ [value]: checked });
   }
 }
 
-function selectOnlyStop(stops, changeStops) {
+function _selectOnlyStop(stops, changeStops) {
   return (value) => () => {
     const newStops = _.mapValues(stops, (__, stop) => stop === value);
     changeStops(newStops);
@@ -26,9 +26,9 @@ function selectOnlyStop(stops, changeStops) {
 }
 
 const Stops = ({ stops, changeStops }) => {
-  const selectAllStops = selectAllStops(stops, changeStops);
-  const selectStop = selectStop(changeStops);
-  const selectOnlyStop = selectOnlyStop(stops, changeStops);
+  const selectAllStops = _selectAllStops(stops, changeStops);
+  const selectStop = _selectStop(changeStops);
+  const selectOnlyStop = _selectOnlyStop(stops, changeStops);
 
   const checkedAll = Object.values(stops).every(v => v === true);
 

@@ -4,7 +4,8 @@ import React from 'react';
 import TicketInfo from '../ticket-info';
 import BuyButton from '../buy-button';
 import { CurrencyContext } from '~/store/context';
-import { currencySymbols } from '~/config/currencies';
+import { RUSSIAN_ROUBLE, currencySymbols } from '~/config/currency';
+import getPrice from '~/services/currency';
 import { carrierLogos } from '~/config/carriers';
 /* eslint-enable import/extensions, import/no-unresolved */
 
@@ -22,7 +23,11 @@ const Ticket = ({ price, carrier, ...rest }) => {
         <CurrencyContext.Consumer>
           {({ currency }) => (
             <BuyButton>
-              {price} {currencySymbols[currency]}
+              {
+                currency && currencySymbols[currency]
+                  ? `${getPrice(price, currency)} ${currencySymbols[currency]}`
+                  : `${getPrice(price, RUSSIAN_ROUBLE)} ${currencySymbols[RUSSIAN_ROUBLE]}`
+              }
             </BuyButton>
           )}
         </CurrencyContext.Consumer>
