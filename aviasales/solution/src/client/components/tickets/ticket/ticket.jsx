@@ -5,15 +5,9 @@ import TicketInfo from '../ticket-info';
 import BuyButton from '../buy-button';
 import { CurrencyContext } from '~/store/context';
 import { currencySymbols } from '~/config/currencies';
+import { carrierLogos } from '~/config/carriers';
 /* eslint-enable import/extensions, import/no-unresolved */
 
-
-const carrierLogos = {
-  'TK': '',
-  'S7': '',
-  'SU': '',
-  'BA': '',
-};
 
 const Ticket = ({ price, carrier, ...rest }) => {
   const carrierLogo = carrierLogos[carrier];

@@ -8,4 +8,8 @@ const FetchError = ({ message, onRetry }) => (
   </div>
 );
 
+FetchError.defaultProps = {
+  message: '',
+};
+
 export default FetchError;

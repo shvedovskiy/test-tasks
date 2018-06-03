@@ -4,23 +4,31 @@ import _ from 'lodash';
 import StopsCheckbox from './stops-checkbox';
 
 
-const Stops = ({ stops, changeStops }) => {
-  function selectAllStops({ target }) {
-    const newStops = _.mapValues(stops, () => target.checked);
+function selectAllStops(stops, changeStops) {
+  return ({ checked }) => {
+    const newStops = _.mapValues(stops, () => checked);
 
     changeStops(newStops);
   }
+}
 
-  function selectStop({ target }) {
-    changeStops({ [target.value]: target.checked });
+function selectStop(changeStops) {
+  return ({ value, checked }) => {
+    changeStops({ [value]: checked });
   }
+}
 
-  function selectOnlyStop(value) {
-    return () => {
-      const newStops = _.mapValues(stops, (__, stop) => stop === value);
-      changeStops(newStops);
-    };
-  }
+function selectOnlyStop(stops, changeStops) {
+  return (value) => () => {
+    const newStops = _.mapValues(stops, (__, stop) => stop === value);
+    changeStops(newStops);
+  };
+}
+
+const Stops = ({ stops, changeStops }) => {
+  const selectAllStops = selectAllStops(stops, changeStops);
+  const selectStop = selectStop(changeStops);
+  const selectOnlyStop = selectOnlyStop(stops, changeStops);
 
   const checkedAll = Object.values(stops).every(v => v === true);
 
@@ -45,6 +53,10 @@ const Stops = ({ stops, changeStops }) => {
       }
     </div>
   );
+};
+
+Stops.defaultProps = {
+  stops: {},
 };
 
 export default Stops;

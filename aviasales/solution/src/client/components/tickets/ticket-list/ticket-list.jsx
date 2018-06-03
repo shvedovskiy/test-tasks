@@ -6,12 +6,8 @@ import Ticket from '../ticket'; // eslint-disable-line import/no-unresolved, imp
 const TicketList = ({ ids, tickets }) => {
   const renderTicketById = (id) => {
     const { ...props } = tickets[id];
-    return (
-      <Ticket
-        key={id}
-        {...props}
-      />
-    );
+
+    return <Ticket key={id} {...props} />;
   };
 
   return (

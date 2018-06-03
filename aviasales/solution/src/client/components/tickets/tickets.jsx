@@ -42,7 +42,7 @@ class Tickets extends Component {
       return (
         <FetchError
           message={errorMessage.message}
-          onRetry={() => this.fetchTicketsData()}
+          onRetry={this.fetchTicketsData}
         />
       );
     }
