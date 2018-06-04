@@ -13,7 +13,7 @@ function _selectAllStops(stops, changeStops) {
 }
 
 function _selectStop(changeStops) {
-  return ({ value, target: { checked }}) => {
+  return ({ target: { value, checked }}) => {
     changeStops({ [value]: checked });
   }
 }
