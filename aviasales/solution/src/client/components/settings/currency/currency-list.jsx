@@ -2,20 +2,21 @@ import React from 'react';
 
 import { RUSSIAN_ROUBLE, currencyAliases } from '~/config/currency'; // eslint-disable-line import/no-unresolved, import/extensions
 
+
 function _handleItemChange(handleChangeCurrency) {
   return ({ target: { value }}) => {
     handleChangeCurrency(value);
   };
 }
 
-const CurrencyList = ({ currency, handleChangeCurrency }) => {
+const CurrencyList = ({ currency, aliases, handleChangeCurrency }) => {
   const handleItemChange = _handleItemChange(handleChangeCurrency);
 
   return (
     <div>
-      {Object.keys(currencyAliases).map(currencyKey => (
+      {Object.keys(aliases).map(currencyKey => (
         <label key={currencyKey}>
-          {currencyAliases[currencyKey]}
+          {aliases[currencyKey]}
           <input
             type="radio"
             value={currencyKey}
@@ -30,6 +31,9 @@ const CurrencyList = ({ currency, handleChangeCurrency }) => {
 
 CurrencyList.defaultProps = {
   currency: RUSSIAN_ROUBLE,
+  aliases: {
+    [RUSSIAN_ROUBLE]: currencyAliases[RUSSIAN_ROUBLE],
+  },
 };
 
 export default CurrencyList;
