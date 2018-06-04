@@ -4,6 +4,7 @@ export const {
   SERVER_PORT,
   DEV_SERVER_PORT,
   HTTPS,
+  FIXER_API_KEY,
 } = process.env;
 
 export const APP_COMPONENT_SELECTOR = 'app';
