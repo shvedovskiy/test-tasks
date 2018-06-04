@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { pluralStops } from '~/utils'; // eslint-disable-line import/no-unresolved, import/extensions
+import { pluralStop } from '~/utils'; // eslint-disable-line import/no-unresolved, import/extensions
 
 
 const TicketInfo = ({children, carrierName, carrierLogo, origin, destination, stops }) => (
@@ -16,7 +16,7 @@ const TicketInfo = ({children, carrierName, carrierLogo, origin, destination, st
       {origin.date}, {origin.time}
     </div>
     <div className="path">
-      {pluralStops(stops)}
+      {stops === 0 ? 'Без пересадок' : `${stops} ${pluralStop(stops)}`}
     </div>
     <div className="destination">
       {destination.name} {destination.code}

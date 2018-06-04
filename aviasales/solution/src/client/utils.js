@@ -1,8 +1,10 @@
+import { noun } from 'plural-ru';
 import { NODE_ENV } from '~/config'; // eslint-disable-line import/extensions, import/no-unresolved
 
 
-export function pluralStops(number) {
-  return `${number} пересадок`;
+
+export function pluralStop(number) {
+  return noun(number, 'пересадка', 'пересадки', 'пересадок');
 }
 
 export function isProd() {

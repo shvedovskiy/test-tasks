@@ -2,6 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 
 import StopsCheckbox from './stops-checkbox';
+import { pluralStop } from '~/utils';
 
 
 function _selectAllStops(stops, changeStops) {
@@ -43,7 +44,7 @@ const Stops = ({ stops, changeStops }) => {
               checked={stops[stop]}
               value={stop}
             >
-              {stop} stop(s)
+              { Number.parseInt(stop) === 0 ? 'Без пересадок' : `${stop} ${pluralStop(Number.parseInt(stop))}`}
             </StopsCheckbox>
             <button onClick={selectOnlyStop(stop)}>
               Only {stop}
