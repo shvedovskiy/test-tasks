@@ -73,6 +73,7 @@ const common = {
         SERVER_PORT: JSON.stringify(process.env.SERVER_PORT),
         DEV_SERVER_PORT: JSON.stringify(process.env.DEV_SERVER_PORT),
         HTTPS: JSON.stringify(process.env.HTTPS),
+        FIXER_API_KEY: JSON.stringify(process.env.FIXER_API_KEY),
       },
     }),
     new HtmlWebpackPlugin({
