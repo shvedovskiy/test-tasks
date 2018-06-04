@@ -13,29 +13,31 @@ import { changeCurrency } from '~/store/settings/actions';
 
 class Currency extends Component {
   state = {
-    isFetched: false,
+    aliases: {},
   };
 
   componentDidMount() {
     currencyService.fetchCurrencies()
       .then(() => {
-        this.setState({ isFetched: true });
+        const ratesNames = currencyService.getRatesNames();
+        const aliases = _.pickBy(currencyAliases, value => ratesNames.includes(value));
+
+        this.setState({ aliases });
       });
   }
 
   render() {
-    let { currency, handleChangeCurrency } = this.props;
-    const ratesNames = currencyService.getRatesNames();
-    const aliases = _.pickBy(currencyAliases, value => ratesNames.includes(value));
+    let { selectedCurrency, handleChangeCurrency } = this.props;
+    const { aliases } = this.state;
 
-    if (!aliases[currency]) {
-      currency = RUSSIAN_ROUBLE;
+    if (!aliases[selectedCurrency]) {
+      selectedCurrency = RUSSIAN_ROUBLE;
     }
 
     return (
       <CurrencyList
         aliases={aliases}
-        currency={currency}
+        selectedCurrency={selectedCurrency}
         handleChangeCurrency={handleChangeCurrency}
       />
     );
@@ -43,7 +45,7 @@ class Currency extends Component {
 }
 
 const mapStateToProps = state => ({
-  currency: getCurrency(state),
+  selectedCurrency: getCurrency(state),
 });
 
 export default connect(mapStateToProps, { handleChangeCurrency: changeCurrency })(Currency);

@@ -9,18 +9,18 @@ function _handleItemChange(handleChangeCurrency) {
   };
 }
 
-const CurrencyList = ({ currency, aliases, handleChangeCurrency }) => {
+const CurrencyList = ({ selectedCurrency, aliases, handleChangeCurrency }) => {
   const handleItemChange = _handleItemChange(handleChangeCurrency);
 
   return (
     <div>
-      {Object.keys(aliases).map(currencyKey => (
-        <label key={currencyKey}>
-          {aliases[currencyKey]}
+      {Object.keys(aliases).map(currencyName => (
+        <label key={currencyName}>
+          {aliases[currencyName]}
           <input
             type="radio"
-            value={currencyKey}
-            checked={currencyKey === currency}
+            value={currencyName}
+            checked={currencyName === selectedCurrency}
             onChange={handleItemChange}
           />
         </label>

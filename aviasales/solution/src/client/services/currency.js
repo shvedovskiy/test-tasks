@@ -19,13 +19,13 @@ class CurrencyService {
       throw new Error('Currency fetching failed');
     }
 
-    const data = await response.json();
-    const coefficient = data.rates[currencyAliases[RUSSIAN_ROUBLE]];
-    const rates = _.mapValues(data.rates, value => Number((value / coefficient).toFixed(2)));
+    const { rates } = await response.json();
+    const coefficient = rates[currencyAliases[RUSSIAN_ROUBLE]];
+    const newRates = _.mapValues(rates, value => Number((value / coefficient).toFixed(2)));
 
     this.rates = {
       ...this.rates,
-      ...rates,
+      ...newRates,
     };
   }
 
