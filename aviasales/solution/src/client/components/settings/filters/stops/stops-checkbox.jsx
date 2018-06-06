@@ -17,7 +17,7 @@ const StopsCheckbox = ({children, value, checked, onSelect }) => (
 
 StopsCheckbox.defaultProps = {
   checked: false,
-  value: -1,
+  value: '-1',
 };
 
 export default StopsCheckbox;

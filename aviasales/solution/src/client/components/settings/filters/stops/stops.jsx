@@ -20,8 +20,8 @@ function _selectStop(changeStops) {
 }
 
 function _selectOnlyStop(stops, changeStops) {
-  return (value) => () => {
-    const newStops = _.mapValues(stops, (__, stop) => stop === value);
+  return newValue => () => {
+    const newStops = _.mapValues(stops, (__, stop) => stop === newValue);
     changeStops(newStops);
   };
 }
@@ -44,7 +44,7 @@ const Stops = ({ stops, changeStops }) => {
               checked={stops[stop]}
               value={stop}
             >
-              { Number.parseInt(stop) === 0 ? 'Без пересадок' : `${stop} ${pluralStop(Number.parseInt(stop))}`}
+              { stop === '0' ? 'Без пересадок' : `${stop} ${pluralStop(stop)}`}
             </StopsCheckbox>
             <button onClick={selectOnlyStop(stop)}>Только</button>
           </span>
