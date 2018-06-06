@@ -20,6 +20,7 @@ const app = express();
 
 app.use(cors());
 app.use(STATIC_PATH, express.static('dist'));
+app.use(STATIC_PATH, express.static('public'));
 
 app.get('/api/tickets/', (req, res) => {
   const response = getTickets();
