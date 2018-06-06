@@ -9,6 +9,7 @@ import {
 
 const initialState = Immutable.from({
   data: {},
+  ids: [],
   isFetching: false,
   errorMessage: null,
 });
@@ -18,24 +19,23 @@ const tickets = (state = initialState, action) => {
     case FETCH_TICKETS_REQUEST: {
       return state.merge({
         data: {},
+        ids: [],
         isFetching: true,
         errorMessage: null,
       });
-      // console.log(newState.asMutable({ deep: true }));
     }
     case FETCH_TICKETS_SUCCESS: {
       return state.merge({
         data: action.payload.tickets,
+        ids: action.payload.ids,
         isFetching: false,
       });
-      // console.log(newState.asMutable({ deep: true }));
     }
     case FETCH_TICKETS_FAILURE: {
       return state.merge({
         isFetching: false,
         errorMessage: action.payload.errorMessage,
       });
-      // console.log(newState.asMutable({ deep: true }));
     }
     default:
       return state.asMutable({ deep: true });
@@ -48,7 +48,7 @@ export const getIsFetching = state => state.getIn(['isFetching']);
 
 export const getErrorMessage = state => state.getIn(['errorMessage']);
 
-export const getIds = state => Object.keys(state.getIn(['data']));
+export const getSortedIds = state => state.getIn(['ids']);
 
 export const getTickets = state => state.getIn(['data']);
 

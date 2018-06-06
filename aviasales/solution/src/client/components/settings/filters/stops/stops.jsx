@@ -46,9 +46,7 @@ const Stops = ({ stops, changeStops }) => {
             >
               { Number.parseInt(stop) === 0 ? 'Без пересадок' : `${stop} ${pluralStop(Number.parseInt(stop))}`}
             </StopsCheckbox>
-            <button onClick={selectOnlyStop(stop)}>
-              Only {stop}
-            </button>
+            <button onClick={selectOnlyStop(stop)}>Только</button>
           </span>
         ))
       }

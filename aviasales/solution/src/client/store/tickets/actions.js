@@ -15,9 +15,9 @@ const fetchTicketsRequest = () => ({
   type: FETCH_TICKETS_REQUEST,
 });
 
-const fetchTicketsSuccess = tickets => ({
+const fetchTicketsSuccess = (tickets, ids) => ({
   type: FETCH_TICKETS_SUCCESS,
-  payload: { tickets },
+  payload: { tickets, ids },
 });
 
 const fetchTicketsFailure = errorMessage => ({
@@ -33,11 +33,12 @@ export const fetchTickets = () =>
 
       try {
         const tickets = await ticketService.getTickets();
+        const ids = _.map(_.sortBy(tickets, t => Number.parseFloat(t.price)), 'id');
         const ticketsById = _.keyBy(tickets, 'id');
         const filter = _.uniq(_.map(ticketsById, 'stops'));
 
         dispatch(setStopsFilter(...filter));
-        dispatch(fetchTicketsSuccess(ticketsById));
+        dispatch(fetchTicketsSuccess(ticketsById, ids));
       } catch (error) {
         dispatch(fetchTicketsFailure(error));
       }

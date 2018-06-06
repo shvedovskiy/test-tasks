@@ -33,7 +33,7 @@ class TicketService {
         code: ticket.origin,
         name: ticket.origin_name,
         date: ticket.departure_date,
-        time: ticket.detarture_time,
+        time: ticket.departure_time,
       },
       destination: {
         code: ticket.destination,
@@ -42,8 +42,8 @@ class TicketService {
         time: ticket.arrival_time,
       },
       carrier: ticket.carrier,
-      stops: ticket.stops,
-      price: ticket.price,
+      stops: ticket.stops.toString(),
+      price: ticket.price.toString(),
     }));
   }
 }

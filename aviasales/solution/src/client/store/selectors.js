@@ -4,7 +4,7 @@ import * as fromTickets from './tickets/reducers';
 import * as fromSettings from './settings/reducers';
 
 
-const getAllTicketIds = state => fromTickets.getIds(state.getIn(['tickets']));
+const getAllTicketIds = state => fromTickets.getSortedIds(state.getIn(['tickets']));
 
 const getAllTickets = state => fromTickets.getTickets(state.getIn(['tickets']));
 
