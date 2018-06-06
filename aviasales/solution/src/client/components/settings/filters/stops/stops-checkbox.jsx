@@ -1,15 +1,13 @@
 import React from 'react';
 
 
-const StopsCheckbox = ({children, value, checked, onSelect }) => (
+const StopsCheckbox = ({children, ...rest }) => (
   <span>
     <label>
       {children}
       <input
         type="checkbox"
-        value={value}
-        checked={checked}
-        onChange={onSelect}
+        {...rest}
       />
     </label>
   </span>

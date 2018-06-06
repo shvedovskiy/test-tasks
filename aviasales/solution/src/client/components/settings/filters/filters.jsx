@@ -8,8 +8,8 @@ import Stops from './stops';
 /* eslint-enable import/no-unresolved, import/extensions */
 
 
-const Filters = ({ stops, changeStops }) => (
-  <Stops stops={stops} changeStops={changeStops} />
+const Filters = ({ ...props }) => (
+  <Stops {...props} />
 );
 
 const mapStateToProps = state => ({

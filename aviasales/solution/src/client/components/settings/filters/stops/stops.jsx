@@ -40,9 +40,9 @@ const Stops = ({ stops, changeStops }) => {
         Object.keys(stops).map(stop => (
           <span key={stop}>
             <StopsCheckbox
-              onSelect={selectStop}
-              checked={stops[stop]}
               value={stop}
+              checked={stops[stop]}
+              onChange={selectStop}
             >
               { stop === '0' ? 'Без пересадок' : `${stop} ${pluralStop(stop)}`}
             </StopsCheckbox>
