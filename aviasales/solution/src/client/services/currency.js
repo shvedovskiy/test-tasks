@@ -11,9 +11,15 @@ class CurrencyService {
 
   async fetchCurrencies() {
     const url = `${this.API_ENDPOINT}/latest?access_key=${FIXER_API_KEY}&symbols=${this.symbols}`;
-    const response = await fetch(url, {
-      method: 'GET',
-    });
+    let response;
+
+    try {
+      response = await fetch(url, {
+        method: 'GET',
+      });
+    } catch (error) {
+      throw new Error('Currency fetching failed');
+    }
 
     if (!response.ok) {
       throw new Error('Currency fetching failed');
@@ -32,11 +38,12 @@ class CurrencyService {
   getPrice(price, currency) {
     const rates = this.getRates();
     const convertIndex = rates[currencyAliases[currency]];
+    let result;
 
     if (convertIndex) {
-      return price * convertIndex;
+      result = Number.parseFloat(price) * convertIndex;
     }
-    return null;
+    return (result && !Number.isNaN(result)) ? result : null;
   }
 
   getRates() {

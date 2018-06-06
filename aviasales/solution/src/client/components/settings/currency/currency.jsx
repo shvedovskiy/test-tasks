@@ -13,7 +13,9 @@ import { changeCurrency } from '~/store/settings/actions';
 
 class Currency extends Component {
   state = {
-    aliases: {},
+    aliases: {
+      [RUSSIAN_ROUBLE]: currencyAliases[RUSSIAN_ROUBLE],
+    },
   };
 
   componentDidMount() {
@@ -23,7 +25,8 @@ class Currency extends Component {
         const aliases = _.pickBy(currencyAliases, value => ratesNames.includes(value));
 
         this.setState({ aliases });
-      });
+      })
+      .catch(() => {});
   }
 
   render() {
