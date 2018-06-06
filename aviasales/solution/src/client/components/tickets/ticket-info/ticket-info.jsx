@@ -16,7 +16,7 @@ const TicketInfo = ({children, carrierName, carrierLogo, origin, destination, st
       {origin.date}, {origin.time}
     </div>
     <div className="path">
-      {stops === 0 ? 'Без пересадок' : `${stops} ${pluralStop(stops)}`}
+      {stops === '0' ? 'Без пересадок' : `${stops} ${pluralStop(stops)}`}
     </div>
     <div className="destination">
       {destination.name} {destination.code}

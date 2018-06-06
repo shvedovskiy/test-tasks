@@ -49,8 +49,7 @@ export const getStopsFilter = createSelector(
     if (Object.values(allStops).every(stop => stop === true)) {
       return null;
     }
-    return _.keys(_.pickBy(allStops), stop => stop === true)
-      .map(k => Number.parseInt(k, 10));
+    return _.keys(_.pickBy(allStops), stop => stop === true);
   },
 );
 
