@@ -3,7 +3,10 @@
     [
       "@babel/preset-env",
       {
-        "targets": [">1%"]
+        "targets": {
+          "browsers": [">1%"]
+        },
+        "useBuiltIns": "entry"
       }
     ],
     "@babel/preset-react",
