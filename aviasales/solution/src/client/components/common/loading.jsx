@@ -1,4 +1,4 @@
 import React from 'react';
 
 
-export default () => <p>Loading...</p>;
+export default () => <p>Подождите минутку, мы ищем билеты...</p>;
