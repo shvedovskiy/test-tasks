@@ -6,7 +6,7 @@ import _ from 'lodash';
 import CurrencyList from './currency-list';
 import currencyService from '~/services/currency';
 import { RUSSIAN_ROUBLE, currencyAliases } from '~/config/currency';
-import { getCurrency } from '~/store/selectors';
+import { getCurrency } from '~/store/rootSelectors';
 import { changeCurrency } from '~/store/settings/actions';
 /* eslint-enable import/first, import/no-unresolved, import/extensions */
 

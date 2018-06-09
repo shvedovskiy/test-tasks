@@ -13,7 +13,7 @@ import {
   getIsFetching,
   getErrorMessage,
   getCurrency,
-} from '~/store/selectors';
+} from '~/store/rootSelectors';
 /* eslint-enable import/no-unresolved, import/extensions, import/first */
 
 

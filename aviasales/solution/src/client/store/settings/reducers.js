@@ -1,6 +1,4 @@
 import Immutable from 'seamless-immutable';
-import { createSelector } from 'reselect';
-import _ from 'lodash';
 
 import { RUSSIAN_ROUBLE } from '~/config/currency'; // eslint-disable-line import/no-unresolved, import/extensions
 import {
@@ -39,20 +37,3 @@ const settings = (state = initialState, action) => {
 };
 
 export default settings;
-
-export const getAllStops = state =>
-  state.getIn(['filter', 'stops']);
-
-export const getStopsFilter = createSelector(
-  getAllStops,
-  (allStops) => {
-    if (Object.values(allStops).every(stop => stop === true)) {
-      return null;
-    }
-    return _.keys(_.pickBy(allStops), stop => stop === true);
-  },
-);
-
-
-export const getCurrency = state =>
-  state.getIn(['currency']);

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 /* eslint-disable import/no-unresolved, import/extensions */
-import { getAllStops } from '~/store/selectors';
+import { getAllStops } from '~/store/rootSelectors';
 import { changeStopsFilter } from '~/store/settings/actions';
 import Stops from './stops';
 /* eslint-enable import/no-unresolved, import/extensions */

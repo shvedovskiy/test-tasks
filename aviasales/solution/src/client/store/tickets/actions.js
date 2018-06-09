@@ -1,8 +1,10 @@
 import _ from 'lodash';
 
-import ticketService from '~/services/tickets'; // eslint-disable-line import/extensions, import/no-unresolved
-import { getIsFetching } from '../selectors';
-import { setStopsFilter } from '../settings/actions';
+/* eslint-disable import/extensions, import/no-unresolved */
+import ticketService from '~/services/tickets';
+import { getIsFetching } from '~/store/rootSelectors';
+import { setStopsFilter } from '~/store/settings/actions';
+/* eslint-enable import/extensions, import/no-unresolved */
 
 import {
   FETCH_TICKETS_REQUEST,
