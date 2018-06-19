@@ -38,6 +38,7 @@
     "dotenv-webpack": "^1.5.7",
     "express": "^4.14.0",
     "lodash": "^4.17.10",
+    "moment": "^2.22.2",
     "plural-ru": "^2.0.1",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",

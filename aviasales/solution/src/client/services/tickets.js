@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 /* eslint-disable import/no-unresolved, import/extensions */
 import { isProd } from '~/utils';
 import {
@@ -7,6 +9,12 @@ import {
   HTTPS,
 } from '~/config';
 /* eslint-enable import/no-unresolved, import/extensions */
+
+
+moment.updateLocale('ru-RU', {
+  weekdaysMin : 'Пн_Вт_Ср_Чт_Пт_Сб_Вс'.split('_'),
+});
+moment.locale('ru-RU');
 
 class TicketService {
   API_ENDPOINT = isProd()
@@ -27,24 +35,29 @@ class TicketService {
 
     const data = await response.json();
 
-    return data.tickets.map(ticket => ({
-      id: ticket.id,
-      origin: {
-        code: ticket.origin,
-        name: ticket.origin_name,
-        date: ticket.departure_date,
-        time: ticket.departure_time,
-      },
-      destination: {
-        code: ticket.destination,
-        name: ticket.destination_name,
-        date: ticket.arrival_date,
-        time: ticket.arrival_time,
-      },
-      carrier: ticket.carrier,
-      stops: ticket.stops.toString(),
-      price: ticket.price.toString(),
-    }));
+    return data.tickets.map(ticket => {
+      const departure_date = moment(ticket.departure_date, 'DD-MM-YY').format('D MMM YYYY, dd');
+      const arrival_date = moment(ticket.arrival_date, 'DD-MM-YY').format('D MMM YYYY, dd');
+
+      return {
+        id: ticket.id,
+        origin: {
+          code: ticket.origin,
+          name: ticket.origin_name,
+          date: departure_date,
+          time: ticket.departure_time,
+        },
+        destination: {
+          code: ticket.destination,
+          name: ticket.destination_name,
+          date: arrival_date,
+          time: ticket.arrival_time,
+        },
+        carrier: ticket.carrier,
+        stops: ticket.stops.toString(),
+        price: ticket.price.toString(),
+      };
+    });
   }
 }
 

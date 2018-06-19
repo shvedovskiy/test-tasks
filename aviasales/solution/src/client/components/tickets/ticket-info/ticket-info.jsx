@@ -12,7 +12,7 @@ const TicketInfo = ({children, carrierName, carrierLogo, origin, destination, st
       {children}
     </div>
     <div className="origin">
-      {origin.name} {origin.code}
+      {origin.code}, {origin.name}
       {origin.date}, {origin.time}
     </div>
     <div className="path">
