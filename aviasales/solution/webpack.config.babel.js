@@ -55,14 +55,6 @@ const common = {
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
-      {
-        test: /\.(svg|gif|jpe?g|png|ico)(\?[a-z00-9]+)?$/,
-        loader: 'file-loader',
-        options: {
-          name: 'media/[name].[ext]',
-          publicPath: process.env.STATIC_PATH,
-        },
-      },
     ],
   },
   plugins: [
@@ -116,6 +108,16 @@ const development = {
             },
           },
         ],
+      },
+      {
+        test: /\.(svg|gif|jpe?g|png|ico)(\?[a-z00-9]+)?$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+          outputPath: 'media/',
+          publicPath: process.env.STATIC_PATH,
+          emitFile: false,
+        },
       },
     ],
   },
@@ -171,6 +173,15 @@ const production = {
             },
           ],
         }),
+      },
+      {
+        test: /\.(svg|gif|jpe?g|png|ico)(\?[a-z00-9]+)?$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[hash].[ext]',
+          outputPath: 'media/',
+          publicPath: process.env.STATIC_PATH,
+        },
       },
     ],
   },
