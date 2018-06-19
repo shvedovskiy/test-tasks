@@ -66,16 +66,7 @@ const common = {
     ],
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-        SERVER_HOSTNAME: JSON.stringify(process.env.SERVER_HOSTNAME),
-        SERVER_PORT: JSON.stringify(process.env.SERVER_PORT),
-        DEV_SERVER_PORT: JSON.stringify(process.env.DEV_SERVER_PORT),
-        HTTPS: JSON.stringify(process.env.HTTPS),
-        FIXER_API_KEY: JSON.stringify(process.env.FIXER_API_KEY),
-      },
-    }),
+    new Dotenv(),
     new HtmlWebpackPlugin({
       template: path.join('..', 'public', 'index.html'),
       inject: false,
