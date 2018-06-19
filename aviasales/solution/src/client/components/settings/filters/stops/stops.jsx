@@ -35,12 +35,13 @@ const Stops = ({ stops, changeStops }) => {
 
   return (
     <div>
-      <StopsCheckbox onChange={selectAllStops} checked={checkedAll}>All</StopsCheckbox>
+      <StopsCheckbox onChange={selectAllStops} checked={checkedAll} id="all">All</StopsCheckbox>
       {
-        Object.keys(stops).map(stop => (
+        Object.keys(stops).map((stop, idx) => (
           <span key={stop}>
             <StopsCheckbox
               value={stop}
+              id={idx}
               checked={stops[stop]}
               onChange={selectStop}
             >

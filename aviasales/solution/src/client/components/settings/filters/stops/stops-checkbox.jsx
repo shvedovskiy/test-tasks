@@ -1,14 +1,15 @@
 import React from 'react';
 
 
-const StopsCheckbox = ({children, ...rest }) => (
+const StopsCheckbox = ({children, id, ...rest }) => (
   <span>
-    <label>
+    <input
+      type="checkbox"
+      id={`stops-${id}`}
+      {...rest}
+    />
+    <label htmlFor={`stops-${id}`}>
       {children}
-      <input
-        type="checkbox"
-        {...rest}
-      />
     </label>
   </span>
 );
