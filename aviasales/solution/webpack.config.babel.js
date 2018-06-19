@@ -13,6 +13,7 @@ import HtmlWebpackHarddiskPlugin from 'html-webpack-harddisk-plugin';
 import CompressionWebpackPlugin from 'compression-webpack-plugin';
 import WebpackMd5Hash from 'webpack-md5-hash';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import Dotenv from 'dotenv-webpack';
 import dotenv from 'dotenv';
 
 
@@ -22,18 +23,13 @@ const srcPath = path.resolve(__dirname, 'src');
 const distPath = path.resolve(__dirname, 'dist');
 
 const common = {
-  context: srcPath,
-  entry: [
-    '@babel/polyfill',
-    './client',
-  ],
   output: {
     path: distPath,
   },
   resolve: {
     modules: [
       'node_modules',
-      'src/client',
+      './src/client',
     ],
     alias: {
       '~': path.resolve(srcPath, 'client'),
@@ -57,10 +53,13 @@ const common = {
       },
     ],
   },
+  optimization: {
+    noEmitOnErrors: true,
+  },
   plugins: [
     new Dotenv(),
     new HtmlWebpackPlugin({
-      template: path.join('..', 'public', 'index.html'),
+      template: path.join('public', 'index.html'),
       inject: false,
       alwaysWriteToDisk: true,
     }),
@@ -71,6 +70,10 @@ const common = {
 const development = {
   mode: 'development',
   devtool: 'eval',
+  entry: [
+    '@babel/polyfill',
+    './src/client',
+  ],
   output: {
     filename: 'bundle.js',
     publicPath: `http://localhost:${process.env.WDS_PORT}/dist/`,
@@ -133,8 +136,13 @@ const production = {
   mode: 'production',
   devtool: 'source-map',
   target: 'web',
+  entry: {
+    main: './src/client',
+    vendor: ['@babel/polyfill', 'react', 'react-dom', 'redux', 'react-redux', 'react-router-dom', 'moment', 'lodash', 'reselect', 'seamless-immutable'],
+  },
   output: {
-    filename: 'bundle.[chunkhash].js',
+    filename: '[name].[chunkhash].js',
+    chunkFilename: '[name].[chunkhash].js',
     publicPath: process.env.STATIC_PATH,
   },
   module: {
@@ -186,6 +194,17 @@ const production = {
       new OptimizeCSSAssetsPlugin(),
     ],
     occurrenceOrder: true,
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          chunks: 'initial',
+          name: 'vendor',
+          test: 'vendor',
+          enforce: true,
+        },
+      },
+    },
+    runtimeChunk: false,
   },
   plugins: [
     new ExtractTextPlugin({
