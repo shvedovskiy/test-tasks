@@ -1,14 +1,10 @@
 import _ from 'lodash';
 
-import {
-  CHANGE_CURRENCY,
-  SET_STOPS_FILTER,
-  CHANGE_STOPS_FILTER,
-} from './action-types';
+import * as types from './action-types';
 
 
 export const changeCurrency = currency => ({
-  type: CHANGE_CURRENCY,
+  type: types.CHANGE_CURRENCY,
   payload: { currency },
 });
 
@@ -21,13 +17,13 @@ export const setStopsFilter = (...stopsArray) => {
   }
 
   return {
-    type: SET_STOPS_FILTER,
+    type: types.SET_STOPS_FILTER,
     payload: { stops },
   };
 };
 
 export const changeStopsFilter = changedStops => ({
-  type: CHANGE_STOPS_FILTER,
+  type: types.CHANGE_STOPS_FILTER,
   payload: {
     stops: changedStops,
   },
