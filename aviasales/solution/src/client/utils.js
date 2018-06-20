@@ -13,3 +13,12 @@ export function splitPrice(price) {
 export function isProd() {
   return NODE_ENV === 'production';
 }
+
+export function createReducer(initialState, handlers) {
+  return (state = initialState, action) => {
+    if (handlers.hasOwnProperty(action.type)) {
+      return handlers[action.type](state, action);
+    }
+    return state.asMutable({ deep: true });
+  };
+}

@@ -1,5 +1,6 @@
 import Immutable from 'seamless-immutable';
 
+import { createReducer } from '~/utils';
 import * as types from './action-types';
 
 
@@ -10,32 +11,28 @@ const initialState = Immutable.from({
   errorMessage: null,
 });
 
-const tickets = (state = initialState, action) => {
-  switch (action.type) {
-    case types.FETCH_TICKETS_REQUEST: {
-      return state.merge({
-        data: {},
-        ids: [],
-        isFetching: true,
-        errorMessage: null,
-      });
-    }
-    case types.FETCH_TICKETS_SUCCESS: {
-      return state.merge({
-        data: action.payload.tickets,
-        ids: action.payload.ids,
-        isFetching: false,
-      });
-    }
-    case types.FETCH_TICKETS_FAILURE: {
-      return state.merge({
-        isFetching: false,
-        errorMessage: action.payload.errorMessage,
-      });
-    }
-    default:
-      return state.asMutable({ deep: true });
-  }
-};
+const tickets = createReducer(initialState, {
+  [types.FETCH_TICKETS_REQUEST](state) {
+    return state.merge({
+      data: {},
+      ids: [],
+      isFetching: true,
+      errorMessage: null,
+    });
+  },
+  [types.FETCH_TICKETS_SUCCESS](state, { payload }) {
+    return state.merge({
+      data: payload.tickets,
+      ids: payload.ids,
+      isFetching: false,
+    });
+  },
+  [types.FETCH_TICKETS_FAILURE](state, { payload }) {
+    return state.merge({
+      isFetching: false,
+      errorMessage: payload.errorMessage,
+    });
+  },
+});
 
 export default tickets;
