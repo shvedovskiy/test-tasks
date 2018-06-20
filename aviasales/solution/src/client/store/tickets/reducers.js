@@ -1,6 +1,6 @@
 import Immutable from 'seamless-immutable';
 
-import { createReducer } from '~/utils';
+import { createReducer } from '~/utils'; // eslint-disable-line import/no-unresolved, import/extensions
 import * as types from './action-types';
 
 
@@ -20,17 +20,17 @@ const tickets = createReducer(initialState, {
       errorMessage: null,
     });
   },
-  [types.FETCH_TICKETS_SUCCESS](state, { payload }) {
+  [types.FETCH_TICKETS_SUCCESS](state, { tickets, ids }) {
     return state.merge({
-      data: payload.tickets,
-      ids: payload.ids,
+      data: tickets,
+      ids,
       isFetching: false,
     });
   },
-  [types.FETCH_TICKETS_FAILURE](state, { payload }) {
+  [types.FETCH_TICKETS_FAILURE](state, { errorMessage }) {
     return state.merge({
       isFetching: false,
-      errorMessage: payload.errorMessage,
+      errorMessage,
     });
   },
 });

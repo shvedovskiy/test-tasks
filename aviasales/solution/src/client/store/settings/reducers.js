@@ -1,7 +1,9 @@
 import Immutable from 'seamless-immutable';
 
-import { RUSSIAN_ROUBLE } from '~/config/currency'; // eslint-disable-line import/no-unresolved, import/extensions
+/* eslint-disable import/no-unresolved, import/extensions */
+import { RUSSIAN_ROUBLE } from '~/config/currency';
 import { createReducer } from '~/utils';
+/* eslint-enable import/no-unresolved, import/extensions */
 import * as types from './action-types';
 
 
@@ -13,18 +15,16 @@ const initialState = Immutable.from({
 });
 
 const settings = createReducer(initialState, {
-  [types.CHANGE_CURRENCY](state, { payload }) {
-    return state.set('currency', payload.currency);
+  [types.CHANGE_CURRENCY](state, { currency }) {
+    return state.set('currency', currency);
   },
-  [types.SET_STOPS_FILTER](state, { payload }) {
-    return state.setIn(['filter', 'stops'], payload.stops);
+  [types.SET_STOPS_FILTER](state, { stops }) {
+    return state.setIn(['filter', 'stops'], stops);
   },
-  [types.CHANGE_STOPS_FILTER](state, { payload }) {
+  [types.CHANGE_STOPS_FILTER](state, { stops }) {
     return state.merge({
-      filter: {
-        stops: payload.stops,
-      },
-    }, {deep: true});
+      filter: { stops },
+    }, { deep: true });
   },
 });
 

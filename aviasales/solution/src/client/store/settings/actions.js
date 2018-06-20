@@ -5,7 +5,7 @@ import * as types from './action-types';
 
 export const changeCurrency = currency => ({
   type: types.CHANGE_CURRENCY,
-  payload: { currency },
+  currency,
 });
 
 export const setStopsFilter = (...stopsArray) => {
@@ -18,13 +18,11 @@ export const setStopsFilter = (...stopsArray) => {
 
   return {
     type: types.SET_STOPS_FILTER,
-    payload: { stops },
+    stops,
   };
 };
 
 export const changeStopsFilter = changedStops => ({
   type: types.CHANGE_STOPS_FILTER,
-  payload: {
-    stops: changedStops,
-  },
+  stops: changedStops,
 });
