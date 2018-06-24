@@ -96,7 +96,7 @@ const development = {
             loader: 'postcss-loader',
             options: {
               plugins: [
-                autoprefixer('> 1%'),
+                autoprefixer(),
               ],
               sourceMap: true,
             },
