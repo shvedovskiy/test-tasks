@@ -23,9 +23,9 @@ const store = configureStore();
 render(wrapApp(Search, store), rootEl);
 
 if (module.hot) {
-  module.hot.accept('./components/search/search', () => {
+  module.hot.accept('./components/search', () => {
     /* eslint-disable-next-line global-require */
-    const NextApp = require('./components/search/search').default;
+    const NextApp = require('./components/search').default;
     render(wrapApp(NextApp, store), rootEl);
   });
 }
