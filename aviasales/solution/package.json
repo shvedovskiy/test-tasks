@@ -42,7 +42,6 @@
     "plural-ru": "^2.0.1",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
-    "react-loadable": "^5.3.1",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.2",
     "redux": "^3.5.2",
@@ -62,7 +61,6 @@
     "@babel/core": "^7.0.0-beta.49",
     "@babel/plugin-proposal-class-properties": "^7.0.0-beta.49",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.49",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.49",
     "@babel/plugin-transform-runtime": "^7.0.0-beta.51",
     "@babel/preset-env": "^7.0.0-beta.49",
     "@babel/preset-flow": "^7.0.0-beta.49",
@@ -103,7 +101,6 @@
     "webpack-bundle-analyzer": "^2.13.1",
     "webpack-dev-server": "^3.1.4",
     "webpack-md5-hash": "0.0.6",
-    "webpack-merge": "^4.1.2",
-    "webpack-node-externals": "^1.7.2"
+    "webpack-merge": "^4.1.2"
   }
 }
