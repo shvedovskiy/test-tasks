@@ -12,7 +12,7 @@ import {
 
 
 moment.updateLocale('ru-RU', {
-  weekdaysMin : 'Пн_Вт_Ср_Чт_Пт_Сб_Вс'.split('_'),
+  weekdaysMin: 'Пн_Вт_Ср_Чт_Пт_Сб_Вс'.split('_'),
 });
 moment.locale('ru-RU');
 
@@ -35,22 +35,22 @@ class TicketService {
 
     const data = await response.json();
 
-    return data.tickets.map(ticket => {
-      const departure_date = moment(ticket.departure_date, 'DD-MM-YY').format('D MMM YYYY, dd');
-      const arrival_date = moment(ticket.arrival_date, 'DD-MM-YY').format('D MMM YYYY, dd');
+    return data.tickets.map((ticket) => {
+      const departureDate = moment(ticket.departure_date, 'DD-MM-YY').format('D MMM YYYY, dd');
+      const arrivalDate = moment(ticket.arrival_date, 'DD-MM-YY').format('D MMM YYYY, dd');
 
       return {
         id: ticket.id,
         origin: {
           code: ticket.origin,
           name: ticket.origin_name,
-          date: departure_date,
+          date: departureDate,
           time: ticket.departure_time,
         },
         destination: {
           code: ticket.destination,
           name: ticket.destination_name,
-          date: arrival_date,
+          date: arrivalDate,
           time: ticket.arrival_time,
         },
         carrier: ticket.carrier,
