@@ -29,7 +29,7 @@ const common = {
   resolve: {
     modules: [
       'node_modules',
-      './src/client',
+      './src',
     ],
     alias: {
       '~': path.resolve(srcPath, 'client'),
@@ -107,10 +107,9 @@ const development = {
         test: /\.(svg|gif|jpe?g|png|ico)(\?[a-z00-9]+)?$/,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]',
-          outputPath: 'media/',
-          publicPath: process.env.STATIC_PATH,
-          emitFile: false,
+          name: 'media/[name].[ext]',
+          // outputPath: 'media/',
+          publicPath: `http://localhost:${process.env.WDS_PORT}/dist/`,
         },
       },
     ],
