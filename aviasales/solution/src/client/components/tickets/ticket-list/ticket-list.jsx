@@ -1,7 +1,13 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import Ticket from '../ticket'; // eslint-disable-line import/no-unresolved, import/extensions
 
+
+const Tickets = styled.ul`
+    max-width: 750px;
+    margin: 0 auto;
+`;
 
 const TicketList = ({ ids, tickets }) => {
   const renderTicketById = (id) => {
@@ -15,9 +21,11 @@ const TicketList = ({ ids, tickets }) => {
   }
 
   return (
-    <ul>
-      {ids.map(renderTicketById)}
-    </ul>
+    <div>
+      <Tickets>
+        {ids.map(renderTicketById)}
+      </Tickets>
+    </div>
   );
 };
 

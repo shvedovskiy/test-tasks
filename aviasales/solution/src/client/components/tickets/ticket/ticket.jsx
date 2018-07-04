@@ -14,30 +14,28 @@ const Ticket = ({ price, carrier, ...rest }) => {
   const carrierLogo = carrierLogos[carrier];
 
   return (
-    <li>
-      <TicketInfo
-        carrierLogo={carrierLogo}
-        carrierName={carrier}
-        {...rest}
-      >
-        <CurrencyContext.Consumer>
-          {({ currency }) => {
-            let output;
-            if (currency && currencySymbols[currency]) {
-              output = `${currencyService.getPrice(price, currency)} ${currencySymbols[currency]}`;
-            } else {
-              output = `${currencyService.getPrice(price, RUSSIAN_ROUBLE)} ${currencySymbols[RUSSIAN_ROUBLE]}`;
-            }
+    <TicketInfo
+      carrierLogo={carrierLogo}
+      carrierName={carrier}
+      {...rest}
+    >
+      <CurrencyContext.Consumer>
+        {({ currency }) => {
+          let output;
+          if (currency && currencySymbols[currency]) {
+            output = `${currencyService.getPrice(price, currency)} ${currencySymbols[currency]}`;
+          } else {
+            output = `${currencyService.getPrice(price, RUSSIAN_ROUBLE)} ${currencySymbols[RUSSIAN_ROUBLE]}`;
+          }
 
-            return (
-              <BuyButton>
-                {output}
-              </BuyButton>
-            );
-          }}
-        </CurrencyContext.Consumer>
-      </TicketInfo>
-    </li>
+          return (
+            <BuyButton>
+              {output}
+            </BuyButton>
+          );
+        }}
+      </CurrencyContext.Consumer>
+    </TicketInfo>
   );
 };
 
