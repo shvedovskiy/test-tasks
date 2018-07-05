@@ -14,6 +14,9 @@
     "@babel/plugin-proposal-object-rest-spread",
     "@babel/plugin-proposal-class-properties",
     "flow-react-proptypes",
+    ["babel-plugin-styled-components", {
+        "minify": false
+    }],
     ["inline-json-import", {}]
   ]
 }
