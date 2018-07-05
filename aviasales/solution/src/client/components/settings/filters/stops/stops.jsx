@@ -1,9 +1,47 @@
 import React from 'react';
 import _ from 'lodash';
+import styled from 'styled-components';
 
-import StopsCheckbox from './stops-checkbox';
+import StopsCheckbox from './stops-checkbox/stops-checkbox';
+import StopOnly from './stop-only/stop-only';
+import { StopsListItem } from './common';
 import { pluralStop } from '~/utils';
 
+
+const StopsList = styled.ul`
+  font-size: 13px;
+`;
+
+const Label = styled.label`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 36px;
+  padding-left: 15px;
+  padding-right: 15px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  
+  &::after {
+    content: '';
+    height: 100%;
+    width: 15px;
+    position: absolute;
+    top: 0;
+    right: 15px;
+    background: linear-gradient(90deg, transparent, #fff 85%);
+  }
+  
+  ${StopsListItem}:hover &::after,
+  ${StopsListItem}:focus &::after {
+    background: linear-gradient(90deg, transparent, #f1fcff 85%);
+  }
+`;
+
+const LabelText = styled.span`
+  overflow: hidden;
+`;
 
 function _selectAllStops(stops, changeStops) {
   return ({ target: { checked }}) => {
@@ -34,24 +72,30 @@ const Stops = ({ stops, changeStops }) => {
   const checkedAll = Object.values(stops).every(v => v === true);
 
   return (
-    <div>
-      <StopsCheckbox onChange={selectAllStops} checked={checkedAll} id="all">All</StopsCheckbox>
-      {
-        Object.keys(stops).map((stop, idx) => (
-          <span key={stop}>
-            <StopsCheckbox
-              value={stop}
-              id={idx}
-              checked={stops[stop]}
-              onChange={selectStop}
-            >
-              { stop === '0' ? 'Без пересадок' : `${stop} ${pluralStop(stop)}`}
-            </StopsCheckbox>
-            <button onClick={selectOnlyStop(stop)}>Только</button>
-          </span>
-        ))
-      }
-    </div>
+    <StopsList>
+      <StopsListItem>
+        <Label for="stops-all">
+          <StopsCheckbox onChange={selectAllStops} checked={checkedAll} id="stops-all" />
+          <LabelText>Все</LabelText>
+        </Label>
+      </StopsListItem>
+      {Object.keys(stops).map((stop, idx) => (
+          <StopsListItem key={stop}>
+            <Label for={`stops-${idx}`}>
+              <StopsCheckbox
+                id={`stops-${idx}`}
+                value={stop}
+                checked={stops[stop]}
+                onChange={selectStop}
+              />
+              <LabelText>
+                { stop === '0' ? 'Без пересадок' : `${stop} ${pluralStop(stop)}`}
+              </LabelText>
+            </Label>
+            <StopOnly onClick={selectOnlyStop(stop)} />
+          </StopsListItem>
+      ))}
+    </StopsList>
   );
 };
 

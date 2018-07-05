@@ -41,8 +41,12 @@ const Search = () => (
     <Head />
     <MainContainer>
       <Content>
-        <Settings />
-        <Tickets />
+        <div>
+          <Settings />
+        </div>
+        <div>
+          <Tickets />
+        </div>
       </Content>
     </MainContainer>
   </Fragment>

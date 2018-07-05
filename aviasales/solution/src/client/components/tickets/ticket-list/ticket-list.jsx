@@ -21,11 +21,9 @@ const TicketList = ({ ids, tickets }) => {
   }
 
   return (
-    <div>
-      <Tickets>
-        {ids.map(renderTicketById)}
-      </Tickets>
-    </div>
+    <Tickets>
+      {ids.map(renderTicketById)}
+    </Tickets>
   );
 };
 
