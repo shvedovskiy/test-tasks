@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { splitPrice } from '~/utils';
+import { splitPrice } from '~/utils'; // eslint-disable-line import/no-unresolved, import/extensions
 
 const BuyButtonContainer = styled.button`
   display: block;

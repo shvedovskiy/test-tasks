@@ -11,7 +11,7 @@ const initialState = Immutable.from({
   errorMessage: null,
 });
 
-const tickets = createReducer(initialState, {
+const ticketsReducer = createReducer(initialState, {
   [types.FETCH_TICKETS_REQUEST](state) {
     return state.merge({
       data: {},
@@ -35,4 +35,4 @@ const tickets = createReducer(initialState, {
   },
 });
 
-export default tickets;
+export default ticketsReducer;

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import Ticket from '../ticket'; // eslint-disable-line import/no-unresolved, import/extensions
 
@@ -22,7 +23,13 @@ const TicketList = ({ ids, tickets }) => {
 
   return (
     <Tickets>
-      {ids.map(renderTicketById)}
+      {/*<ReactCSSTransitionGroup*/}
+        {/*transitionName="tickets"*/}
+        {/*transitionEnterTimeout={300}*/}
+        {/*transitionLeaveTimeout={300}*/}
+      {/*>*/}
+        {ids.map(renderTicketById)}
+      {/*</ReactCSSTransitionGroup>*/}
     </Tickets>
   );
 };

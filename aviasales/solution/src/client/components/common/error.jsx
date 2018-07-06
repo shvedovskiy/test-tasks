@@ -23,7 +23,7 @@ const RetryButton = styled.a.attrs({
   }
 `;
 
-const FetchError = ({ message, onRetry }) => (
+const FetchError = ({ onRetry }) => (
   <Message>
     <h2>Билеты загрузить не удалось 😥</h2>
     <RetryButton onClick={onRetry}>Повторить</RetryButton>

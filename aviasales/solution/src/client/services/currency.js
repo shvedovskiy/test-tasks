@@ -1,5 +1,9 @@
+import _ from 'lodash';
+
+/* eslint-disable import/no-unresolved, import/extensions */
 import { RUSSIAN_ROUBLE, currencyAliases } from '~/config/currency';
 import { FIXER_API_KEY } from '~/config';
+/* eslint-enable import/no-unresolved, import/extensions */
 
 
 class CurrencyService {

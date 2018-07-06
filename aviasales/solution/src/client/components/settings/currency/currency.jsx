@@ -30,7 +30,8 @@ class Currency extends Component {
   }
 
   render() {
-    let { selectedCurrency, handleChangeCurrency } = this.props;
+    let selectedCurrency = this.props.selectedCurrency;
+    const { handleChangeCurrency } = this.props;
     const { aliases } = this.state;
 
     if (!aliases[selectedCurrency]) {

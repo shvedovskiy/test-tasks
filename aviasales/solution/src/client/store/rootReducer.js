@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux-seamless-immutable';
 
-import tickets from './tickets/reducers';
-import settings from './settings/reducers';
+import ticketsReducer from './tickets/reducers';
+import settingsReducer from './settings/reducers';
 
 
 const rootReducer = combineReducers({
-  tickets,
-  settings,
+  tickets: ticketsReducer,
+  settings: settingsReducer,
 });
 
 export default rootReducer;

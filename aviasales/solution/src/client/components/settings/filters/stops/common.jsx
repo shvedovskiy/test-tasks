@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 
+/* eslint-disable import/prefer-default-export */
 export const StopsListItem = styled.li`
   position: relative;
   
@@ -10,3 +11,4 @@ export const StopsListItem = styled.li`
     outline: none;
   }
 `;
+/* eslint-enable import/prefer-default-export */

@@ -14,7 +14,7 @@ const initialState = Immutable.from({
   currency: RUSSIAN_ROUBLE,
 });
 
-const settings = createReducer(initialState, {
+const settingsReducer = createReducer(initialState, {
   [types.CHANGE_CURRENCY](state, { currency }) {
     return state.set('currency', currency);
   },
@@ -28,4 +28,4 @@ const settings = createReducer(initialState, {
   },
 });
 
-export default settings;
+export default settingsReducer;

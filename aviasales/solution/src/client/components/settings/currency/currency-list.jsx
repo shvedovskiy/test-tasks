@@ -15,14 +15,14 @@ const SwitchButton = styled.span`
   position: relative;
   height: 40px;
   line-height: 40px;
-  background-color: ${({ checked }) => checked ? '#2196f3' : '#fff'};
-  border: 1px solid ${({ checked }) => checked ? '#2196f3' : '#d2d5d6'};
-  color: ${({ checked }) => checked ? '#fff' : '#2196f3'};
+  background-color: ${({ checked }) => { return checked ? '#2196f3' : '#fff'; }};
+  border: 1px solid ${({ checked }) => { return checked ? '#2196f3' : '#d2d5d6'; }};
+  color: ${({ checked }) => { return checked ? '#fff' : '#2196f3'; }};
   text-align: center;
   letter-spacing: .5px;
   transition: all .3s ease;
   cursor: pointer;
-  z-index: ${({ checked }) => checked ? '3' : '1'};
+  z-index: ${({ checked }) => { return checked ? '3' : '1'; }};
 
   &:first-child {
     border-top-left-radius: 5px;
@@ -67,7 +67,7 @@ const RadioLabel = styled.label`
 `;
 
 function _handleItemChange(handleChangeCurrency) {
-  return ({ target: { value }}) => {
+  return ({ target: { value } }) => {
     handleChangeCurrency(value);
   };
 }
@@ -76,7 +76,7 @@ const CurrencyList = ({ selectedCurrency, aliases, handleChangeCurrency }) => {
   const handleItemChange = _handleItemChange(handleChangeCurrency);
   return (
     <CurrencySwitcher>
-      {Object.keys(aliases).map(currencyName => {
+      {Object.keys(aliases).map((currencyName) => {
         const checked = currencyName === selectedCurrency;
         const id = `${currencyName}-currency`;
         return (

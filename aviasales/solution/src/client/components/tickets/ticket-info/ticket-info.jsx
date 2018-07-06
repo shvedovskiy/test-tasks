@@ -65,7 +65,7 @@ const CarrierLogo = styled.img`
   margin: 0 auto 20px;
 `;
 
-const TicketInfo = ({children, carrierName, carrierLogo, ...props }) => (
+const TicketInfo = ({ children, carrierName, carrierLogo, ...props }) => (
   <TicketInfoContainer>
     <TicketSide>
       <div>

@@ -9,13 +9,18 @@
   ],
   "rules": {
     "no-unexpected-multiline": 2,
-    "compat/compat": 2
+    "compat/compat": 2,
+    "no-restricted-syntax": [
+      "error", "ForInStatement", "LabeledStatement", "WithStatement"
+    ]
   },
   "env": {
     "browser": true,
     "jest": true
   },
   "settings": {
-    "polyfills": ["fetch"]
+    "polyfills": [
+      "fetch", "promises"
+    ]
   }
 }

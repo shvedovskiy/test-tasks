@@ -1,7 +1,7 @@
 import  React from 'react';
 import styled from 'styled-components';
 
-import { StopsListItem } from '../common.jsx';
+import { StopsListItem } from '../common';
 
 
 const StopOnlyButton = styled.span`
