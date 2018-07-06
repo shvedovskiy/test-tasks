@@ -7,13 +7,17 @@ import Ticket from '../ticket'; // eslint-disable-line import/no-unresolved, imp
 const Tickets = styled.ul`
     max-width: 750px;
     margin: 0 auto;
+    
+    & > li {
+      margin-bottom: 20px;
+    }
 `;
 
 const TicketList = ({ ids, tickets }) => {
   const renderTicketById = (id) => {
-    const { ...props } = tickets[id];
+    const { ...ticketProps } = tickets[id];
 
-    return <Ticket key={id} {...props} />;
+    return <Ticket key={id} {...ticketProps} />;
   };
 
   if (ids.length <= 0) {

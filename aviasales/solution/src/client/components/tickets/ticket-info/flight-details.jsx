@@ -6,12 +6,8 @@ import plane from './plane.svg';
 
 
 const FlightDetails = styled.div`
-  flex-basis: 320px;
-  flex-grow: 1;
-  flex-shrink: 0;
   padding-left: 25px;
   padding-right: 25px;
-  margin-bottom: 20px;
   
   @media screen and (max-width: 600px) {
     padding-left: 20px;
@@ -103,7 +99,7 @@ const FlightDetailsContainer = ({ origin, destination, stops }) => (
       <Time>{origin.time}</Time>
       <PathWithStops>
         <Stops>
-          {stops === '0' ? 'Без пересадок' : `${stops} ${pluralStop(stops)}`}
+          {stops === '0' ? '' : `${stops} ${pluralStop(stops)}`}
         </Stops>
         <Path>
           <PathLine />

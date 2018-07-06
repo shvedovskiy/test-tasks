@@ -10,14 +10,14 @@ import { carrierLogos } from '~/config/carriers';
 /* eslint-enable import/extensions, import/no-unresolved */
 
 
-const Ticket = ({ price, carrier, ...rest }) => {
+const Ticket = ({ price, carrier, ...props }) => {
   const carrierLogo = carrierLogos[carrier];
 
   return (
     <TicketInfo
       carrierLogo={carrierLogo}
       carrierName={carrier}
-      {...rest}
+      {...props}
     >
       <CurrencyContext.Consumer>
         {({ currency }) => {

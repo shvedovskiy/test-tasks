@@ -17,12 +17,20 @@ const SettingsContainer = styled.div`
   border-radius: 5px;
   box-shadow: 0 1px 4px rgba(91, 137, 164, .25);
   overflow: hidden;
+  
+  @media screen and (max-width: 870px) {
+    max-width: 750px;
+  }
 `;
 
 const SettingsElement = styled.div`
   flex-basis: 230px;
   flex-grow: 0;
   overflow: hidden;
+  
+  @media screen and (max-width: 870px) {
+    flex-grow: 1;
+  }
 `;
 
 const CurrencySettings = SettingsElement.extend`

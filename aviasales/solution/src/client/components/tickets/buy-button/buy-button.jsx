@@ -9,6 +9,7 @@ const BuyButtonContainer = styled.button`
   height: 56px;
   padding: 0;
   color: #fff;
+  font-family: inherit;
   font-size: 16px;
   line-height: 22px;
   background-color: #ff6d00;
