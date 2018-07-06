@@ -1,0 +1,17 @@
+.ticket-enter {
+    opacity: 0.01;
+}
+
+.ticket-enter.ticket-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+}
+
+.ticket-leave {
+    opacity: 1;
+}
+
+.ticket-leave.ticket-leave-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+}

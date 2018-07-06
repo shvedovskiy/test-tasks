@@ -8,7 +8,8 @@ import configureStore from '~/store/configureStore';
 import { APP_COMPONENT_SELECTOR } from '~/config';
 /* eslint-enable import/no-unresolved, import/extensions, import/first */
 
-import './index.css';
+import './style/index.css';
+import './style/animations.css';
 
 const rootEl = document.getElementById(APP_COMPONENT_SELECTOR);
 
