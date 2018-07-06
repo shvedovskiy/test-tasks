@@ -4,6 +4,6 @@ import Message from './message';
 
 export default () => (
   <Message>
-    <h2>Подождите минутку, мы ищем билеты...</h2>
+    <h2>По заданным критериям билетов не найдено!</h2>
   </Message>
 );

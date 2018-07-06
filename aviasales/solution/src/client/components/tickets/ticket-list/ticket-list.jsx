@@ -20,10 +20,6 @@ const TicketList = ({ ids, tickets }) => {
     return <Ticket key={id} {...ticketProps} />;
   };
 
-  if (ids.length <= 0) {
-    return <p>По заданным критериям билетов не найдено!</p>
-  }
-
   return (
     <Tickets>
       {ids.map(renderTicketById)}
