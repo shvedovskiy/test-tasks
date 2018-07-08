@@ -108,7 +108,6 @@ const development = {
         loader: 'file-loader',
         options: {
           name: 'media/[name].[ext]',
-          // outputPath: 'media/',
           publicPath: `http://localhost:${process.env.WDS_PORT}/dist/`,
         },
       },
@@ -178,7 +177,7 @@ const production = {
         options: {
           name: '[name].[hash].[ext]',
           outputPath: 'media/',
-          publicPath: process.env.STATIC_PATH,
+          publicPath: `${process.env.STATIC_PATH}media`,
         },
       },
     ],
