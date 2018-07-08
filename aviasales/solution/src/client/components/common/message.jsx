@@ -1,4 +1,5 @@
-import React from 'react';
+// @flow
+import * as React from 'react';
 import styled from 'styled-components';
 
 const MessageContainer = styled.div`
@@ -15,7 +16,11 @@ const MessageContent = styled.span`
   
 `;
 
-const Message = ({ children }) => (
+type Props = {
+  children: React.Node,
+};
+
+const Message = ({ children }: Props) => (
   <MessageContainer>
     <MessageContent>
       {children}

@@ -22,15 +22,15 @@ const TicketList = ({ ids, tickets }) => {
   };
 
   return (
-    <Tickets>
-      {/*<ReactCSSTransitionGroup*/}
-        {/*transitionName="tickets"*/}
-        {/*transitionEnterTimeout={300}*/}
-        {/*transitionLeaveTimeout={300}*/}
-      {/*>*/}
-        {ids.map(renderTicketById)}
-      {/*</ReactCSSTransitionGroup>*/}
-    </Tickets>
+    <ReactCSSTransitionGroup component={Tickets}
+      transitionName="tickets"
+      transitionAppear={true}
+      transitionAppearTimeout={200}
+      transitionEnterTimeout={200}
+      transitionLeaveTimeout={200}
+    >
+      {ids.map(renderTicketById)}
+    </ReactCSSTransitionGroup>
   );
 };
 

@@ -1,4 +1,5 @@
-import React from 'react';
+// @flow
+import * as React from 'react';
 import styled from 'styled-components';
 
 import Message from './message';
@@ -23,9 +24,14 @@ const RetryButton = styled.a.attrs({
   }
 `;
 
-const FetchError = ({ onRetry }) => (
+type Props = {
+  onRetry: (event: SyntheticMouseEvent<HTMLButtonElement>) => void,
+  message?: string,
+};
+
+const FetchError = ({ onRetry, message }: Props) => (
   <Message>
-    <h2>Билеты загрузить не удалось 😥</h2>
+    <h2>Билеты загрузить не удалось <span role="img" aria-labelledby="sad">😥</span> ({message})</h2>
     <RetryButton onClick={onRetry}>Повторить</RetryButton>
   </Message>
 );

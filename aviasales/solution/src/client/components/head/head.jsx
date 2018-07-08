@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+// @flow
+import * as React from 'react';
 import styled from 'styled-components';
 
 import logo from './logo.svg';
@@ -22,7 +23,7 @@ const Logo = styled.div`
   }
 `;
 
-class Head extends Component {
+class Head extends React.Component<React.Element<Header>> {
   shouldComponentUpdate() {
     return false;
   }

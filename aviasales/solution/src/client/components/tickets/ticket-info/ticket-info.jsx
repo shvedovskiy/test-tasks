@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 import FlightDetailsContainer from './flight-details';
+import { carrierLogos as logos } from '~/config/carriers';
 
 
 const TicketInfoContainer = styled.li`
@@ -36,6 +37,32 @@ const TicketInfoContainer = styled.li`
     flex-shrink: 0;
     margin-bottom: 20px;
   }
+  
+  ${({ transitionName }) => css`
+    &.${transitionName}-appear,
+    &.${transitionName}-enter {
+      transform: translateY(-15px);
+      opacity: 0.01;
+    }
+    
+    &.${transitionName}-appear.${transitionName}-appear-active,
+    &.${transitionName}-enter.${transitionName}-enter-active {
+      transform: translateY(0px);
+      opacity: 1;
+      transition: all .2s ease-in;
+    }
+        
+    &.${transitionName}-leave {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+        
+    &.${transitionName}-leave.${transitionName}-leave-active {
+      transform: translateY(15px);
+      opacity: 0.01;
+      transition: all .2s ease-in;
+    }
+  `}
 `;
 
 const TicketSide = styled.div`
@@ -63,13 +90,14 @@ const TicketSide = styled.div`
 const CarrierLogo = styled.img`
   display: block;
   margin: 0 auto 20px;
+  max-height: 35px;
 `;
 
-const TicketInfo = ({ children, carrierName, carrierLogo, ...props }) => (
-  <TicketInfoContainer>
+const TicketInfo = ({ children, carrier, ...props }) => (
+  <TicketInfoContainer transitionName="tickets">
     <TicketSide>
       <div>
-        <CarrierLogo src={`/carriers/${carrierLogo}.png`} alt={carrierName} />
+        <CarrierLogo src={logos[carrier]} alt={carrier} />
       </div>
       <div>
         {children}
