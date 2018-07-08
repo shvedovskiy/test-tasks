@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600&subset=cyrillic-ext');
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -46,7 +48,7 @@ body {
     width: 100%;
     background-color: #f3f7fa;
     color: #4a4a4a;
-    font-family: 'Open Sans', Helvetica, Verdana, Arial, sans-serif;
+    font-family: Open Sans, Helvetica, Verdana, Arial, sans-serif;
     font-size: 12px;
 }
 
