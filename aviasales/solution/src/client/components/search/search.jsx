@@ -1,4 +1,6 @@
+// @flow
 import React, { Fragment } from 'react';
+import { hot } from 'react-hot-loader';
 import styled from 'styled-components';
 
 /* eslint-disable import/no-unresolved, import/extensions */
@@ -41,15 +43,15 @@ const Search = () => (
     <Head />
     <MainContainer>
       <Content>
-        <div>
+        <aside>
           <Settings />
-        </div>
-        <div>
+        </aside>
+        <main>
           <Tickets />
-        </div>
+        </main>
       </Content>
     </MainContainer>
   </Fragment>
 );
 
-export default Search;
+export default hot(module)(Search);

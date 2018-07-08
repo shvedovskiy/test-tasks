@@ -98,6 +98,7 @@
     "pm2": "^2.10.4",
     "postcss-loader": "^2.0.6",
     "progress-bar-webpack-plugin": "^1.11.0",
+    "react-hot-loader": "^4.3.3",
     "style-loader": "^0.20.3",
     "uglifyjs-webpack-plugin": "^1.2.4",
     "url-loader": "^1.0.1",
