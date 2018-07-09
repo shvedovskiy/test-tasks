@@ -10,7 +10,8 @@ const Header = styled.header`
   padding-bottom: 30px;
 `;
 
-const Logo = styled.div`
+const Logo = styled.a`
+  display: block;
   width: 82px;
   height: 90px;
   margin-left: auto;
@@ -31,9 +32,7 @@ class Head extends React.Component<React.Element<Header>> {
   render() {
     return (
       <Header>
-        <a href="/">
-          <Logo aria-label="Logo picture" />
-        </a>
+        <Logo href="/" aria-label="Logo picture" />
       </Header>
     );
   }

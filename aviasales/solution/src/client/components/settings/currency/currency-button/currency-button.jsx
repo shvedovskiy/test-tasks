@@ -1,14 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-import { RUSSIAN_ROUBLE, currencyAliases } from '~/config/currency'; // eslint-disable-line import/no-unresolved, import/extensions
-
-
-const CurrencySwitcher = styled.div`
-  display: flex;
-  padding-left: 15px;
-  padding-right: 15px;
-`;
 
 const SwitchButton = styled.span`
   flex-grow: 1;
@@ -38,9 +30,12 @@ const SwitchButton = styled.span`
     border-bottom-right-radius: 5px;
   }
   
+  &:focus-within {
+    outline: -webkit-focus-ring-color auto 5px;
+  }
+  
   ${({ checked }) => !checked ? css`
-    &:hover,
-    &:focus {
+    &:hover {
        background-color: #f2fcff;
        border-color: #64b5f5;
        z-index: 2;
@@ -66,42 +61,30 @@ const RadioLabel = styled.label`
   z-index: 1;
 `;
 
-function _handleItemChange(handleChangeCurrency) {
+function _onChange(callback) {
   return ({ target: { value } }) => {
-    handleChangeCurrency(value);
+    callback(value);
   };
 }
 
-const CurrencyList = ({ selectedCurrency, aliases, handleChangeCurrency }) => {
-  const handleItemChange = _handleItemChange(handleChangeCurrency);
+const CurrencyButton = ({ currencyName, checked, alias, handleChangeCurrency }) => {
+  const onChange = _onChange(handleChangeCurrency);
+  const id = `${currencyName}-currency`;
+
   return (
-    <CurrencySwitcher>
-      {Object.keys(aliases).map((currencyName) => {
-        const checked = currencyName === selectedCurrency;
-        const id = `${currencyName}-currency`;
-        return (
-          <SwitchButton key={currencyName} checked={checked}>
-            <Radio
-              id={id}
-              value={currencyName}
-              checked={checked}
-              onChange={handleItemChange}
-            />
-            <RadioLabel htmlFor={id}>
-              {aliases[currencyName]}
-            </RadioLabel>
-          </SwitchButton>
-        );
-      })}
-    </CurrencySwitcher>
+    <SwitchButton checked={checked}>
+      <Radio
+        id={id}
+        name="currency"
+        value={currencyName}
+        checked={checked}
+        onChange={onChange}
+      />
+      <RadioLabel htmlFor={id}>
+        {alias}
+      </RadioLabel>
+    </SwitchButton>
   );
 };
 
-CurrencyList.defaultProps = {
-  currency: RUSSIAN_ROUBLE,
-  aliases: {
-    [RUSSIAN_ROUBLE]: currencyAliases[RUSSIAN_ROUBLE],
-  },
-};
-
-export default CurrencyList;
+export default CurrencyButton;

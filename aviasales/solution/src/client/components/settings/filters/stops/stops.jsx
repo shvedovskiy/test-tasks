@@ -22,7 +22,7 @@ const Label = styled.label`
   cursor: pointer;
   white-space: nowrap;
   overflow: hidden;
-  
+
   &::after {
     content: '';
     height: 100%;
@@ -30,12 +30,12 @@ const Label = styled.label`
     position: absolute;
     top: 0;
     right: 15px;
-    background: linear-gradient(90deg, transparent, #fff 85%);
+    background: linear-gradient(90deg, rgba(255,255,255,0.001), #fff 85%);
   }
-  
+
   ${StopsListItem}:hover &::after,
   ${StopsListItem}:focus &::after {
-    background: linear-gradient(90deg, transparent, #f1fcff 85%);
+    background: linear-gradient(90deg, rgba(255,255,255,0.001), #f1fcff 85%);
   }
 `;
 

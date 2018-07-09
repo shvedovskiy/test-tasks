@@ -34,7 +34,7 @@ const SettingsElement = styled.div`
 `;
 
 const CurrencySettings = SettingsElement.extend`
-  margin-bottom: 35px;
+  margin-bottom: 30px;
 `;
 
 const FiltersSettings = SettingsElement.withComponent('ul');

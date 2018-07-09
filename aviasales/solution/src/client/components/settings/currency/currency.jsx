@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 
 /* eslint-disable import/first, import/no-unresolved, import/extensions */
-import CurrencyList from './currency-list';
+import CurrencyList from './currency-list/currency-list';
 import currencyService from '~/services/currency';
 import { RUSSIAN_ROUBLE, currencyAliases } from '~/config/currency';
 import { getCurrency } from '~/store/rootSelectors';

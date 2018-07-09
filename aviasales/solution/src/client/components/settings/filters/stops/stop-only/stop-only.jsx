@@ -12,7 +12,7 @@ const StopOnlyButton = styled.span`
   padding-left: 15px;
   padding-right: 15px;
   background-color: #fff;
-  
+
   &::before {
     content: '';
     position: absolute;
@@ -20,17 +20,17 @@ const StopOnlyButton = styled.span`
     left: -15px;
     width: 15px;
     height: 100%;
-    background: linear-gradient(90deg, transparent, #fff 85%);
+    background: linear-gradient(90deg, rgba(255,255,255,0.001), #fff 85%);
   }
-  
+
   ${StopsListItem}:hover &,
   ${StopsListItem}:focus & {
     background-color: #f1fcff;
   }
-  
+
   ${StopsListItem}:hover &::before,
   ${StopsListItem}:focus &::before {
-    background: linear-gradient(90deg, transparent, #f1fcff 85%);
+    background: linear-gradient(90deg, rgba(255,255,255,0.001), #f1fcff 85%);
   }
 `;
 
@@ -49,13 +49,13 @@ const Button = styled.a.attrs({
   cursor: pointer;
   opacity: 0;
   transition: opacity .15s, top .15s ease-out;
-  
+
   &:hover,
   &:focus {
     color: #ff9d1b;
     outline: none;
   }
-  
+
   ${StopsListItem}:hover &,
   ${StopsListItem}:focus & {
     top: 0;
