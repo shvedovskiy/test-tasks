@@ -13,7 +13,8 @@ const TicketInfoContainer = styled.li`
   box-shadow: 0 1px 4px rgba(91, 137, 164, .25);
   transition: box-shadow .3s;
   
-  &:hover {
+  &:hover,
+  &:focus-within {
     box-shadow: 0 5px 25px rgba(91, 137, 164, .1), 0 10px 50px rgba(91, 137, 164, .25);
   }
   

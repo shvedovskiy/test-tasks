@@ -14,6 +14,7 @@ const SwitchButton = styled.span`
   letter-spacing: .5px;
   transition: all .3s ease;
   cursor: pointer;
+  outline: none;
   z-index: ${({ checked }) => { return checked ? '3' : '1'; }};
 
   &:first-child {
@@ -31,7 +32,7 @@ const SwitchButton = styled.span`
   }
   
   &:focus-within {
-    outline: -webkit-focus-ring-color auto 5px;
+     box-shadow: inset 0 0 0 1px #fff;
   }
   
   ${({ checked }) => !checked ? css`

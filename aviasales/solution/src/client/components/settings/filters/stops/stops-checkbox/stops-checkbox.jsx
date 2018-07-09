@@ -63,14 +63,23 @@ const CheckboxVisual = styled.div`
     border-color: #2196f3;
     background-color: #f2fcff;
   }
-  
+    
   ${CheckboxTarget}:focus + & {
     border-color: #2196f3;
+  }
+  
+  ${CheckboxTarget}:checked:focus + & {
+    background-color: #2196f3;
   }
   
   ${CheckboxTarget}:checked + &::before, 
   ${CheckboxTarget}:checked + &::after {
     opacity: 1;
+  }
+  
+  ${CheckboxTarget}:checked:focus + &::before,
+  ${CheckboxTarget}:checked:focus + &::after {
+    background-color: #fff;
   }
   
   ${CheckboxTarget}:checked + &::before {

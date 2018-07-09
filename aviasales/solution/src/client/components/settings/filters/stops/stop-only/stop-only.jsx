@@ -24,18 +24,19 @@ const StopOnlyButton = styled.span`
   }
 
   ${StopsListItem}:hover &,
-  ${StopsListItem}:focus & {
+  ${StopsListItem}:focus-within & {
     background-color: #f1fcff;
   }
 
   ${StopsListItem}:hover &::before,
-  ${StopsListItem}:focus &::before {
+  ${StopsListItem}:focus-within &::before {
     background: linear-gradient(90deg, rgba(255,255,255,0.001), #f1fcff 85%);
   }
 `;
 
 const Button = styled.a.attrs({
   role: 'button',
+  tabIndex: '0',
 })`
   display: block;
   position: relative;
@@ -49,15 +50,20 @@ const Button = styled.a.attrs({
   cursor: pointer;
   opacity: 0;
   transition: opacity .15s, top .15s ease-out;
+  outline: none;
+  
 
   &:hover,
   &:focus {
     color: #ff9d1b;
-    outline: none;
+  }
+  
+  &:focus {
+    box-shadow: inset 0 0 0 1px #2196f3;
   }
 
   ${StopsListItem}:hover &,
-  ${StopsListItem}:focus & {
+  ${StopsListItem}:focus-within & {
     top: 0;
     opacity: 1;
   }

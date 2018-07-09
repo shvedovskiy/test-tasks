@@ -34,7 +34,7 @@ const Label = styled.label`
   }
 
   ${StopsListItem}:hover &::after,
-  ${StopsListItem}:focus &::after {
+  &:focus-within::after {
     background: linear-gradient(90deg, rgba(255,255,255,0.001), #f1fcff 85%);
   }
 `;

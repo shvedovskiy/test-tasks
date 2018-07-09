@@ -21,9 +21,14 @@ const BuyButtonContainer = styled.button`
   cursor: pointer;
   outline: none;
   
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: #ff8124;
     box-shadow: 0 1px 0 0 #d64d08, 0 2px 3px 2px rgba(0, 0, 0, .1);
+  }
+  
+  &:focus {
+    text-decoration: underline;
   }
   
   &:active {
@@ -36,7 +41,7 @@ const BuyButtonText = styled.span`
 `;
 
 const BuyButton = ({ children, buyClick }) => (
-  <BuyButtonContainer onClick={buyClick}>
+  <BuyButtonContainer onClick={buyClick} tabIndex="0">
     <BuyButtonText>
       Купить
     </BuyButtonText>

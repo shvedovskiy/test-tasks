@@ -3,15 +3,14 @@ import React, { Fragment } from 'react';
 import { hot } from 'react-hot-loader';
 import styled from 'styled-components';
 
-/* eslint-disable import/no-unresolved, import/extensions */
-import Head from '../head';
-import Settings from '../settings';
-import Tickets from '../tickets';
-/* eslint-enable import/no-unresolved, import/extensions */
+import Head from '../head/head.jsx';
+import Settings from '../settings/settings.jsx';
+import Tickets from '../tickets/tickets.jsx';
 
 
 const MainContainer = styled.div`
   max-width: 1000px;
+  min-width: 320px;
   margin: 0 auto;
 `;
 

@@ -6,6 +6,7 @@ import logo from './logo.svg';
 
 
 const Header = styled.header`
+  min-width: 320px;
   padding-top: 40px;
   padding-bottom: 30px;
 `;
@@ -17,10 +18,15 @@ const Logo = styled.a`
   margin-left: auto;
   margin-right: auto;
   background: url(${logo}) no-repeat center center;
+  outline: none;
   
   @media screen and (min-width: 600px) {
     padding-top: 20px;
     padding-bottom: 15px;
+  }
+  
+  &:focus {
+    border: 2px solid #2196f3;
   }
 `;
 
@@ -32,7 +38,7 @@ class Head extends React.Component<React.Element<Header>> {
   render() {
     return (
       <Header>
-        <Logo href="/" aria-label="Logo picture" />
+        <Logo href="/" title="Homepage"   aria-label="Logo picture" />
       </Header>
     );
   }
