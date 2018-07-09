@@ -1,8 +1,8 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
+import { carrierLogos as logos } from 'src/config/carriers';
 import FlightDetailsContainer from './flight-details';
-import { carrierLogos as logos } from '~/config/carriers';
 
 
 const TicketInfoContainer = styled.li`

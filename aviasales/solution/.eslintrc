@@ -21,6 +21,11 @@
   "settings": {
     "polyfills": [
       "fetch", "promises"
-    ]
+    ],
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.config.babel.js"
+      }
+    }
   }
 }

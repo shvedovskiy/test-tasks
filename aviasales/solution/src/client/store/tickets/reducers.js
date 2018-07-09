@@ -1,6 +1,6 @@
 import Immutable from 'seamless-immutable';
 
-import { createReducer } from '~/utils'; // eslint-disable-line import/no-unresolved, import/extensions
+import { createReducer } from 'src/utils';
 import * as types from './action-types';
 
 

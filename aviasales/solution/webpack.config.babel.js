@@ -32,7 +32,7 @@ const common = {
       './src',
     ],
     alias: {
-      '~': path.resolve(srcPath, 'client'),
+      src: path.resolve(srcPath, 'client'),
     },
     extensions: [
       '.js',
@@ -41,7 +41,7 @@ const common = {
       '.json',
     ],
     plugins: [
-      new DirectoryNamedWebpackPlugin(true),
+      new DirectoryNamedWebpackPlugin(),
     ],
   },
   module: {

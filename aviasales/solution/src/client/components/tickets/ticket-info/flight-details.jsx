@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { pluralStop } from '~/utils'; // eslint-disable-line import/no-unresolved, import/extensions
+import { pluralStop } from 'src/utils';
 import plane from './plane.svg';
 
 

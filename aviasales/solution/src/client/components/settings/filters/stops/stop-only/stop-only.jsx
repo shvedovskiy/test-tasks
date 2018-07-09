@@ -1,4 +1,4 @@
-import  React from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import { StopsListItem } from '../common';
@@ -69,10 +69,18 @@ const Button = styled.a.attrs({
   }
 `;
 
-const StopOnly = ({ onClick }) => (
-  <StopOnlyButton>
-    <Button onClick={onClick}>Только</Button>
-  </StopOnlyButton>
-);
+const StopOnly = ({ handleSelect }) => {
+  const handleKeyDown = ({ keyCode }) => {
+    if (keyCode === 13) {
+      handleSelect();
+    }
+  };
+
+  return (
+    <StopOnlyButton>
+      <Button onClick={handleSelect} onKeyDown={handleKeyDown}>Только</Button>
+    </StopOnlyButton>
+  );
+};
 
 export default StopOnly;

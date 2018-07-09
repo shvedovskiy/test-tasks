@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
-/* eslint-disable import/first, import/no-unresolved, import/extensions */
 import CurrencyList from './currency-list/currency-list';
-import currencyService from '~/services/currency';
-import { RUSSIAN_ROUBLE, currencyAliases } from '~/config/currency';
-import { getCurrency } from '~/store/rootSelectors';
-import { changeCurrency } from '~/store/settings/actions';
-/* eslint-enable import/first, import/no-unresolved, import/extensions */
+/* eslint-disable import/first, import/no-unresolved, import/estensions */
+import currencyService from 'src/services/currency';
+import { RUSSIAN_ROUBLE, currencyAliases } from 'src/config/currency';
+import { getCurrency } from 'src/store/rootSelectors';
+import { changeCurrency } from 'src/store/settings/actions';
+/* eslint-enable import/first, import/no-unresolved, import/estensions */
 
 
 class Currency extends Component {
@@ -30,7 +30,7 @@ class Currency extends Component {
   }
 
   render() {
-    let selectedCurrency = this.props.selectedCurrency;
+    let { selectedCurrency } = this.props;
     const { handleChangeCurrency } = this.props;
     const { aliases } = this.state;
 

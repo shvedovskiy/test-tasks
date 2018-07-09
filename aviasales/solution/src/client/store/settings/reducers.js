@@ -1,9 +1,7 @@
 import Immutable from 'seamless-immutable';
 
-/* eslint-disable import/no-unresolved, import/extensions */
-import { RUSSIAN_ROUBLE } from '~/config/currency';
-import { createReducer } from '~/utils';
-/* eslint-enable import/no-unresolved, import/extensions */
+import { RUSSIAN_ROUBLE } from 'src/config/currency';
+import { createReducer } from 'src/utils';
 import * as types from './action-types';
 
 

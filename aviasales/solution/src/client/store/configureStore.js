@@ -4,8 +4,8 @@ import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
+import { isProd } from 'src/utils';
 import rootReducer from './rootReducer';
-import { isProd } from '~/utils'; // eslint-disable-line import/extensions, import/first, import/no-unresolved
 
 
 const composeEnhancers = isProd() ? compose : composeWithDevTools;

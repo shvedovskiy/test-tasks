@@ -1,11 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-/* eslint-disable import/no-unresolved, import/extensions */
-import { getAllStops } from '~/store/rootSelectors';
-import { changeStopsFilter } from '~/store/settings/actions';
-import Stops from './stops';
-/* eslint-enable import/no-unresolved, import/extensions */
+import { getAllStops } from 'src/store/rootSelectors';
+import { changeStopsFilter } from 'src/store/settings/actions';
+import Stops from './stops/stops';
 
 
 const Filters = ({ render, ...props }) => {

@@ -26,7 +26,7 @@ const Logo = styled.a`
   }
   
   &:focus {
-    border: 2px solid #2196f3;
+    outline: 2px solid #2196f3;
   }
 `;
 
@@ -38,7 +38,7 @@ class Head extends React.Component<React.Element<Header>> {
   render() {
     return (
       <Header>
-        <Logo href="/" title="Homepage"   aria-label="Logo picture" />
+        <Logo href="/" title="Homepage" aria-label="Logo picture" />
       </Header>
     );
   }

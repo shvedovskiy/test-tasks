@@ -3,9 +3,9 @@ import React, { Fragment } from 'react';
 import { hot } from 'react-hot-loader';
 import styled from 'styled-components';
 
-import Head from '../head/head.jsx';
-import Settings from '../settings/settings.jsx';
-import Tickets from '../tickets/tickets.jsx';
+import Head from '../head/head';
+import Settings from '../settings/settings';
+import Tickets from '../tickets/tickets';
 
 
 const MainContainer = styled.div`

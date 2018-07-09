@@ -1,14 +1,12 @@
 import moment from 'moment';
 
-/* eslint-disable import/no-unresolved, import/extensions */
-import { isProd } from '~/utils';
+import { isProd } from 'src/utils';
 import {
   SERVER_HOSTNAME,
   SERVER_PORT,
   DEV_SERVER_PORT,
   HTTPS,
-} from '~/config';
-/* eslint-enable import/no-unresolved, import/extensions */
+} from 'src/config';
 
 
 moment.updateLocale('ru-RU', {

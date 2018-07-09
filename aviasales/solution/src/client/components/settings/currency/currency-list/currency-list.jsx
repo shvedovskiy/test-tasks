@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import CurrencyButton from '../currency-button/currency-button.jsx';
-import { RUSSIAN_ROUBLE, currencyAliases } from '~/config/currency'; // eslint-disable-line import/no-unresolved, import/extensions
+import CurrencyButton from '../currency-button/currency-button';
+import { RUSSIAN_ROUBLE, currencyAliases } from 'src/config/currency'; // eslint-disable-line import/first, import/no-unresolved, import/extensions
 
 
 const CurrencySwitcher = styled.div`
@@ -12,7 +12,7 @@ const CurrencySwitcher = styled.div`
 
 const CurrencyList = ({ selectedCurrency, aliases, handleChangeCurrency }) => (
   <CurrencySwitcher>
-    {Object.keys(aliases).map(currencyName =>
+    {Object.keys(aliases).map(currencyName => (
       <CurrencyButton
         key={currencyName}
         currencyName={currencyName}
@@ -20,7 +20,7 @@ const CurrencyList = ({ selectedCurrency, aliases, handleChangeCurrency }) => (
         alias={aliases[currencyName]}
         handleChangeCurrency={handleChangeCurrency}
       />
-    )}
+    ))}
   </CurrencySwitcher>
 );
 

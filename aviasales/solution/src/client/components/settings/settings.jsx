@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-/* eslint-disable import/no-unresolved, import/extensions */
-import Currency from './currency';
-import Filters from './filters';
-/* eslint-enable import/no-unresolved, import/extensions */
+import Currency from './currency/currency';
+import Filters from './filters/filters';
 
 
-const SettingsContainer = styled.div`
+const SettingsContainer = styled.div.attrs({
+  role: 'toolbar',
+})`
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
@@ -23,7 +23,9 @@ const SettingsContainer = styled.div`
   }
 `;
 
-const SettingsElement = styled.div`
+const SettingsElement = styled.div.attrs({
+  role: 'menu',
+})`
   flex-basis: 230px;
   flex-grow: 0;
   overflow: hidden;
@@ -71,7 +73,8 @@ const Settings = () => (
           </Title>
           {child}
         </li>
-      )} />
+      )}
+      />
     </FiltersSettings>
   </SettingsContainer>
 );

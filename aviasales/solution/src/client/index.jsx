@@ -2,11 +2,9 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 
-/* eslint-disable import/no-unresolved, import/extensions, import/first */
-import Search from './components/search';
-import configureStore from '~/store/configureStore';
-import { APP_COMPONENT_SELECTOR } from '~/config';
-/* eslint-enable import/no-unresolved, import/extensions, import/first */
+import Search from './components/search/search';
+import configureStore from './store/configureStore';
+import { APP_COMPONENT_SELECTOR } from './config/config';
 import './global.css';
 
 
@@ -17,5 +15,5 @@ render(
   <Provider store={store}>
     <Search />
   </Provider>,
-  rootEl
+  rootEl,
 );

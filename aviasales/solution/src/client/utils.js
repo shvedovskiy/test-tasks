@@ -1,6 +1,6 @@
 // @flow
 import { noun } from 'plural-ru';
-import { NODE_ENV } from '~/config'; // eslint-disable-line import/extensions, import/no-unresolved
+import { NODE_ENV } from 'src/config';
 
 
 export function pluralStop(number: number): string {
@@ -17,7 +17,7 @@ export function isProd(): boolean {
 
 export function createReducer(initialState, handlers) {
   return (state = initialState, action) => {
-    if (handlers.hasOwnProperty(action.type)) {
+    if (Object.prototype.hasOwnProperty.call(handlers, action.type)) {
       return handlers[action.type](state, action);
     }
     return state.asMutable({ deep: true });

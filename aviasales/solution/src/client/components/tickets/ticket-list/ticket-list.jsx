@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-import Ticket from '../ticket'; // eslint-disable-line import/no-unresolved, import/extensions
+import Ticket from '../ticket/ticket';
 
 
 const Tickets = styled.ul`
@@ -22,9 +22,10 @@ const TicketList = ({ ids, tickets }) => {
   };
 
   return (
-    <ReactCSSTransitionGroup component={Tickets}
+    <ReactCSSTransitionGroup
+      component={Tickets}
       transitionName="tickets"
-      transitionAppear={true}
+      transitionAppear
       transitionAppearTimeout={200}
       transitionEnterTimeout={200}
       transitionLeaveTimeout={200}
