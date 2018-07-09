@@ -3,6 +3,7 @@ import path from 'path';
 import webpack from 'webpack';
 import DirectoryNamedWebpackPlugin from 'directory-named-webpack-plugin';
 import autoprefixer from 'autoprefixer';
+import postcssPresetEnv from 'postcss-preset-env';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import merge from 'webpack-merge';
@@ -95,8 +96,10 @@ const development = {
           {
             loader: 'postcss-loader',
             options: {
-              plugins: [
+              ident: 'postcss',
+              plugins: () => [
                 autoprefixer(),
+                postcssPresetEnv({ stage: 0 }),
               ],
               sourceMap: true,
             },
@@ -162,8 +165,10 @@ const production = {
             {
               loader: 'postcss-loader',
               options: {
-                plugins: [
-                  autoprefixer('> 1%'),
+                ident: 'postcss',
+                plugins: () => [
+                  autoprefixer(),
+                  postcssPresetEnv({ stage: 0 }),
                 ],
                 sourceMap: true,
               },

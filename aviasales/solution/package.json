@@ -99,6 +99,7 @@
     "optimize-css-assets-webpack-plugin": "^4.0.0",
     "pm2": "^2.10.4",
     "postcss-loader": "^2.0.6",
+    "postcss-preset-env": "^5.2.1",
     "progress-bar-webpack-plugin": "^1.11.0",
     "style-loader": "^0.20.3",
     "uglifyjs-webpack-plugin": "^1.2.4",
