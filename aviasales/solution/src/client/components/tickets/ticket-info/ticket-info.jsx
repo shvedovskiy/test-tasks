@@ -88,7 +88,10 @@ const TicketSide = styled.div`
   }
 `;
 
-const CarrierLogo = styled.img`
+const CarrierLogo = styled.img.attrs({
+  src: ({ logo }) => logo[0],
+  srcSet: ({ logo }) => `${logo[0]} 1x, ${logo[1]} 2x, ${logo[2]} 3x`,
+})`
   display: block;
   margin: 0 auto 20px;
   max-height: 35px;
@@ -98,7 +101,7 @@ const TicketInfo = ({ children, carrier, ...props }) => (
   <TicketInfoContainer transitionName="tickets">
     <TicketSide>
       <div>
-        <CarrierLogo src={logos[carrier]} alt={carrier} />
+        <CarrierLogo logo={logos[carrier]} alt={carrier} />
       </div>
       <div>
         {children}
