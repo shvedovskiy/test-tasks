@@ -1,3 +1,4 @@
+// @flow
 export const getIsFetching = state => state.getIn(['isFetching']);
 
 export const getErrorMessage = state => state.getIn(['errorMessage']);

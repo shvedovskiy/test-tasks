@@ -1,3 +1,4 @@
+// @flow
 import { STATIC_PATH } from './config';
 
 

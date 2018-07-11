@@ -1,3 +1,4 @@
+// @flow
 import _ from 'lodash';
 
 import { RUSSIAN_ROUBLE, currencyAliases } from 'src/config/currency';

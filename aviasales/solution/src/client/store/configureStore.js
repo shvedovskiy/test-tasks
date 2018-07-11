@@ -1,3 +1,4 @@
+// @flow
 import { createStore, applyMiddleware, compose } from 'redux';
 import { stateTransformer } from 'redux-seamless-immutable';
 import thunk from 'redux-thunk';

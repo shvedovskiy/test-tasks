@@ -1,3 +1,4 @@
+// @flow
 import _ from 'lodash';
 
 import ticketService from 'src/services/tickets';

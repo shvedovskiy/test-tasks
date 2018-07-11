@@ -1,3 +1,4 @@
+// @flow
 import Immutable from 'seamless-immutable';
 
 import { RUSSIAN_ROUBLE } from 'src/config/currency';

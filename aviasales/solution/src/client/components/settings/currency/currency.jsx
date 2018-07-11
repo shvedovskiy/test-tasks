@@ -1,14 +1,13 @@
+// @flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
 import CurrencyList from './currency-list/currency-list';
-/* eslint-disable import/first, import/no-unresolved, import/estensions */
 import currencyService from 'src/services/currency';
 import { RUSSIAN_ROUBLE, currencyAliases } from 'src/config/currency';
 import { getCurrency } from 'src/store/rootSelectors';
 import { changeCurrency } from 'src/store/settings/actions';
-/* eslint-enable import/first, import/no-unresolved, import/estensions */
 
 
 class Currency extends Component {

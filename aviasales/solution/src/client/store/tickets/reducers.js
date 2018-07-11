@@ -1,3 +1,4 @@
+// @flow
 import Immutable from 'seamless-immutable';
 
 import { createReducer } from 'src/utils';
