@@ -30,7 +30,7 @@ const Logo = styled.a`
   }
 `;
 
-class Head extends React.Component<React.Element<Header>> {
+class Head extends React.Component<{}> {
   shouldComponentUpdate() {
     return false;
   }
