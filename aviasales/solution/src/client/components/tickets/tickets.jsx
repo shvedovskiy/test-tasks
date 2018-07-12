@@ -1,8 +1,8 @@
 // @flow
-import React, { Component } from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 
-import * as actions from 'src/store/tickets/actions';
+import { fetchTickets } from 'src/store/tickets/actions';
 import { CurrencyContext } from 'src/store/context';
 import {
   getTickets,
@@ -14,9 +14,20 @@ import TicketList from './ticket-list/ticket-list';
 import Loading from '../common/loading';
 import FetchError from '../common/error';
 import EmptyResult from '../common/empty-result';
+import type { Ticket } from './types';
+import type { ContextState } from 'src/store/context';
 
 
-class Tickets extends Component {
+type Props = {|
+  ids: Array<string>,
+  tickets: { [id: string]: Ticket },
+  isFetching: boolean,
+  errorMessage: ?{ message: string },
+  currency: string,
+  fetchTickets: Function,
+|};
+
+class Tickets extends React.Component<Props> {
   componentDidMount() {
     this.fetchTicketsData();
   }
@@ -38,14 +49,15 @@ class Tickets extends Component {
     if (ids.length <= 0) {
       if (isFetching === true) {
         return <Loading />;
-      } else if (errorMessage !== null) {
+      } else if (errorMessage !== null && errorMessage !== undefined) {
         return <FetchError message={errorMessage.message} onRetry={this.fetchTicketsData} />;
       }
       return <EmptyResult />;
     }
 
+    const contextState: ContextState = { currency };
     return (
-      <CurrencyContext.Provider value={{ currency }}>
+      <CurrencyContext.Provider value={contextState}>
         <TicketList ids={ids} tickets={tickets} />
       </CurrencyContext.Provider>
     );
@@ -63,4 +75,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, actions)(Tickets);
+export default connect(mapStateToProps, { fetchTickets })(Tickets);
