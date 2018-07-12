@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
 
 import { splitPrice } from 'src/utils';
@@ -42,7 +42,12 @@ const BuyButtonText = styled.span`
   display: block;
 `;
 
-const BuyButton = ({ children, buyClick }) => (
+type Props = {|
+  children: string,
+  buyClick: (event?: SyntheticEvent<HTMLButtonElement>) => void,
+|};
+
+const BuyButton = ({ children, buyClick }: Props) => (
   <BuyButtonContainer onClick={buyClick} tabIndex="0">
     <BuyButtonText>
       Купить

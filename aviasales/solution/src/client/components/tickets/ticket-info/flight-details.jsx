@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import { pluralStop } from 'src/utils';
 import plane from './plane.svg';
+import type { LocationType } from '../types';
 
 
 const FlightDetails = styled.div`
@@ -93,8 +94,13 @@ const Name = LocationItem.extend`
 const Date = LocationItem.extend`
   color: #8b9497;
 `;
+type Props = {|
+  origin: LocationType,
+  destination: LocationType,
+  stops: string,
+|};
 
-const FlightDetailsContainer = ({ origin, destination, stops }) => (
+const FlightDetailsContainer = ({ origin, destination, stops }: Props) => (
   <FlightDetails>
     <Route>
       <Time>{origin.time}</Time>

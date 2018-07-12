@@ -12,6 +12,10 @@
     "compat/compat": 2,
     "no-restricted-syntax": [
       "error", "ForInStatement", "LabeledStatement", "WithStatement"
+    ],
+    "react/default-props-match-prop-types": [
+      "error",
+      { "allowRequiredDefaults": true }
     ]
   },
   "env": {

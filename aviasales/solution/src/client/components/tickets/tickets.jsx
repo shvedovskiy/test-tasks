@@ -2,8 +2,9 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { fetchTickets } from 'src/store/tickets/actions';
+import { fetchTicketsAction } from 'src/store/tickets/actions';
 import { CurrencyContext } from 'src/store/context';
+import type { ContextState } from 'src/store/context';
 import {
   getTickets,
   getIsFetching,
@@ -14,13 +15,12 @@ import TicketList from './ticket-list/ticket-list';
 import Loading from '../common/loading';
 import FetchError from '../common/error';
 import EmptyResult from '../common/empty-result';
-import type { Ticket } from './types';
-import type { ContextState } from 'src/store/context';
+import type { TicketType } from './types';
 
 
 type Props = {|
   ids: Array<string>,
-  tickets: { [id: string]: Ticket },
+  tickets: { [id: string]: TicketType },
   isFetching: boolean,
   errorMessage: ?{ message: string },
   currency: string,
@@ -75,4 +75,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchTickets })(Tickets);
+export default connect(mapStateToProps, { fetchTickets: fetchTicketsAction })(Tickets);

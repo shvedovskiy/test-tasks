@@ -11,10 +11,11 @@
   ],
   "plugins": [
     "react-hot-loader/babel",
+    "flow-react-proptypes",
     "@babel/plugin-transform-runtime",
     "@babel/plugin-proposal-object-rest-spread",
     "@babel/plugin-proposal-class-properties",
-    "flow-react-proptypes",
+    "@babel/plugin-transform-flow-strip-types",
     ["babel-plugin-styled-components", {
         "minify": false
     }],

@@ -1,9 +1,10 @@
 // @flow
-import React from 'react';
+import * as React from 'react';
 import styled, { css } from 'styled-components';
 
 import { carrierLogos as logos } from 'src/config/carriers';
 import FlightDetailsContainer from './flight-details';
+import type { LocationType } from '../types';
 
 
 const TicketInfoContainer = styled.li`
@@ -98,18 +99,28 @@ const CarrierLogo = styled.img.attrs({
   max-height: 35px;
 `;
 
-const TicketInfo = ({ children, carrier, ...props }) => (
-  <TicketInfoContainer transitionName="tickets">
-    <TicketSide>
-      <div>
-        <CarrierLogo logo={logos[carrier]} alt={carrier} />
-      </div>
-      <div>
-        {children}
-      </div>
-    </TicketSide>
-    <FlightDetailsContainer {...props} />
-  </TicketInfoContainer>
-);
+type Props<T> = T & {|
+  children: React.Node,
+  carrier: string,
+  origin: LocationType,
+  destination: LocationType,
+  stops: string,
+|};
+
+function TicketInfo<T: *>({ children, carrier, ...props }: Props<T>) {
+  return (
+    <TicketInfoContainer transitionName="tickets">
+      <TicketSide>
+        <div>
+          <CarrierLogo logo={logos[carrier]} alt={carrier} />
+        </div>
+        <div>
+          {children}
+        </div>
+      </TicketSide>
+      <FlightDetailsContainer {...props} />
+    </TicketInfoContainer>
+  );
+}
 
 export default TicketInfo;

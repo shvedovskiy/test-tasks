@@ -35,7 +35,7 @@ const fetchTicketsIfNeeded = () => async (dispatch) => {
   }
 };
 
-export const fetchTickets = () => (dispatch, getState) => {
+export const fetchTicketsAction = () => (dispatch, getState) => {
   if (shouldFetchTickets(getState())) {
     return dispatch(fetchTicketsIfNeeded());
   }

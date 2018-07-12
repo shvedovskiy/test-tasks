@@ -3,7 +3,7 @@ import { noun } from 'plural-ru';
 import { NODE_ENV } from 'src/config';
 
 
-export function pluralStop(number: number): string {
+export function pluralStop(number: string): string {
   return noun(number, 'пересадка', 'пересадки', 'пересадок');
 }
 

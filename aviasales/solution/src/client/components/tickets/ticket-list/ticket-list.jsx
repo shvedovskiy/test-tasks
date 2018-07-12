@@ -1,9 +1,10 @@
 // @flow
-import React from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import Ticket from '../ticket/ticket';
+import type { TicketType } from '../types';
 
 
 const Tickets = styled.ul`
@@ -15,8 +16,18 @@ const Tickets = styled.ul`
     }
 `;
 
-const TicketList = ({ ids, tickets }) => {
-  const renderTicketById = (id) => {
+type Props = {|
+  ids: Array<string>,
+  tickets: {
+    [id: string]: TicketType,
+  },
+|};
+
+const TicketList = ({ ids, tickets }: Props) => {
+  const renderTicketById = (id: string) => {
+    if (!tickets[id]) {
+      return null;
+    }
     const { ...ticketProps } = tickets[id];
 
     return <Ticket key={id} {...ticketProps} />;

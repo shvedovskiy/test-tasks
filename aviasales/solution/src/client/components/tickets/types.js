@@ -1,16 +1,16 @@
 // @flow
-type Location = {|
+export type LocationType = {|
   code: string,
   name: string,
   date: string,
   time: string,
 |};
 
-export type Ticket = {|
+export type TicketType = {|
   id: string,
   carrier: string,
   price: string,
   stops: string,
-  origin: Location,
-  destination: Location,
+  origin: LocationType,
+  destination: LocationType,
 |};
