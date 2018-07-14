@@ -2,10 +2,8 @@ language: node_js
 node_js:
   - "stable"
 
-before_install:
-  - cd aviasales/solution
-
 install:
+  - cd aviasales/solution
   - npm i
 
 script:
