@@ -13,7 +13,7 @@ script:
 
 cache:
   directories:
-    - "node_modules"
+    - "aviasales/solution/node_modules"
 
 on:
   branch: master
