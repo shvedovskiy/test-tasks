@@ -2,10 +2,8 @@ language: node_js
 node_js:
   - "stable"
 
-before_script:
-  - cd aviasales/solution
-
 install:
+  - cd aviasales/solution
   - npm i
 
 script:
@@ -13,7 +11,7 @@ script:
 
 cache:
   directories:
-    - "node_modules"
+    - "aviasales/solution/node_modules"
 
 on:
   branch: master
