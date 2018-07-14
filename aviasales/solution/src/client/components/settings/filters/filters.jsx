@@ -1,15 +1,23 @@
 // @flow
-import React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { getAllStops } from 'src/store/rootSelectors';
 import { changeStopsFilter } from 'src/store/settings/actions';
 import Stops from './stops/stops';
+import type { StopsType } from './types';
 
 
-const Filters = ({ render, ...props }) => {
+type Props = {|
+  render: (string, React.Element<typeof Stops>) => React.Node,
+  stops: StopsType,
+  changeStops: Function,
+|}
+
+const Filters = ({ render, stops, changeStops }: Props) => {
   const stopsTitle = 'Количество пересадок';
-  const child = <Stops {...props} />;
+  const child = <Stops stops={stops} changeStops={changeStops} />;
+
   return render(stopsTitle, child);
 };
 

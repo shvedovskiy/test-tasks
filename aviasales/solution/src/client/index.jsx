@@ -9,12 +9,13 @@ import { APP_COMPONENT_SELECTOR } from './config/config';
 import './global.css';
 
 
-const rootEl = document.getElementById(APP_COMPONENT_SELECTOR);
-const store = configureStore();
+const rootContainer = document.getElementById(APP_COMPONENT_SELECTOR);
 
-render(
-  <Provider store={store}>
-    <Search />
-  </Provider>,
-  rootEl,
-);
+if (rootContainer !== null) {
+  render(
+    <Provider store={configureStore()}>
+      <Search />
+    </Provider>,
+    rootContainer,
+  );
+}

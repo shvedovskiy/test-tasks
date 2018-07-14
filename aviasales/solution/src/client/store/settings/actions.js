@@ -2,19 +2,19 @@
 import _ from 'lodash';
 
 import * as types from './action-types';
+import type { StopsType } from './types';
 
 
-export const changeCurrency = currency => ({
+export const changeCurrency = (currency: string) => ({
   type: types.CHANGE_CURRENCY,
   currency,
 });
 
-export const setStopsFilter = (...stopsArray) => {
+export const setStopsFilter = (...stopsCountings: Array<{ [stop: string]: string }>) => {
   let stops = {};
-
-  if (stopsArray.length > 0) {
-    const minStop = _.min(stopsArray);
-    stops = _.zipObject(stopsArray, _.map(stopsArray, stop => stop === minStop));
+  if (stopsCountings.length > 0) {
+    const minStop = _.min(stopsCountings);
+    stops = _.zipObject(stopsCountings, _.map(stopsCountings, stop => stop === minStop));
   }
 
   return {
@@ -23,7 +23,7 @@ export const setStopsFilter = (...stopsArray) => {
   };
 };
 
-export const changeStopsFilter = changedStops => ({
+export const changeStopsFilter = (changedStops: StopsType) => ({
   type: types.CHANGE_STOPS_FILTER,
   stops: changedStops,
 });

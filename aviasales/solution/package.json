@@ -22,7 +22,7 @@
     "prod:build": "rimraf lib dist && babel src -d lib --ignore .test.js && cross-env NODE_ENV=production webpack -p --progress",
     "prod:start": "cross-env NODE_ENV=production pm2 start lib/server && pm2 logs",
     "prod:stop": "pm2 delete server",
-    "lint": "eslint src webpack.config.babel.js --ext .js,.jsx",
+    "lint": "eslint src webpack.config.js --ext .js,.jsx && flow",
     "test": "npm run lint && jest --coverage"
   },
   "jest": {
@@ -69,7 +69,6 @@
     "@babel/preset-env": "^7.0.0-beta.49",
     "@babel/preset-flow": "^7.0.0-beta.49",
     "@babel/preset-react": "^7.0.0-beta.49",
-    "@babel/register": "^7.0.0-beta.49",
     "autoprefixer": "^8.3.0",
     "babel-eslint": "^8.2.3",
     "babel-jest": "^23.2.0",

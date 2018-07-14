@@ -37,7 +37,11 @@ type Props = {
 
 const FetchError = ({ onRetry, message }: Props) => (
   <Message>
-    <h2>Билеты загрузить не удалось <span role="img" aria-labelledby="sad">😥</span> ({message})</h2>
+    <h2>
+      <span>Билеты загрузить не удалось</span>{' '}
+      <span role="img">😥</span>{' '}
+      ({message})
+    </h2>
     <RetryButton onClick={onRetry}>Повторить</RetryButton>
   </Message>
 );

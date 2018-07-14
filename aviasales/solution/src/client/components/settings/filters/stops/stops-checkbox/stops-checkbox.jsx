@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
 
 
@@ -92,7 +92,14 @@ const CheckboxVisual = styled.div`
   }
 `;
 
-const StopsCheckbox = props => (
+type Props = {
+  id: string,
+  checked: boolean,
+  value: string,
+  onChange: (event: SyntheticInputEvent<HTMLInputElement>) => any,
+};
+
+const StopsCheckbox = (props: Props) => (
   <StopsCheckboxContainer>
     <CheckboxTarget {...props} />
     <CheckboxVisual />

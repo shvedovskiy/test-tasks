@@ -7,7 +7,7 @@ import {
   SERVER_PORT,
   DEV_SERVER_PORT,
   HTTPS,
-} from 'src/config';
+} from 'src/config/config';
 
 
 moment.updateLocale('ru-RU', {

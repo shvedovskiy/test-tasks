@@ -70,7 +70,11 @@ const Button = styled.a.attrs({
   }
 `;
 
-const StopOnly = ({ handleSelect }) => {
+type Props = {|
+  handleSelect: () => any,
+|};
+
+const StopOnly = ({ handleSelect }: Props) => {
   const handleKeyDown = ({ keyCode }) => {
     if (keyCode === 13) {
       handleSelect();

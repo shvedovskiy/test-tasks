@@ -1,21 +1,21 @@
 // @flow
-import path from 'path';
-import webpack from 'webpack';
-import DirectoryNamedWebpackPlugin from 'directory-named-webpack-plugin';
-import autoprefixer from 'autoprefixer';
-import postcssPresetEnv from 'postcss-preset-env';
-import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
-import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
-import merge from 'webpack-merge';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import ProgressBarPlugin from 'progress-bar-webpack-plugin';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import HtmlWebpackHarddiskPlugin from 'html-webpack-harddisk-plugin';
-import CompressionWebpackPlugin from 'compression-webpack-plugin';
-import WebpackMd5Hash from 'webpack-md5-hash';
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
-import Dotenv from 'dotenv-webpack';
-import dotenv from 'dotenv';
+const path = require('path');
+const webpack = require('webpack');
+const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
+const autoprefixer = require('autoprefixer');
+const postcssPresetEnv = require('postcss-preset-env');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const merge = require('webpack-merge');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
+const CompressionWebpackPlugin = require('compression-webpack-plugin');
+const WebpackMd5Hash = require('webpack-md5-hash');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const Dotenv = require('dotenv-webpack');
+const dotenv = require('dotenv');
 
 
 dotenv.config();
@@ -58,7 +58,9 @@ const common = {
     noEmitOnErrors: true,
   },
   plugins: [
-    new Dotenv(),
+    new Dotenv({
+      path: path.resolve(__dirname, './.env'),
+    }),
     new HtmlWebpackPlugin({
       template: path.join('public', 'index.html'),
       inject: false,
@@ -77,7 +79,7 @@ const development = {
   ],
   output: {
     filename: 'bundle.js',
-    publicPath: `http://localhost:${process.env.WDS_PORT}/dist/`,
+    publicPath: `http://localhost:${process.env.WDS_PORT || 7000}/dist/`,
   },
   module: {
     rules: [
@@ -111,7 +113,7 @@ const development = {
         loader: 'file-loader',
         options: {
           name: 'media/[name].[ext]',
-          publicPath: `http://localhost:${process.env.WDS_PORT}/dist/`,
+          publicPath: `http://localhost:${process.env.WDS_PORT || 7000}/dist/`,
         },
       },
     ],
@@ -182,7 +184,7 @@ const production = {
         options: {
           name: '[name].[hash].[ext]',
           outputPath: 'media/',
-          publicPath: `${process.env.STATIC_PATH}media`,
+          publicPath: `${process.env.STATIC_PATH || '/static/'}media`,
         },
       },
     ],
@@ -229,7 +231,7 @@ if (process.env.NODE_ANALYZE) {
   production.plugins.push(new BundleAnalyzerPlugin());
 }
 
-export default (process.env.NODE_ENV === 'production'
+module.exports = (process.env.NODE_ENV === 'production'
   ? merge(common, production)
   : merge(common, development)
 );

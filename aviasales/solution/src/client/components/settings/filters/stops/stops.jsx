@@ -45,7 +45,7 @@ const LabelText = styled.span`
 `;
 
 function _selectAllStops(stops, changeStops) { // eslint-disable-line no-underscore-dangle
-  return ({ target: { checked } }) => {
+  return ({ currentTarget: { checked } }) => {
     const newStops = _.mapValues(stops, () => checked);
 
     changeStops(newStops);
@@ -65,7 +65,14 @@ function _selectOnlyStop(stops, changeStops) { // eslint-disable-line no-undersc
   };
 }
 
-const Stops = ({ stops, changeStops }) => {
+type Props = {|
+  stops: {
+    [stop: string]: boolean,
+  },
+  changeStops: ({ [stop: string]: boolean }) => any,
+|};
+
+const Stops = ({ stops, changeStops }: Props) => {
   const selectAllStops = _selectAllStops(stops, changeStops);
   const selectStop = _selectStop(changeStops);
   const selectOnlyStop = _selectOnlyStop(stops, changeStops);

@@ -9,6 +9,6 @@ export type ContextState = {
 };
 
 /* eslint-disable-next-line import/prefer-default-export */
-export const CurrencyContext = createContext<ContextState>({
+export const CurrencyContext = createContext({
   currency: RUSSIAN_ROUBLE,
 });

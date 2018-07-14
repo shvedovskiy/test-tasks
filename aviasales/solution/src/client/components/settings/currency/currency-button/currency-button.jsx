@@ -64,17 +64,24 @@ const RadioLabel = styled.label`
 `;
 
 function _onChange(callback) { // eslint-disable-line no-underscore-dangle
-  return ({ target: { value } }) => {
+  return ({ currentTarget: { value } }) => {
     callback(value);
   };
 }
+
+type Props = {|
+  currencyName: string,
+  checked: boolean,
+  alias: string,
+  handleChangeCurrency: (string) => any,
+|};
 
 const CurrencyButton = ({
   currencyName,
   checked,
   alias,
   handleChangeCurrency,
-}) => {
+}: Props) => {
   const onChange = _onChange(handleChangeCurrency);
   const id = `${currencyName}-currency`;
 

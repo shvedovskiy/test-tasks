@@ -3,8 +3,8 @@ import * as React from 'react';
 import styled from 'styled-components';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
+import type { TicketsType } from 'src/store/tickets/types';
 import Ticket from '../ticket/ticket';
-import type { TicketType } from '../types';
 
 
 const Tickets = styled.ul`
@@ -18,9 +18,7 @@ const Tickets = styled.ul`
 
 type Props = {|
   ids: Array<string>,
-  tickets: {
-    [id: string]: TicketType,
-  },
+  tickets: TicketsType,
 |};
 
 const TicketList = ({ ids, tickets }: Props) => {

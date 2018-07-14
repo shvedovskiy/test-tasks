@@ -2,9 +2,9 @@
 import * as React from 'react';
 import styled, { css } from 'styled-components';
 
+import type { LocationType } from 'src/store/tickets/types';
 import { carrierLogos as logos } from 'src/config/carriers';
 import FlightDetailsContainer from './flight-details';
-import type { LocationType } from '../types';
 
 
 const TicketInfoContainer = styled.li`

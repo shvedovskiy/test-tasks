@@ -11,7 +11,15 @@ const CurrencySwitcher = styled.div`
   padding: 0 15px;
 `;
 
-const CurrencyList = ({ selectedCurrency, aliases, handleChangeCurrency }) => (
+type Props = {|
+  selectedCurrency: string,
+  aliases: {
+    [currencyName: string]: string,
+  },
+  handleChangeCurrency: Function,
+|};
+
+const CurrencyList = ({ selectedCurrency, aliases, handleChangeCurrency }: Props) => (
   <CurrencySwitcher>
     {Object.keys(aliases).map(currencyName => (
       <CurrencyButton
@@ -26,7 +34,7 @@ const CurrencyList = ({ selectedCurrency, aliases, handleChangeCurrency }) => (
 );
 
 CurrencyList.defaultProps = {
-  currency: RUSSIAN_ROUBLE,
+  selectedCurrency: RUSSIAN_ROUBLE,
   aliases: {
     [RUSSIAN_ROUBLE]: currencyAliases[RUSSIAN_ROUBLE],
   },

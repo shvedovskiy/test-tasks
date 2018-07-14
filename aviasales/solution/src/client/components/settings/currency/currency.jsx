@@ -1,16 +1,27 @@
 // @flow
-import React, { Component } from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
-import CurrencyList from './currency-list/currency-list';
 import currencyService from 'src/services/currency';
 import { RUSSIAN_ROUBLE, currencyAliases } from 'src/config/currency';
 import { getCurrency } from 'src/store/rootSelectors';
 import { changeCurrency } from 'src/store/settings/actions';
+import CurrencyList from './currency-list/currency-list';
 
 
-class Currency extends Component {
+type Props = {|
+  selectedCurrency: string,
+  handleChangeCurrency: Function,
+|};
+
+type State = {|
+  aliases: {
+    [currencyName: string]: string,
+  },
+|};
+
+class Currency extends React.Component<Props, State> {
   state = {
     aliases: {
       [RUSSIAN_ROUBLE]: currencyAliases[RUSSIAN_ROUBLE],

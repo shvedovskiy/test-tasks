@@ -3,14 +3,15 @@ import Immutable from 'seamless-immutable';
 
 import { createReducer } from 'src/utils';
 import * as types from './action-types';
+import type { State, StateShape } from './types';
 
 
-const initialState = Immutable.from({
+const initialState: State = Immutable.from(({
   data: {},
   ids: [],
   isFetching: false,
-  errorMessage: null,
-});
+  errorMessage: {},
+}: StateShape));
 
 const ticketsReducer = createReducer(initialState, {
   [types.FETCH_TICKETS_REQUEST](state) {
@@ -18,7 +19,7 @@ const ticketsReducer = createReducer(initialState, {
       data: {},
       ids: [],
       isFetching: true,
-      errorMessage: null,
+      errorMessage: {},
     });
   },
   [types.FETCH_TICKETS_SUCCESS](state, { tickets, ids }) {

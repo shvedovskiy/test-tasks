@@ -3,8 +3,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { pluralStop } from 'src/utils';
+import type { LocationType } from 'src/store/tickets/types';
 import plane from './plane.svg';
-import type { LocationType } from '../types';
 
 
 const FlightDetails = styled.div`

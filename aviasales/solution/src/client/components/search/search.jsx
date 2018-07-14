@@ -23,7 +23,7 @@ const Content = styled.div`
   @media screen and (max-width: 870px) {
     grid-template-columns: auto;
     grid-template-areas: "settings"
-                          "tickets";
+                         "tickets";
   }
   
   @media screen and (max-width: 500px) {

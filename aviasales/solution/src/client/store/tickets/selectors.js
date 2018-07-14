@@ -1,12 +1,21 @@
 // @flow
-export const getIsFetching = state => state.getIn(['isFetching']);
+import type { State, TicketsType, TicketType, ErrorType } from './types';
 
-export const getErrorMessage = state => state.getIn(['errorMessage']);
 
-export const getSortedIds = state => state.getIn(['ids']);
+export const getIsFetching = (state: State): boolean =>
+  state.getIn(['isFetching']);
 
-export const getTickets = state => state.getIn(['data']);
+export const getErrorMessage = (state: State): ErrorType =>
+  state.getIn(['errorMessage']);
 
-export const getTicket = (state, id) => state.getIn(['data'])[id];
+export const getSortedIds = (state: State): Array<string> =>
+  state.getIn(['ids']);
 
-export const getTicketStops = (state, id) => state.getIn(['data'])[id].stops;
+export const getTickets = (state: State): TicketsType =>
+  state.getIn(['data']);
+
+export const getTicket = (state: State, id: string): TicketType =>
+  state.getIn(['data'])[id];
+
+export const getTicketStops = (state: State, id: string): string =>
+  state.getIn(['data'])[id].stops;
