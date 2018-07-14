@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - "stable"
+
+install:
+  - npm i
+
+script:
+  - npm run lint
+
+cache:
+  directories:
+    - "node_modules"
+
+on:
+  branch: master
