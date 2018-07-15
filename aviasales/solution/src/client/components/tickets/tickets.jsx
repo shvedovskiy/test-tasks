@@ -11,7 +11,7 @@ import {
   getErrorMessage,
   getCurrency,
 } from 'src/store/rootSelectors';
-import type { TicketsType, ErrorType } from 'src/store/tickets/types';
+import type { TicketsType } from 'src/store/tickets/types';
 import TicketList from './ticket-list/ticket-list';
 import Loading from '../common/loading';
 import FetchError from '../common/error';
@@ -22,7 +22,7 @@ type Props = {
   ids: Array<string>,
   tickets: TicketsType,
   isFetching: boolean,
-  errorMessage: ErrorType,
+  errorMessage: string,
   currency: string,
   fetchTickets: Function,
 };
@@ -47,10 +47,10 @@ class Tickets extends React.Component<Props> {
     } = this.props;
 
     if (ids.length <= 0) {
-      if (isFetching === true) {
+      if (isFetching) {
         return <Loading />;
-      } else if (errorMessage.message !== null && errorMessage.message !== undefined) {
-        return <FetchError message={errorMessage.message} onRetry={this.fetchTicketsData} />;
+      } else if (errorMessage) {
+        return <FetchError message={errorMessage} onRetry={this.fetchTicketsData} />;
       }
       return <EmptyResult />;
     }
