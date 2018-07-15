@@ -1,0 +1,13 @@
+{
+  "ext": "js,jsx",
+  "ignore": [
+    "lib",
+    "src/client",
+    "dist"
+  ],
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "exec": "npx babel-node src/server",
+  "verbose": true
+}
