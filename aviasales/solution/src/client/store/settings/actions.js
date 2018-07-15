@@ -10,11 +10,14 @@ export const changeCurrency = (currency: string) => ({
   currency,
 });
 
-export const setStopsFilter = (...stopsCountings: Array<{ [stop: string]: string }>) => {
-  let stops = {};
+export const setStopsFilter = (...stopsCountings: Array<string>) => {
+  let stops: StopsType = {};
   if (stopsCountings.length > 0) {
-    const minStop = _.min(stopsCountings);
-    stops = _.zipObject(stopsCountings, _.map(stopsCountings, stop => stop === minStop));
+    const minStop: string = _.min(stopsCountings);
+    stops = _.zipObject(
+      stopsCountings,
+      _.map(stopsCountings, (stop: string): boolean => stop === minStop),
+    );
   }
 
   return {
