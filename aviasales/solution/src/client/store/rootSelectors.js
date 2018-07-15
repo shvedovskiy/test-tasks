@@ -4,7 +4,7 @@ import { createSelector } from 'reselect';
 import * as fromTickets from './tickets/selectors';
 import * as fromSettings from './settings/selectors';
 import type { State } from './types';
-import type { State as TicketsState, TicketsType, ErrorType } from './tickets/types';
+import type { State as TicketsState, TicketsType } from './tickets/types';
 import type { StopsType, FiltersType } from './settings/types';
 
 
@@ -23,7 +23,7 @@ export const getCurrency = (state: State): string =>
 export const getIsFetching = (state: State): boolean =>
   fromTickets.getIsFetching(state.getIn(['tickets']));
 
-export const getErrorMessage = (state: State): ErrorType =>
+export const getErrorMessage = (state: State): string =>
   fromTickets.getErrorMessage(state.getIn(['tickets']));
 
 export const getAllStops = (state: State): StopsType =>

@@ -10,7 +10,7 @@ const initialState: State = Immutable.from(({
   data: {},
   ids: [],
   isFetching: false,
-  errorMessage: {},
+  errorMessage: '',
 }: StateShape));
 
 const ticketsReducer = createReducer(initialState, {
@@ -19,7 +19,7 @@ const ticketsReducer = createReducer(initialState, {
       data: {},
       ids: [],
       isFetching: true,
-      errorMessage: {},
+      errorMessage: '',
     });
   },
   [types.FETCH_TICKETS_SUCCESS](state, { tickets, ids }) {

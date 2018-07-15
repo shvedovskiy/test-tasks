@@ -4,9 +4,6 @@ import type { Immutable } from 'seamless-immutable';
 import type { ExtractReturn } from 'src/store/types';
 import * as actions from './actions';
 
-export type ErrorType = {
-  message?: string,
-};
 
 export type LocationType = {|
   code: string,
@@ -39,7 +36,7 @@ export type StateShape = {
   +data: TicketsType,
   +ids: Array<string>,
   +isFetching: boolean,
-  +errorMessage: ErrorType,
+  +errorMessage: string,
 };
 
 export type State = Immutable<State>;

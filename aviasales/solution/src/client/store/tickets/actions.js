@@ -6,7 +6,7 @@ import { getIsFetching } from 'src/store/rootSelectors';
 import { setStopsFilter } from 'src/store/settings/actions';
 import type { ThunkAction } from 'src/store/types';
 import * as types from './action-types';
-import type { State, Actions, TicketsType, ErrorType } from './types';
+import type { State, Actions, TicketsType } from './types';
 
 
 const shouldFetchTickets = state => !getIsFetching(state);
@@ -21,7 +21,7 @@ export const ticketsFetchingSuccess = (tickets: TicketsType, ids: Array<string>)
   ids,
 });
 
-export const ticketsFetchingFailure = (errorMessage: ErrorType) => ({
+export const ticketsFetchingFailure = (errorMessage: string) => ({
   type: types.FETCH_TICKETS_FAILURE,
   errorMessage,
 });
@@ -38,8 +38,8 @@ const fetchTicketsIfNeeded = () => async (dispatch) => {
 
     dispatch(setStopsFilter(...filter));
     dispatch(ticketsFetchingSuccess(ticketsById, ids));
-  } catch (errorMessage) {
-    dispatch(ticketsFetchingFailure(errorMessage));
+  } catch (error) {
+    dispatch(ticketsFetchingFailure(error.message));
   }
 };
 

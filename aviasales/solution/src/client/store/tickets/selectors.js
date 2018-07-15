@@ -1,11 +1,11 @@
 // @flow
-import type { State, TicketsType, TicketType, ErrorType } from './types';
+import type { State, TicketsType, TicketType } from './types';
 
 
 export const getIsFetching = (state: State): boolean =>
   state.getIn(['isFetching']);
 
-export const getErrorMessage = (state: State): ErrorType =>
+export const getErrorMessage = (state: State): string =>
   state.getIn(['errorMessage']);
 
 export const getSortedIds = (state: State): Array<string> =>
