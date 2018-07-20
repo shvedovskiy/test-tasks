@@ -26,8 +26,7 @@ class CurrencyService {
       if (response.ok) {
         fetchData = await response.json();
       }
-    // $FlowFixMe
-    } catch {
+    } catch (err) {
       console.error('Currencies fetching failed'); // eslint-disable-line no-console
     }
 
