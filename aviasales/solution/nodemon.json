@@ -1,9 +1,13 @@
 {
   "ext": "js,jsx",
   "ignore": [
-    "lib",
-    "src/client",
-    "dist"
+    "lib/",
+    "src/client/",
+    "dist/",
+    "test/"
+  ],
+  "watch": [
+    "src/server"
   ],
   "env": {
     "NODE_ENV": "development"
