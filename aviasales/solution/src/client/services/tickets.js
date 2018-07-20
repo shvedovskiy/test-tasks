@@ -17,7 +17,7 @@ moment.locale('ru-RU');
 
 class TicketService {
   API_ENDPOINT = isProd()
-    ? `http${HTTPS ? 's' : ''}://${SERVER_HOSTNAME}:${SERVER_PORT}`
+    ? SERVER_HOSTNAME && `http${HTTPS ? 's' : ''}://${SERVER_HOSTNAME}:${SERVER_PORT}`
     : `http://localhost:${DEV_SERVER_PORT}`;
 
   async getTickets() {

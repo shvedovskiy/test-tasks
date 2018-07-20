@@ -42,7 +42,7 @@ app.listen(PORT, (err) => {
     console.error(err);
   } else {
     console.info(`==> 🌎 Server running on port ${PORT} ${NODE_ENV === 'production'
-      ? `(production).\nOpen up http${HTTPS ? 's' : ''}://${SERVER_HOSTNAME}:${PORT}/ in your browser`
+      ? `(production).\nOpen up http${HTTPS ? 's' : ''}://${SERVER_HOSTNAME || 'localhost'}:${PORT}/ in your browser`
       : `(development).\nOpen up http://localhost:${PORT}/ in your browser.\nKeep "npm run dev:wds" running in an other terminal`}.`);
   }
   /* eslint-enable no-console */
