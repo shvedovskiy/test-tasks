@@ -11,9 +11,7 @@ export function splitPrice(price: string): string {
   return price.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
 }
 
-export function isProd(): boolean {
-  return NODE_ENV === 'production';
-}
+export const isProd = NODE_ENV === 'production';
 
 export function createReducer<S: { asMutable: Function }, A: { type: string }>(
   initialState: S,

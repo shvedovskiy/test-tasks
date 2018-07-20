@@ -11,10 +11,10 @@ import rootReducer from './rootReducer';
 import type { State, Actions } from './types';
 
 
-const composeEnhancers = isProd() ? compose : composeWithDevTools;
+const composeEnhancers = isProd ? compose : composeWithDevTools;
 
 const middlewares = [thunk];
-if (!isProd()) {
+if (!isProd) {
   middlewares.push(createLogger({ stateTransformer }));
 }
 

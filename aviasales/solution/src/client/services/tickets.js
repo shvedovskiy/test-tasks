@@ -16,12 +16,12 @@ moment.updateLocale('ru-RU', {
 moment.locale('ru-RU');
 
 class TicketService {
-  API_ENDPOINT = isProd()
+  API_ENDPOINT = isProd
     ? SERVER_HOSTNAME && `http${HTTPS ? 's' : ''}://${SERVER_HOSTNAME}:${SERVER_PORT}`
     : `http://localhost:${DEV_SERVER_PORT}`;
 
   async getTickets() {
-    const url = `${this.API_ENDPOINT}/api/tickets`;
+    const url = `${this.API_ENDPOINT || ''}/api/tickets`;
     const response = await fetch(url, {
       method: 'GET',
       headers: {
