@@ -1,0 +1,11 @@
+{
+	"env": {
+		"STATIC_PATH": "/static/",
+		"SERVER_HOSTNAME": "",
+		"SERVER_PORT": 8081,
+		"DEV_SERVER_PORT": 8081,
+		"HTTPS": "",
+		"WDS_PORT": 7000,
+		"FIXER_API_KEY": "91e31b8a6da4b72be9c2778950af9277"
+	}
+}
