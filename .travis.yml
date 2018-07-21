@@ -2,15 +2,12 @@ language: node_js
 
 node_js: "stable"
 
-cache:
-  directories:
-    - "aviasales/solution/node_modules"
-
 install:
   - cd aviasales/solution
   - npm i
 
-script: npm run lint && npm run build && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+# script: npm run lint && npm run build && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+script: npm run lint && npm run build
 
 before_deploy: npm i now --no-save
 
@@ -26,6 +23,10 @@ deploy:
     skip_cleanup: true
     on:
       master: true
+
+cache:
+  directories:
+  - "aviasales/solution/node_modules"
 
 on:
   branch: master
