@@ -12,6 +12,8 @@ import {
   SERVER_PORT,
   DEV_SERVER_PORT,
   HTTPS,
+  NOW,
+  NOW_URL,
 } from './config';
 
 
@@ -41,9 +43,14 @@ app.listen(PORT, (err) => {
   if (err) {
     console.error(err);
   } else {
-    console.info(`==> 🌎 Server running on port ${PORT} ${NODE_ENV === 'production'
-      ? `(production).\nOpen up http${HTTPS ? 's' : ''}://${SERVER_HOSTNAME || 'localhost'}:${PORT}/ in your browser`
-      : `(development).\nOpen up http://localhost:${PORT}/ in your browser.\nKeep "npm run dev:wds" running in an other terminal`}.`);
+    let message = '';
+    if (NODE_ENV === 'production') {
+      const address = NOW ? NOW_URL : `${HTTPS ? 's' : ''}://${SERVER_HOSTNAME || 'localhost'}:${PORT}/`;
+      message = `(production).\nOpen up ${address} in your browser`;
+    } else if (NODE_ENV === 'development') {
+      message = `(development).\nOpen up http://localhost:${PORT}/ in your browser.\nKeep "npm run dev:wds" running in an other terminal`;
+    }
+    console.info(`==> 🌎 Server running on port ${PORT} ${message}`);
   }
   /* eslint-enable no-console */
 });

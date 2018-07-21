@@ -19,17 +19,11 @@
   "scripts": {
     "dev:start": "npx nodemon",
     "dev:wds": "rimraf dist && npx cross-env NODE_ENV=development npx webpack-dev-server --progress",
-    "build": "npx rimraf lib dist && npx babel src -d lib --ignore .test.js && npx cross-env NODE_ENV=production npx webpack -p --progress",
-    "start": "npx cross-env NODE_ENV=production npx pm2 start lib/server && npx pm2 logs",
-    "stop": "npx pm2 delete server",
+    "build": "npx rimraf lib dist && npx babel src -d lib --ignore .test.js && NODE_ENV=production npx webpack -p --progress",
+    "now-build": "echo 'Built on Travis CI'",
+    "start": "NODE_ENV=production node lib/server",
     "lint": "npx eslint src webpack.config.js --ext .js,.jsx && npx flow",
     "test": "npm run lint && npx jest --coverage"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "collectCoverageFrom": [
-      "src/**/*.js"
-    ]
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0-beta.49",
@@ -79,6 +73,7 @@
     "babel-plugin-inline-json-import": "^0.2.1",
     "babel-plugin-styled-components": "^1.5.1",
     "compression-webpack-plugin": "^1.1.11",
+    "coveralls": "^3.0.2",
     "cross-env": "^5.1.6",
     "css-loader": "^0.28.4",
     "directory-named-webpack-plugin": "^4.0.0",
@@ -101,9 +96,8 @@
     "html-webpack-harddisk-plugin": "^0.2.0",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^23.3.0",
-    "nodemon": "^1.18.2-alpha.1",
+    "nodemon": "^1.18.3",
     "optimize-css-assets-webpack-plugin": "^4.0.0",
-    "pm2": "^2.10.4",
     "postcss-loader": "^2.0.6",
     "postcss-preset-env": "^5.2.1",
     "progress-bar-webpack-plugin": "^1.11.0",

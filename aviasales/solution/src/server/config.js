@@ -5,4 +5,6 @@ export const {
   SERVER_PORT,
   DEV_SERVER_PORT,
   HTTPS,
+  NOW,
+  NOW_URL,
 } = process.env;
