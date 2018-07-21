@@ -2,7 +2,7 @@
 import _ from 'lodash';
 
 import { RUSSIAN_ROUBLE, currencyAliases } from 'src/config/currency';
-import { FIXER_API_KEY } from 'src/config/config';
+import { FIXER_API_KEY } from 'shared/config';
 
 
 type RatesType = {

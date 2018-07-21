@@ -18,4 +18,5 @@ include_warnings=true
 module.file_ext=.js
 module.file_ext=.jsx
 module.name_mapper='^src' -> '<PROJECT_ROOT>/src/client'
+module.name_mapper='^shared' -> '<PROJECT_ROOT>/src/shared'
 suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe

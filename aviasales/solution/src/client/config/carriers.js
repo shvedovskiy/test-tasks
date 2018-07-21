@@ -1,5 +1,5 @@
 // @flow
-import { STATIC_PATH } from './config';
+import { STATIC_PATH } from 'shared/config';
 
 
 const PREFIX = `${STATIC_PATH}images/carriers/`;

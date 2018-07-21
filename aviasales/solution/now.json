@@ -3,6 +3,7 @@
     "env": {
       "STATIC_PATH": "/static/",
       "SERVER_PORT": "8081",
+      "HTTPS": "true",
       "FIXER_API_KEY": "91e31b8a6da4b72be9c2778950af9277"
     }
 }

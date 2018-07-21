@@ -20,9 +20,8 @@
     "dev:start": "npx nodemon",
     "dev:wds": "rimraf dist && npx cross-env NODE_ENV=development npx webpack-dev-server --progress",
     "build": "npx rimraf lib dist && npx babel src -d lib --ignore .test.js && NODE_ENV=production npx webpack -p --progress",
-    "now-build": "echo 'Built on Travis CI'",
     "start": "NODE_ENV=production node lib/server",
-    "lint": "npx eslint src webpack.config.js --ext .js,.jsx && npx flow",
+    "lint": "npx eslint src webpack.config.js --ext .js,.jsx",
     "test": "npm run lint && npx jest --coverage"
   },
   "dependencies": {
@@ -58,6 +57,7 @@
     "@babel/core": "^7.0.0-beta.49",
     "@babel/node": "^7.0.0-beta.54",
     "@babel/plugin-proposal-class-properties": "^7.0.0-beta.49",
+    "@babel/plugin-proposal-do-expressions": "^7.0.0-beta.54",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.49",
     "@babel/plugin-proposal-optional-catch-binding": "^7.0.0-beta.53",
     "@babel/plugin-transform-flow-strip-types": "^7.0.0-beta.53",

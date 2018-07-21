@@ -6,7 +6,7 @@ import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import { isProd } from 'src/utils';
+import { isProd } from 'shared/config';
 import rootReducer from './rootReducer';
 import type { State, Actions } from './types';
 

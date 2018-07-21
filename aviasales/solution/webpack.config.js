@@ -1,4 +1,3 @@
-// @flow
 const path = require('path');
 const webpack = require('webpack');
 const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
@@ -14,7 +13,6 @@ const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const Dotenv = require('dotenv-webpack');
 const dotenv = require('dotenv');
 
 
@@ -34,6 +32,7 @@ const common = {
     ],
     alias: {
       src: path.resolve(srcPath, 'client'),
+      shared: path.resolve(srcPath, 'shared'),
     },
     extensions: [
       '.js',
@@ -58,8 +57,16 @@ const common = {
     noEmitOnErrors: true,
   },
   plugins: [
-    new Dotenv({
-      path: path.resolve(__dirname, './.env'),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      'process.env.STATIC_PATH': JSON.stringify(process.env.STATIC_PATH),
+      'process.env.SERVER_HOSTNAME': JSON.stringify(process.env.SERVER_HOSTNAME),
+      'process.env.SERVER_PORT': JSON.stringify(process.env.SERVER_PORT),
+      'process.env.DEV_SERVER_PORT': JSON.stringify(process.env.DEV_SERVER_PORT),
+      'process.env.HTTPS': JSON.stringify(process.env.HTTPS),
+      'process.env.FIXER_API_KEY': JSON.stringify(process.env.FIXER_API_KEY),
+      'process.env.NOW': JSON.stringify(process.env.NOW),
+      'process.env.NOW_URL': JSON.stringify(process.env.NOW_URL),
     }),
     new HtmlWebpackPlugin({
       template: path.join('public', 'index.html'),
@@ -79,7 +86,7 @@ const development = {
   ],
   output: {
     filename: 'bundle.js',
-    publicPath: `http://localhost:${process.env.WDS_PORT || 7000}/dist/`,
+    publicPath: `http://localhost:${process.env.WDS_PORT}/dist/`,
   },
   module: {
     rules: [
@@ -113,7 +120,7 @@ const development = {
         loader: 'file-loader',
         options: {
           name: 'media/[name].[ext]',
-          publicPath: `http://localhost:${process.env.WDS_PORT || 7000}/dist/`,
+          publicPath: `http://localhost:${process.env.WDS_PORT}/dist/`,
         },
       },
     ],
@@ -184,7 +191,7 @@ const production = {
         options: {
           name: '[name].[hash].[ext]',
           outputPath: 'media/',
-          publicPath: `${process.env.STATIC_PATH || '/static/'}media`,
+          publicPath: `${process.env.STATIC_PATH}media`,
         },
       },
     ],

@@ -1,13 +1,7 @@
 // @flow
 import moment from 'moment';
 
-import { isProd } from 'src/utils';
-import {
-  SERVER_HOSTNAME,
-  SERVER_PORT,
-  DEV_SERVER_PORT,
-  HTTPS,
-} from 'src/config/config';
+import { address } from 'shared/config';
 
 
 moment.updateLocale('ru-RU', {
@@ -16,12 +10,10 @@ moment.updateLocale('ru-RU', {
 moment.locale('ru-RU');
 
 class TicketService {
-  API_ENDPOINT = isProd
-    ? SERVER_HOSTNAME && `http${HTTPS ? 's' : ''}://${SERVER_HOSTNAME}:${SERVER_PORT}`
-    : `http://localhost:${DEV_SERVER_PORT}`;
+  API_ENDPOINT = address;
 
   async getTickets() {
-    const url = `${this.API_ENDPOINT || ''}/api/tickets`;
+    const url = `${this.API_ENDPOINT}api/tickets`;
     const response = await fetch(url, {
       method: 'GET',
       headers: {
