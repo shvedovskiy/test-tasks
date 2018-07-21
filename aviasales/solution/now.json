@@ -1,4 +1,8 @@
 {
     "alias": "aviasales-test-task",
-    "dotenv": true
+    "env": {
+      "STATIC_PATH": "/static/",
+      "SERVER_PORT": "8081",
+      "FIXER_API_KEY": "91e31b8a6da4b72be9c2778950af9277"
+    }
 }
