@@ -13,12 +13,6 @@ before_deploy: npm i now --no-save
 
 deploy:
   - provider: script
-    script: now --token $NOW_TOKEN --public
-    skip_cleanup: true
-    on:
-      all_branches: true
-      master: false
-  - provider: script
     script: now --token $NOW_TOKEN --public && now alias --token $NOW_TOKEN
     skip_cleanup: true
     on:
