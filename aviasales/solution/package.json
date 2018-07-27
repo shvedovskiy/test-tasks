@@ -1,7 +1,7 @@
 {
   "name": "aviasales-test-task",
   "version": "0.0.1",
-  "description": "Search Application",
+  "description": "Air tickets search application",
   "keywords": [
     "react",
     "pwa",
@@ -66,7 +66,7 @@
     "@babel/preset-flow": "^7.0.0-beta.49",
     "@babel/preset-react": "^7.0.0-beta.49",
     "autoprefixer": "^8.3.0",
-    "babel-eslint": "^8.2.3",
+    "babel-eslint": "^8.2.6",
     "babel-jest": "^23.2.0",
     "babel-loader": "^8.0.0-beta",
     "babel-plugin-flow-react-proptypes": "^24.0.1",
@@ -84,6 +84,7 @@
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-import-resolver-webpack": "^0.10.1",
+    "eslint-plugin-babel": "^5.1.0",
     "eslint-plugin-compat": "^2.3.0",
     "eslint-plugin-flowtype": "^2.47.1",
     "eslint-plugin-import": "^2.12.0",

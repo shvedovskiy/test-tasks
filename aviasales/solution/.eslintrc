@@ -5,8 +5,10 @@
   ],
   "plugins": [
     "flowtype",
-    "compat"
+    "compat",
+    "babel"
   ],
+  "parser": "babel-eslint",
   "rules": {
     "no-unexpected-multiline": 2,
     "compat/compat": 2,
@@ -17,11 +19,16 @@
       "error",
       { "allowRequiredDefaults": true }
     ],
-    "jsx-a11y/accessible-emoji": 0
+    "jsx-a11y/accessible-emoji": 0,
+    "no-unused-expressions": 0,
+    "babel/no-unused-expressions": 1,
+    "no-invalid-this": 0,
+    "babel/no-invalid-this" : 1
   },
   "env": {
     "browser": true,
-    "jest": true
+    "jest": true,
+    "es6": true
   },
   "settings": {
     "polyfills": [

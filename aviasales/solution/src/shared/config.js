@@ -15,12 +15,12 @@ export const port = (NODE_ENV === 'production' ? SERVER_PORT : DEV_SERVER_PORT) 
 export const address = do {
   if (NODE_ENV === 'production') {
     if (NOW) {
-      `${NOW_URL}/`; // eslint-disable-line no-unused-expressions
+      `${NOW_URL}/`;
     } else {
-      `http${HTTPS === 'true' ? 's' : ''}://${SERVER_HOSTNAME || 'localhost'}:${port}/`; // eslint-disable-line no-unused-expressions
+      `http${HTTPS === 'true' ? 's' : ''}://${SERVER_HOSTNAME || 'localhost'}:${port}/`;
     }
   } else if (NODE_ENV === 'development') {
-    `http://localhost:${port}/`; // eslint-disable-line no-unused-expressions
+    `http://localhost:${port}/`;
   } else {
     ''; // eslint-disable-line no-unused-expressions
   }
