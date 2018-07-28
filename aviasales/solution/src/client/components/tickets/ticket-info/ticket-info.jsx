@@ -79,25 +79,35 @@ const TicketSide = styled.div`
     border-bottom: 1px solid #eceff1;
   }
   
-  & > div:first-child {
+  & > :first-child {
     flex-basis: 200px;
     flex-grow: 1;
   }
   
-  & > div:last-child {
+  & > :last-child {
     flex-basis: 200px;
     flex-grow: 1;
   }
 `;
 
+const CarrierLogoPicture = styled.picture`
+  margin-bottom: 20px;
+`;
+
 const CarrierLogo = styled.img.attrs({
-  src: ({ logo }) => logo[0],
-  srcSet: ({ logo }) => `${logo[0]} 1x, ${logo[1]} 2x, ${logo[2]} 3x`,
+  src: ({ logo }) => `${logo[0]}.png`,
+  srcSet: ({ logo }) => `${logo[0]}.png 1x, ${logo[1]}.png 2x, ${logo[2]}.png 3x`,
 })`
   display: block;
-  margin: 0 auto 20px;
+  margin: 0 auto;
   max-height: 35px;
 `;
+
+const CarrierLogoSource = CarrierLogo.withComponent('source').extend.attrs({
+  src: null,
+  srcSet: ({ logo }) => `${logo[0]}.webp 1x, ${logo[1]}.webp 2x, ${logo[2]}.webp 3x`,
+  type: 'image/webp',
+})``;
 
 type Props<T> = T & {|
   children: React.Node,
@@ -108,12 +118,14 @@ type Props<T> = T & {|
 |};
 
 function TicketInfo<T: *>({ children, carrier, ...props }: Props<T>) {
+  const logo: Array<string> = logos[carrier];
   return (
     <TicketInfoContainer transitionName="tickets">
       <TicketSide>
-        <div>
-          <CarrierLogo logo={logos[carrier]} alt={carrier} />
-        </div>
+        <CarrierLogoPicture>
+          <CarrierLogoSource logo={logo} />
+          <CarrierLogo logo={logo} alt={carrier} />
+        </CarrierLogoPicture>
         <div>
           {children}
         </div>
