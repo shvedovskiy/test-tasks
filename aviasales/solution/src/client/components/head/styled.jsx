@@ -3,7 +3,13 @@ import styled from 'styled-components';
 import logo from './logo.svg';
 
 
-const Logo = styled.a`
+export const Header = styled.header`
+  min-width: 320px;
+  padding-top: 40px;
+  padding-bottom: 30px;
+`;
+
+export const Logo = styled.a`
   display: block;
   width: 82px;
   height: 90px;
@@ -21,5 +27,3 @@ const Logo = styled.a`
     outline: 2px solid #2196f3;
   }
 `;
-
-export default Logo;

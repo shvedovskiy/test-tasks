@@ -1,48 +1,17 @@
 // @flow
 import React from 'react';
 import _ from 'lodash';
-import styled from 'styled-components';
 
 import { pluralStop } from 'src/utils';
 import StopsCheckbox from './stops-checkbox/stops-checkbox';
 import StopOnly from './stop-only/stop-only';
-import { StopsListItem } from './common';
+import {
+  StopsList,
+  StopsListItem,
+  Label,
+  LabelText,
+} from './styled';
 
-
-const StopsList = styled.ul`
-  font-size: 13px;
-`;
-
-const Label = styled.label`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 36px;
-  padding-left: 15px;
-  padding-right: 15px;
-  cursor: pointer;
-  white-space: nowrap;
-  overflow: hidden;
-
-  &::after {
-    content: '';
-    height: 100%;
-    width: 15px;
-    position: absolute;
-    top: 0;
-    right: 15px;
-    background: linear-gradient(90deg, rgba(255,255,255,0.001), #fff 85%);
-  }
-
-  ${StopsListItem}:hover &::after,
-  &:focus-within::after {
-    background: linear-gradient(90deg, rgba(255,255,255,0.001), #f1fcff 85%);
-  }
-`;
-
-const LabelText = styled.span`
-  overflow: hidden;
-`;
 
 function _selectAllStops(stops, changeStops) { // eslint-disable-line no-underscore-dangle
   return ({ currentTarget: { checked } }) => {

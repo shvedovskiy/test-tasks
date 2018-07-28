@@ -1,20 +1,11 @@
 // @flow
 import * as React from 'react';
-import styled from 'styled-components';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import type { TicketsType } from 'src/store/tickets/types';
 import Ticket from '../ticket/ticket';
+import { Tickets } from './styled';
 
-
-const Tickets = styled.ul`
-    max-width: 750px;
-    margin: 0 auto;
-    
-    & > li {
-      margin-bottom: 20px;
-    }
-`;
 
 type Props = {|
   ids: Array<string>,

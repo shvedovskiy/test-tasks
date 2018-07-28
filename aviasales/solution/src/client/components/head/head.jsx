@@ -1,8 +1,7 @@
 // @flow
 import * as React from 'react';
 
-import Logo from './logo';
-import Header from './header';
+import { Header, Logo } from './styled';
 
 
 class Head extends React.Component<{}> {
