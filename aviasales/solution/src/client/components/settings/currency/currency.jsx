@@ -7,6 +7,7 @@ import currencyService from 'src/services/currency';
 import { RUSSIAN_ROUBLE, currencyAliases } from 'src/config/currency';
 import { getCurrency } from 'src/store/rootSelectors';
 import { changeCurrency } from 'src/store/settings/actions';
+import type { State } from 'src/store/types';
 import CurrencyList from './currency-list/currency-list';
 
 
@@ -15,13 +16,13 @@ type Props = {|
   handleChangeCurrency: Function,
 |};
 
-type State = {|
+type CurrencyState = {|
   aliases: {
     [currencyName: string]: string,
   },
 |};
 
-class Currency extends React.Component<Props, State> {
+class Currency extends React.Component<Props, CurrencyState> {
   state = {
     aliases: {
       [RUSSIAN_ROUBLE]: currencyAliases[RUSSIAN_ROUBLE],
@@ -58,7 +59,7 @@ class Currency extends React.Component<Props, State> {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: State) => ({
   selectedCurrency: getCurrency(state),
 });
 

@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { fetchTicketsAction } from 'src/store/tickets/actions';
 import { CurrencyContext } from 'src/store/context';
 import type { ContextState } from 'src/store/context';
+import type { State } from 'src/store/types';
 import {
   getTickets,
   getIsFetching,
@@ -64,7 +65,7 @@ class Tickets extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: State) => {
   const [ids, tickets] = getTickets(state);
   return {
     ids,

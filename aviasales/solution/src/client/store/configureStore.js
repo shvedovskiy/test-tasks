@@ -1,6 +1,6 @@
 // @flow
 import { createStore, applyMiddleware, compose } from 'redux';
-import type { Store } from 'redux';
+import type { Store as ReduxStore } from 'redux';
 import { stateTransformer } from 'redux-seamless-immutable';
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
@@ -17,11 +17,10 @@ const middlewares = [thunk];
 if (!isProd) {
   middlewares.push(createLogger({ stateTransformer }));
 }
+const enhancer = composeEnhancers(applyMiddleware(...middlewares));
 
-const configureStore = (): Store<State, Actions> =>
-  createStore(
-    rootReducer,
-    composeEnhancers(applyMiddleware(...middlewares)),
-  );
+type Store = ReduxStore<State, Actions>;
 
-export default configureStore;
+export default function configureStore(): Store {
+  return createStore(rootReducer, enhancer);
+}

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import { getAllStops } from 'src/store/rootSelectors';
 import { changeStopsFilter } from 'src/store/settings/actions';
+import type { State } from 'src/store/types';
 import Stops from './stops/stops';
 import type { StopsType } from './types';
 
@@ -21,7 +22,7 @@ const Filters = ({ render, stops, changeStops }: Props) => {
   return render(stopsTitle, child);
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: State) => ({
   stops: getAllStops(state),
 });
 
