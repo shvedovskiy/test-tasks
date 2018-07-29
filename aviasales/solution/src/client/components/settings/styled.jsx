@@ -19,9 +19,7 @@ export const SettingsContainer = styled.div.attrs({
   }
 `;
 
-export const SettingsElement = styled.div.attrs({
-  role: 'menu',
-})`
+export const SettingsElement = styled.div`
   flex-basis: 230px;
   flex-grow: 0;
   overflow: hidden;

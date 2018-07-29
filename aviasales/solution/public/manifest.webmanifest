@@ -6,7 +6,7 @@
     "display": "standalone",
     "dir": "ltr",
     "theme_color": "#2196f3",
-    "background-color": "#f3f7fa",
+    "background_color": "#f3f7fa",
     "icons": [
         {
             "src": "/static/images/icons/android-chrome-36x36.png",
@@ -41,6 +41,11 @@
         {
             "src": "/static/images/icons/android-chrome-256x256.png",
             "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "/static/images/icons/android-chrome-512x512.png",
+            "sizes": "512x512",
             "type": "image/png"
         }
     ]
