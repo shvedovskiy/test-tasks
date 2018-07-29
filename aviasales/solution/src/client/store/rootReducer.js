@@ -4,10 +4,11 @@ import { combineReducers } from 'redux-seamless-immutable';
 import ticketsReducer from './tickets/reducers';
 import settingsReducer from './settings/reducers';
 
-
-const rootReducer = combineReducers({
+const reducers = {
   tickets: ticketsReducer,
   settings: settingsReducer,
-});
+};
 
-export default rootReducer;
+export type Reducers = typeof reducers;
+
+export default combineReducers(reducers);

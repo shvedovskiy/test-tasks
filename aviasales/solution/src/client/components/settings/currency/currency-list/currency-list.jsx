@@ -1,15 +1,10 @@
 // @flow
 import React from 'react';
-import styled from 'styled-components';
 
 import CurrencyButton from '../currency-button/currency-button';
 import { RUSSIAN_ROUBLE, currencyAliases } from 'src/config/currency'; // eslint-disable-line import/first, import/no-unresolved, import/extensions
+import { CurrencySwitcher } from './styled';
 
-
-const CurrencySwitcher = styled.div`
-  display: flex;
-  padding: 0 15px;
-`;
 
 type Props = {|
   selectedCurrency: string,
