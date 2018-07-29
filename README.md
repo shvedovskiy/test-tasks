@@ -1,5 +1,5 @@
 # test-tasks
-Тестовые задания Aviasales
+Тестовые задания Aviasales  [![Build Status](https://travis-ci.org/shvedovskiy/test-tasks.svg?branch=master)](https://travis-ci.org/shvedovskiy/test-tasks)
 
 ## Aviasales
 
