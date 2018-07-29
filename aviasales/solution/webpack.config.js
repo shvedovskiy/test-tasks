@@ -58,15 +58,17 @@ const common = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-      'process.env.STATIC_PATH': JSON.stringify(process.env.STATIC_PATH),
-      'process.env.SERVER_HOSTNAME': JSON.stringify(process.env.SERVER_HOSTNAME),
-      'process.env.SERVER_PORT': JSON.stringify(process.env.SERVER_PORT),
-      'process.env.DEV_SERVER_PORT': JSON.stringify(process.env.DEV_SERVER_PORT),
-      'process.env.HTTPS': JSON.stringify(process.env.HTTPS),
-      'process.env.FIXER_API_KEY': JSON.stringify(process.env.FIXER_API_KEY),
-      'process.env.NOW': JSON.stringify(process.env.NOW),
-      'process.env.NOW_URL': JSON.stringify(process.env.NOW_URL),
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        STATIC_PATH: JSON.stringify(process.env.STATIC_PATH),
+        SERVER_HOSTNAME: JSON.stringify(process.env.SERVER_HOSTNAME),
+        SERVER_PORT: JSON.stringify(process.env.SERVER_PORT),
+        DEV_SERVER_PORT: JSON.stringify(process.env.DEV_SERVER_PORT),
+        HTTPS: JSON.stringify(process.env.HTTPS),
+        FIXER_API_KEY: JSON.stringify(process.env.FIXER_API_KEY),
+        NOW: JSON.stringify(process.env.NOW),
+        NOW_URL: JSON.stringify(process.env.NOW_URL),
+      },
     }),
     new HtmlWebpackPlugin({
       template: path.join('public', 'index.html'),
@@ -187,8 +189,10 @@ const production = {
       },
       {
         test: /\.(svg|gif|jpe?g|png|ico)(\?[a-z00-9]+)?$/,
-        loader: 'file-loader',
+        loader: 'url-loader',
         options: {
+          fallback: 'file-loader',
+          limit: '10000',
           name: '[name].[hash].[ext]',
           outputPath: 'media/',
           publicPath: `${process.env.STATIC_PATH}media`,

@@ -1,6 +1,7 @@
 import path from 'path';
 import express from 'express';
 import cors from 'cors';
+import favicon from 'serve-favicon';
 
 import getTickets from './api/tickets';
 import '../shared/env';
@@ -15,6 +16,7 @@ import {
 const app = express();
 
 app.use(cors());
+app.use(favicon(path.resolve(__dirname, '..', '..', 'public', 'images', 'icons', 'favicon.ico')));
 app.use(STATIC_PATH, express.static('dist'));
 app.use(STATIC_PATH, express.static('public'));
 

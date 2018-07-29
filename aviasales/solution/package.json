@@ -19,8 +19,8 @@
   "scripts": {
     "dev:start": "npx nodemon",
     "dev:wds": "rimraf dist && npx cross-env NODE_ENV=development npx webpack-dev-server --progress",
-    "build": "npx rimraf lib dist && npx babel src -d lib --ignore .test.js && NODE_ENV=production npx webpack -p --progress",
-    "start": "NODE_ENV=production node lib/server",
+    "build": "npx rimraf lib dist && npx babel src -d lib --ignore .test.js && npx cross-env NODE_ENV=production npx webpack -p --progress",
+    "start": "npx cross-env NODE_ENV=production node lib/server",
     "lint": "npx eslint src webpack.config.js --ext .js,.jsx && npx flow",
     "test": "npm run lint && npx jest --coverage"
   },
@@ -47,6 +47,7 @@
     "reselect": "^3.0.1",
     "rimraf": "^2.5.4",
     "seamless-immutable": "^7.1.3",
+    "serve-favicon": "^2.5.0",
     "styled-components": "^3.3.3",
     "uuid": "^3.2.1",
     "webpack": "^4.9.1",
