@@ -6,7 +6,7 @@ install:
   - cd aviasales/solution
   - npm i
 
-script: npm test && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && npm run build 
+script: npm test && npm run build # cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && npm run build 
 
 before_deploy: npm i now --no-save
 
