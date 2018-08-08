@@ -19,11 +19,14 @@
       "error",
       { "allowRequiredDefaults": true }
     ],
+    "react/require-default-props": 0,
     "jsx-a11y/accessible-emoji": 0,
     "no-unused-expressions": 0,
     "babel/no-unused-expressions": 1,
     "no-invalid-this": 0,
-    "babel/no-invalid-this" : 1
+    "babel/no-invalid-this" : 1,
+    "react/jsx-one-expression-per-line": 0,
+    "import/no-cycle": 0
   },
   "env": {
     "browser": true,

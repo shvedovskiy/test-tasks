@@ -7,13 +7,11 @@ import type { State, StopsType, FiltersType } from './types';
 import * as filterMethods from './filter-methods';
 
 
-export const getCurrency = (state: State): string =>
-  state.getIn(['currency']);
+export const getCurrency = (state: State): string => state.getIn(['currency']);
 
-export const getAllStops = (state: State): StopsType =>
-  state.getIn(['filter', 'stops']);
+export const getAllStops = (state: State): StopsType => state.getIn(['filter', 'stops']);
 
-const getStopsFilter = createSelector(
+export const getStopsFilter = createSelector(
   getAllStops,
   (allStops) => {
     if (Object.values(allStops).every(stop => stop === true)) {
@@ -34,7 +32,7 @@ export const getFilters = (state: State) => ({
 
 export const getFilteredIds = (
   fromTickets: {},
-  ticketsStore: TicketsState,
+  ticketsState: TicketsState,
   allIds: Array<string>,
   filters: FiltersType,
 ): ?Array<string> => {
@@ -44,7 +42,7 @@ export const getFilteredIds = (
 
   let filteredIds = [...allIds];
   for (const name of Object.keys(filters)) {
-    filteredIds = filterMethods[name](fromTickets, ticketsStore, filteredIds, filters[name]);
+    filteredIds = filterMethods[name](fromTickets, ticketsState, filteredIds, filters[name]);
   }
   return filteredIds;
 };

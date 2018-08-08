@@ -10,6 +10,7 @@ type _ExtractReturn<B, F: (...args: Array<any>) => B> = B; // eslint-disable-lin
 export type ExtractReturn<F> = _ExtractReturn<*, F>;
 
 type GetState<S> = () => S;
+/* eslint-disable-next-line no-use-before-define */
 type Dispatch<S, A> = (action: A | ThunkAction<S, A> | Promise<A>) => any;
 export type ThunkAction<S, A> = (dispatch: Dispatch<S, A>, getState: GetState<S>) => any;
 

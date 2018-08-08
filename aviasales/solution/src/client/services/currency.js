@@ -11,7 +11,9 @@ type RatesType = {
 
 class CurrencyService {
   API_ENDPOINT = 'http://data.fixer.io/api';
+
   symbols = Object.values(currencyAliases).join(',');
+
   rates: RatesType = {
     [currencyAliases[RUSSIAN_ROUBLE]]: 1,
   };

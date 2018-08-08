@@ -22,7 +22,7 @@ export const address = do {
   } else if (NODE_ENV === 'development') {
     `http://localhost:${port}/`;
   } else {
-    ''; // eslint-disable-line no-unused-expressions
+    '';
   }
 };
 

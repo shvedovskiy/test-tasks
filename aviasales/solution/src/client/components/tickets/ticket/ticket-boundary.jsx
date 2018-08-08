@@ -23,9 +23,8 @@ export default class TicketBoundary extends React.Component<Props, State> {
   }
 
   render() {
-    if (this.state.hasError) {
-      return '';
-    }
-    return this.props.children;
+    const { hasError } = this.state;
+    const { children } = this.props;
+    return hasError ? '' : children;
   }
 }

@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
 
+import { RUSSIAN_ROUBLE, currencyAliases } from 'src/config/currency'; // eslint-disable-line import/no-unresolved, import/extensions
 import CurrencyButton from '../currency-button/currency-button';
-import { RUSSIAN_ROUBLE, currencyAliases } from 'src/config/currency'; // eslint-disable-line import/first, import/no-unresolved, import/extensions
 import { CurrencySwitcher } from './styled';
 
 

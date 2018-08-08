@@ -20,8 +20,8 @@ function Ticket<T: *>({ id, price, ...props }: T & TicketType) {
       <TicketInfo {...props}>
         <CurrencyContext.Consumer>
           {({ currency }) => {
-            const calculatedPrice: ?number = currencyService.getPrice(price, currency) ||
-              currencyService.getPrice(price, RUSSIAN_ROUBLE);
+            const calculatedPrice: ?number = currencyService.getPrice(price, currency)
+              || currencyService.getPrice(price, RUSSIAN_ROUBLE);
 
             if (calculatedPrice !== null && calculatedPrice !== undefined) {
               if (!currencySymbols[currency]) {
@@ -34,7 +34,8 @@ function Ticket<T: *>({ id, price, ...props }: T & TicketType) {
               );
             }
             throw new Error('Inconsistent currency state');
-        }}
+          }
+        }
         </CurrencyContext.Consumer>
       </TicketInfo>
     </TicketBoundary>

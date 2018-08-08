@@ -50,7 +50,8 @@ class Tickets extends React.Component<Props> {
     if (ids.length <= 0) {
       if (isFetching) {
         return <Loading />;
-      } else if (errorMessage) {
+      }
+      if (errorMessage) {
         return <FetchError message={errorMessage} onRetry={this.fetchTicketsData} />;
       }
       return <EmptyResult />;
