@@ -150,7 +150,7 @@ const production = {
   target: 'web',
   entry: {
     main: './src/client',
-    vendor: ['@babel/polyfill', 'react', 'react-dom', 'redux', 'react-redux', 'react-router-dom', 'moment', 'lodash', 'reselect', 'seamless-immutable'],
+    vendor: ['@babel/polyfill', 'react', 'react-dom', 'redux', 'react-redux', 'react-router-dom', 'dayjs', 'lodash', 'reselect', 'seamless-immutable'],
   },
   output: {
     filename: '[name].[chunkhash].js',

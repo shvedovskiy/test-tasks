@@ -1,16 +1,22 @@
 // @flow
-import moment from 'moment';
+import dayjs from 'dayjs';
+import ru from 'dayjs/locale/ru';
 
 import { address } from 'shared/config';
 
 
-moment.updateLocale('ru-RU', {
-  weekdaysMin: 'Пн_Вт_Ср_Чт_Пт_Сб_Вс'.split('_'),
+dayjs.locale('ru', {
+  ...ru,
+  weekdaysMin: 'Вс_Пт_Вт_Ср_Чт_Пт_Сб'.split('_'),
+  monthsShort: 'янв_фев_мар_апр_мая_июн_июл_авг_сен_окт_ноя_дек'.split('_'),
 });
-moment.locale('ru-RU');
 
 class TicketService {
   API_ENDPOINT = address;
+
+  static formatDate(rawDate) {
+    return dayjs(rawDate.replace(/^(\d{2})\.(\d{2})\.(.*)$/, '$2.$1.$3')).format('D MMM YYYY, dd');
+  }
 
   async getTickets() {
     const url = `${this.API_ENDPOINT}api/tickets`;
@@ -27,8 +33,8 @@ class TicketService {
     const data = await response.json();
 
     return data.tickets.map((ticket) => {
-      const departureDate = moment(ticket.departure_date, 'DD-MM-YY').format('D MMM YYYY, dd');
-      const arrivalDate = moment(ticket.arrival_date, 'DD-MM-YY').format('D MMM YYYY, dd');
+      const departureDate = TicketService.formatDate(ticket.departure_date);
+      const arrivalDate = TicketService.formatDate(ticket.arrival_date);
 
       return {
         id: ticket.id,
