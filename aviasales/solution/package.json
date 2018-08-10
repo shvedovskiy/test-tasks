@@ -22,7 +22,8 @@
     "build": "npx rimraf lib dist && npx babel src -d lib --ignore .test.js && npx cross-env NODE_ENV=production npx webpack -p --progress",
     "start": "npx cross-env NODE_ENV=production node lib/server",
     "lint": "npx eslint src webpack.config.js --ext .js,.jsx && npx flow",
-    "test": "npm run lint && npx jest --coverage"
+    "test": "npm run lint && npx jest --coverage",
+    "precommit": "npm test"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0-beta.49",
@@ -98,6 +99,7 @@
     "flow-bin": "^0.78.0",
     "html-webpack-harddisk-plugin": "^0.2.0",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^0.14.3",
     "jest": "^23.3.0",
     "jest-cli": "^23.4.2",
     "jest-styled-components": "^5.0.1",

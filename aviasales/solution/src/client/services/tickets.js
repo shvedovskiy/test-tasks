@@ -12,7 +12,7 @@ dayjs.locale('ru', {
 });
 
 class TicketService {
-  API_ENDPOINT = address;
+  API_ENDPOINT: string = address || '/';
 
   static formatDate(rawDate: string): string {
     return dayjs(rawDate.replace(/^(\d{2})\.(\d{2})\.(.*)$/, '$2.$1.$3')).format('D MMM YYYY, dd');
