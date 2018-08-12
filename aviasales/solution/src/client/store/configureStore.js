@@ -11,13 +11,13 @@ import rootReducer from './rootReducer';
 import type { State, Actions } from './types';
 
 
-const composeEnhancers = isProd ? compose : composeWithDevTools;
+const composeEnhancers: Function = isProd ? compose : composeWithDevTools;
 
-const middlewares = [thunk];
+const middlewares: Array<any> = [thunk];
 if (!isProd) {
   middlewares.push(createLogger({ stateTransformer }));
 }
-const enhancer = composeEnhancers(applyMiddleware(...middlewares));
+const enhancer: Function = composeEnhancers(applyMiddleware(...middlewares));
 
 type Store = ReduxStore<State, Actions>;
 

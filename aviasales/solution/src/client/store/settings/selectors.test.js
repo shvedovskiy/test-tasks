@@ -13,7 +13,7 @@ describe('Settings selectors', () => {
     expect(selectors.getCurrency(state)).toEqual('Russian Rouble');
   });
 
-  it('select all stops', () => {
+  it('select info about stops filter', () => {
     const stops = {
       0: true,
       1: false,
@@ -28,8 +28,8 @@ describe('Settings selectors', () => {
 
   it('select stops that are active filters', () => {
     const stops = {
-      0: true,
-      1: false,
+      0: true, // allow tickets with 0 stops
+      1: false, // filter tickets with 1 stop
       2: true,
     };
     const state = Immutable({

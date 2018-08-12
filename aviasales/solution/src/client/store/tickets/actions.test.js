@@ -16,7 +16,26 @@ describe('Tickets action creators', () => {
     fetchMock.restore();
   });
 
-  it('create FETCH_TICKETS_SUCCESS when fetching todos has been done', () => {
+  it('does not fetch tickets if there are other active requests', () => {
+    const expectedActions = [];
+    const store = mockStore(Immutable({
+      tickets: {
+        data: {},
+        ids: [],
+        isFetching: true,
+        errorMessage: '',
+      },
+      settings: { filter: { stops: {} } },
+      currency: 'Russian Rouble',
+    }));
+
+    return store.dispatch(actions.fetchTicketsAction())
+      .then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+      });
+  });
+
+  it('create FETCH_TICKETS_SUCCESS when fetching tickets has been done', () => {
     fetchMock.getOnce('/api/tickets', {
       body: JSON.stringify({
         tickets: [
@@ -153,5 +172,45 @@ describe('Tickets action creators', () => {
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });
+  });
+
+  it('create FETCH_TICKETS_FAILURE when fetching tickets has been done with error', () => {
+    fetchMock.getOnce('/api/tickets', {
+      throws: { message: 'Fetching error' },
+    });
+
+    const expectedActions = [
+      {
+        type: settingsTypes.SET_STOPS_FILTER,
+        stops: {},
+      },
+      { type: types.FETCH_TICKETS_REQUEST },
+      {
+        type: types.FETCH_TICKETS_FAILURE,
+        errorMessage: 'Fetching error',
+      },
+    ];
+    const store = mockStore(Immutable({
+      tickets: {
+        data: {},
+        ids: [],
+        isFetching: false,
+        errorMessage: '',
+      },
+    }));
+
+    return store.dispatch(actions.fetchTicketsAction())
+      .then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+      });
+  });
+
+  it('does not produce actions after ticket buying', () => {
+    const expectedAction = {
+      type: types.BUY_TICKET,
+      id: '1',
+    };
+
+    expect(actions.buyTicket('1')).toEqual(expectedAction);
   });
 });

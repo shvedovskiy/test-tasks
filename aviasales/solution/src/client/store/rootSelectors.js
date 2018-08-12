@@ -22,19 +22,28 @@ export const getErrorMessage = (state: State): string => fromTickets.getErrorMes
 
 export const getAllStops = (state: State): StopsType => fromSettings.getAllStops(state.getIn(['settings']));
 
-export const getTickets = createSelector(
-  (state: State): TicketsState => state.getIn(['tickets']),
-  getAllTicketIds,
-  getAllTickets,
-  getFilters,
-  (ticketsState, allIds, tickets, filters) => {
-    const ids = fromSettings.getFilteredIds(fromTickets, ticketsState, allIds, filters);
-    if (ids === null || ids === undefined) {
-      return [allIds, tickets];
-    }
-    if (ids.length <= 0) {
-      return [[], tickets];
-    }
-    return [ids, tickets];
-  },
+const composeIdsTickets = (
+  ticketsState: TicketsState,
+  allIds: Array<string>,
+  tickets: TicketsType,
+  filters: FiltersType,
+) => {
+  const ids = fromSettings.getFilteredIds(fromTickets, ticketsState, allIds, filters);
+  if (ids === null || ids === undefined) {
+    return [allIds, tickets];
+  }
+  if (ids.length <= 0) {
+    return [[], tickets];
+  }
+  return [ids, tickets];
+};
+
+export const getTickets: (State) => [Array<string>, TicketsType] = createSelector(
+  [
+    (state: State): TicketsState => state.getIn(['tickets']),
+    getAllTicketIds,
+    getAllTickets,
+    getFilters,
+  ],
+  composeIdsTickets,
 );

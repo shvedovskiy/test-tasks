@@ -10,10 +10,12 @@ export const NOW = process.env.NOW || '';
 export const NOW_URL = process.env.NOW_URL || '';
 /* eslint-enable prefer-destructuring */
 
-export const port = (NODE_ENV === 'production' ? SERVER_PORT : DEV_SERVER_PORT) || 3000;
+export const isProd = NODE_ENV === 'production';
+
+export const port = (isProd ? SERVER_PORT : DEV_SERVER_PORT) || 3000;
 
 export const address = do {
-  if (NODE_ENV === 'production') {
+  if (isProd) {
     if (NOW) {
       `${NOW_URL}/`;
     } else {
@@ -25,5 +27,3 @@ export const address = do {
     '';
   }
 };
-
-export const isProd = NODE_ENV === 'production';

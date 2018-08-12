@@ -13,10 +13,12 @@ export const getAllStops = (state: State): StopsType => state.getIn(['filter', '
 
 export const getStopsFilter = createSelector(
   getAllStops,
-  (allStops) => {
+  (allStops: StopsType) => {
+    // Return special value if filter is disabled (all stops are allowed to display):
     if (Object.values(allStops).every(stop => stop === true)) {
       return null;
     }
+    // Return array with allowed stops or empty array if all stops are restricted:
     return _.keys(_.pickBy(allStops), stop => stop === true);
   },
 );
