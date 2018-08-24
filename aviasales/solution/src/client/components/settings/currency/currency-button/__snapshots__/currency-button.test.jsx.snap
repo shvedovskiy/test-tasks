@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CurrencyButton /> renders properly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CurrencyButton
+    alias="RUB"
+    checked={false}
+    currencyName="Russian Rouble"
+    handleChangeCurrency={[MockFunction]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "checked": false,
+      "children": Array [
+        <styled__Radio
+          checked={false}
+          id="Russian Rouble-currency"
+          name="currency"
+          onChange={[Function]}
+          value="Russian Rouble"
+        />,
+        <styled__RadioLabel
+          htmlFor="Russian Rouble-currency"
+        >
+          RUB
+        </styled__RadioLabel>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "checked": false,
+          "id": "Russian Rouble-currency",
+          "name": "currency",
+          "onChange": [Function],
+          "value": "Russian Rouble",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": "RUB",
+          "htmlFor": "Russian Rouble-currency",
+        },
+        "ref": null,
+        "rendered": "RUB",
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "checked": false,
+        "children": Array [
+          <styled__Radio
+            checked={false}
+            id="Russian Rouble-currency"
+            name="currency"
+            onChange={[Function]}
+            value="Russian Rouble"
+          />,
+          <styled__RadioLabel
+            htmlFor="Russian Rouble-currency"
+          >
+            RUB
+          </styled__RadioLabel>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "checked": false,
+            "id": "Russian Rouble-currency",
+            "name": "currency",
+            "onChange": [Function],
+            "value": "Russian Rouble",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "RUB",
+            "htmlFor": "Russian Rouble-currency",
+          },
+          "ref": null,
+          "rendered": "RUB",
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

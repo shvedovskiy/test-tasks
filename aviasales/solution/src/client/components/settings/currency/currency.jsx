@@ -22,7 +22,7 @@ type CurrencyState = {|
   },
 |};
 
-class Currency extends React.Component<Props, CurrencyState> {
+export class Currency extends React.Component<Props, CurrencyState> {
   state = {
     aliases: {
       [RUSSIAN_ROUBLE]: currencyAliases[RUSSIAN_ROUBLE],

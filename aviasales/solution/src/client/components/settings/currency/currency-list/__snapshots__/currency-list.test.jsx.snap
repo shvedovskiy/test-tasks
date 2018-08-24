@@ -1,0 +1,181 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CurrencyList /> renders properly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CurrencyList
+    aliases={
+      Object {
+        "Euro": "EUR",
+        "Russian Rouble": "RUB",
+        "US Dollar": "USD",
+      }
+    }
+    handleChangeCurrency={[MockFunction]}
+    selectedCurrency="Russian Rouble"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <CurrencyButton
+          alias="RUB"
+          checked={true}
+          currencyName="Russian Rouble"
+          handleChangeCurrency={[MockFunction]}
+        />,
+        <CurrencyButton
+          alias="USD"
+          checked={false}
+          currencyName="US Dollar"
+          handleChangeCurrency={[MockFunction]}
+        />,
+        <CurrencyButton
+          alias="EUR"
+          checked={false}
+          currencyName="Euro"
+          handleChangeCurrency={[MockFunction]}
+        />,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "Russian Rouble",
+        "nodeType": "function",
+        "props": Object {
+          "alias": "RUB",
+          "checked": true,
+          "currencyName": "Russian Rouble",
+          "handleChangeCurrency": [MockFunction],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "US Dollar",
+        "nodeType": "function",
+        "props": Object {
+          "alias": "USD",
+          "checked": false,
+          "currencyName": "US Dollar",
+          "handleChangeCurrency": [MockFunction],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "Euro",
+        "nodeType": "function",
+        "props": Object {
+          "alias": "EUR",
+          "checked": false,
+          "currencyName": "Euro",
+          "handleChangeCurrency": [MockFunction],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <CurrencyButton
+            alias="RUB"
+            checked={true}
+            currencyName="Russian Rouble"
+            handleChangeCurrency={[MockFunction]}
+          />,
+          <CurrencyButton
+            alias="USD"
+            checked={false}
+            currencyName="US Dollar"
+            handleChangeCurrency={[MockFunction]}
+          />,
+          <CurrencyButton
+            alias="EUR"
+            checked={false}
+            currencyName="Euro"
+            handleChangeCurrency={[MockFunction]}
+          />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "Russian Rouble",
+          "nodeType": "function",
+          "props": Object {
+            "alias": "RUB",
+            "checked": true,
+            "currencyName": "Russian Rouble",
+            "handleChangeCurrency": [MockFunction],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "US Dollar",
+          "nodeType": "function",
+          "props": Object {
+            "alias": "USD",
+            "checked": false,
+            "currencyName": "US Dollar",
+            "handleChangeCurrency": [MockFunction],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "Euro",
+          "nodeType": "function",
+          "props": Object {
+            "alias": "EUR",
+            "checked": false,
+            "currencyName": "Euro",
+            "handleChangeCurrency": [MockFunction],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

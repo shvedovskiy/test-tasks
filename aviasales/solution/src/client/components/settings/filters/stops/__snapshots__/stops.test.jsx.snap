@@ -1,0 +1,870 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Stops /> renders properly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Stops
+    changeStops={[MockFunction]}
+    stops={
+      Object {
+        "0": true,
+        "1": false,
+        "2": false,
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <styled__StopsListItem>
+          <styled__Label
+            for="stops-all"
+          >
+            <StopsCheckbox
+              checked={false}
+              id="stops-all"
+              onChange={[Function]}
+              value="-1"
+            />
+            <styled__LabelText>
+              Все
+            </styled__LabelText>
+          </styled__Label>
+        </styled__StopsListItem>,
+        Array [
+          <styled__StopsListItem>
+            <styled__Label
+              for="stops-0"
+            >
+              <StopsCheckbox
+                checked={true}
+                id="stops-0"
+                onChange={[Function]}
+                value="0"
+              />
+              <styled__LabelText>
+                Без пересадок
+              </styled__LabelText>
+            </styled__Label>
+            <StopOnly
+              handleSelect={[Function]}
+            />
+          </styled__StopsListItem>,
+          <styled__StopsListItem>
+            <styled__Label
+              for="stops-1"
+            >
+              <StopsCheckbox
+                checked={false}
+                id="stops-1"
+                onChange={[Function]}
+                value="1"
+              />
+              <styled__LabelText>
+                1 пересадка
+              </styled__LabelText>
+            </styled__Label>
+            <StopOnly
+              handleSelect={[Function]}
+            />
+          </styled__StopsListItem>,
+          <styled__StopsListItem>
+            <styled__Label
+              for="stops-2"
+            >
+              <StopsCheckbox
+                checked={false}
+                id="stops-2"
+                onChange={[Function]}
+                value="2"
+              />
+              <styled__LabelText>
+                2 пересадки
+              </styled__LabelText>
+            </styled__Label>
+            <StopOnly
+              handleSelect={[Function]}
+            />
+          </styled__StopsListItem>,
+        ],
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <styled__Label
+            for="stops-all"
+          >
+            <StopsCheckbox
+              checked={false}
+              id="stops-all"
+              onChange={[Function]}
+              value="-1"
+            />
+            <styled__LabelText>
+              Все
+            </styled__LabelText>
+          </styled__Label>,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <StopsCheckbox
+                checked={false}
+                id="stops-all"
+                onChange={[Function]}
+                value="-1"
+              />,
+              <styled__LabelText>
+                Все
+              </styled__LabelText>,
+            ],
+            "for": "stops-all",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "checked": false,
+                "id": "stops-all",
+                "onChange": [Function],
+                "value": "-1",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Все",
+              },
+              "ref": null,
+              "rendered": "Все",
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "0",
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <styled__Label
+              for="stops-0"
+            >
+              <StopsCheckbox
+                checked={true}
+                id="stops-0"
+                onChange={[Function]}
+                value="0"
+              />
+              <styled__LabelText>
+                Без пересадок
+              </styled__LabelText>
+            </styled__Label>,
+            <StopOnly
+              handleSelect={[Function]}
+            />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <StopsCheckbox
+                  checked={true}
+                  id="stops-0"
+                  onChange={[Function]}
+                  value="0"
+                />,
+                <styled__LabelText>
+                  Без пересадок
+                </styled__LabelText>,
+              ],
+              "for": "stops-0",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "checked": true,
+                  "id": "stops-0",
+                  "onChange": [Function],
+                  "value": "0",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Без пересадок",
+                },
+                "ref": null,
+                "rendered": "Без пересадок",
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "handleSelect": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <styled__Label
+              for="stops-1"
+            >
+              <StopsCheckbox
+                checked={false}
+                id="stops-1"
+                onChange={[Function]}
+                value="1"
+              />
+              <styled__LabelText>
+                1 пересадка
+              </styled__LabelText>
+            </styled__Label>,
+            <StopOnly
+              handleSelect={[Function]}
+            />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <StopsCheckbox
+                  checked={false}
+                  id="stops-1"
+                  onChange={[Function]}
+                  value="1"
+                />,
+                <styled__LabelText>
+                  1 пересадка
+                </styled__LabelText>,
+              ],
+              "for": "stops-1",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "checked": false,
+                  "id": "stops-1",
+                  "onChange": [Function],
+                  "value": "1",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "1 пересадка",
+                },
+                "ref": null,
+                "rendered": "1 пересадка",
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "handleSelect": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "2",
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <styled__Label
+              for="stops-2"
+            >
+              <StopsCheckbox
+                checked={false}
+                id="stops-2"
+                onChange={[Function]}
+                value="2"
+              />
+              <styled__LabelText>
+                2 пересадки
+              </styled__LabelText>
+            </styled__Label>,
+            <StopOnly
+              handleSelect={[Function]}
+            />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <StopsCheckbox
+                  checked={false}
+                  id="stops-2"
+                  onChange={[Function]}
+                  value="2"
+                />,
+                <styled__LabelText>
+                  2 пересадки
+                </styled__LabelText>,
+              ],
+              "for": "stops-2",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "checked": false,
+                  "id": "stops-2",
+                  "onChange": [Function],
+                  "value": "2",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "2 пересадки",
+                },
+                "ref": null,
+                "rendered": "2 пересадки",
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "handleSelect": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <styled__StopsListItem>
+            <styled__Label
+              for="stops-all"
+            >
+              <StopsCheckbox
+                checked={false}
+                id="stops-all"
+                onChange={[Function]}
+                value="-1"
+              />
+              <styled__LabelText>
+                Все
+              </styled__LabelText>
+            </styled__Label>
+          </styled__StopsListItem>,
+          Array [
+            <styled__StopsListItem>
+              <styled__Label
+                for="stops-0"
+              >
+                <StopsCheckbox
+                  checked={true}
+                  id="stops-0"
+                  onChange={[Function]}
+                  value="0"
+                />
+                <styled__LabelText>
+                  Без пересадок
+                </styled__LabelText>
+              </styled__Label>
+              <StopOnly
+                handleSelect={[Function]}
+              />
+            </styled__StopsListItem>,
+            <styled__StopsListItem>
+              <styled__Label
+                for="stops-1"
+              >
+                <StopsCheckbox
+                  checked={false}
+                  id="stops-1"
+                  onChange={[Function]}
+                  value="1"
+                />
+                <styled__LabelText>
+                  1 пересадка
+                </styled__LabelText>
+              </styled__Label>
+              <StopOnly
+                handleSelect={[Function]}
+              />
+            </styled__StopsListItem>,
+            <styled__StopsListItem>
+              <styled__Label
+                for="stops-2"
+              >
+                <StopsCheckbox
+                  checked={false}
+                  id="stops-2"
+                  onChange={[Function]}
+                  value="2"
+                />
+                <styled__LabelText>
+                  2 пересадки
+                </styled__LabelText>
+              </styled__Label>
+              <StopOnly
+                handleSelect={[Function]}
+              />
+            </styled__StopsListItem>,
+          ],
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <styled__Label
+              for="stops-all"
+            >
+              <StopsCheckbox
+                checked={false}
+                id="stops-all"
+                onChange={[Function]}
+                value="-1"
+              />
+              <styled__LabelText>
+                Все
+              </styled__LabelText>
+            </styled__Label>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <StopsCheckbox
+                  checked={false}
+                  id="stops-all"
+                  onChange={[Function]}
+                  value="-1"
+                />,
+                <styled__LabelText>
+                  Все
+                </styled__LabelText>,
+              ],
+              "for": "stops-all",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "checked": false,
+                  "id": "stops-all",
+                  "onChange": [Function],
+                  "value": "-1",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Все",
+                },
+                "ref": null,
+                "rendered": "Все",
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <styled__Label
+                for="stops-0"
+              >
+                <StopsCheckbox
+                  checked={true}
+                  id="stops-0"
+                  onChange={[Function]}
+                  value="0"
+                />
+                <styled__LabelText>
+                  Без пересадок
+                </styled__LabelText>
+              </styled__Label>,
+              <StopOnly
+                handleSelect={[Function]}
+              />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  <StopsCheckbox
+                    checked={true}
+                    id="stops-0"
+                    onChange={[Function]}
+                    value="0"
+                  />,
+                  <styled__LabelText>
+                    Без пересадок
+                  </styled__LabelText>,
+                ],
+                "for": "stops-0",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "checked": true,
+                    "id": "stops-0",
+                    "onChange": [Function],
+                    "value": "0",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "Без пересадок",
+                  },
+                  "ref": null,
+                  "rendered": "Без пересадок",
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "handleSelect": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <styled__Label
+                for="stops-1"
+              >
+                <StopsCheckbox
+                  checked={false}
+                  id="stops-1"
+                  onChange={[Function]}
+                  value="1"
+                />
+                <styled__LabelText>
+                  1 пересадка
+                </styled__LabelText>
+              </styled__Label>,
+              <StopOnly
+                handleSelect={[Function]}
+              />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  <StopsCheckbox
+                    checked={false}
+                    id="stops-1"
+                    onChange={[Function]}
+                    value="1"
+                  />,
+                  <styled__LabelText>
+                    1 пересадка
+                  </styled__LabelText>,
+                ],
+                "for": "stops-1",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "checked": false,
+                    "id": "stops-1",
+                    "onChange": [Function],
+                    "value": "1",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "1 пересадка",
+                  },
+                  "ref": null,
+                  "rendered": "1 пересадка",
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "handleSelect": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "2",
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <styled__Label
+                for="stops-2"
+              >
+                <StopsCheckbox
+                  checked={false}
+                  id="stops-2"
+                  onChange={[Function]}
+                  value="2"
+                />
+                <styled__LabelText>
+                  2 пересадки
+                </styled__LabelText>
+              </styled__Label>,
+              <StopOnly
+                handleSelect={[Function]}
+              />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  <StopsCheckbox
+                    checked={false}
+                    id="stops-2"
+                    onChange={[Function]}
+                    value="2"
+                  />,
+                  <styled__LabelText>
+                    2 пересадки
+                  </styled__LabelText>,
+                ],
+                "for": "stops-2",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "checked": false,
+                    "id": "stops-2",
+                    "onChange": [Function],
+                    "value": "2",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "2 пересадки",
+                  },
+                  "ref": null,
+                  "rendered": "2 пересадки",
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "handleSelect": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

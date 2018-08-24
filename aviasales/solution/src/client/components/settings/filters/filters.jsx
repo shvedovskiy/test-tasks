@@ -15,7 +15,7 @@ type Props = {|
   changeStops: Function,
 |}
 
-const Filters = ({ render, stops, changeStops }: Props) => {
+export const Filters = ({ render, stops, changeStops }: Props) => {
   const stopsTitle = 'Количество пересадок';
   const child = <Stops stops={stops} changeStops={changeStops} />;
 
