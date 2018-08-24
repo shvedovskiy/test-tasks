@@ -8,9 +8,9 @@ describe('<Filters />', () => {
   const props = {
     render: jest.fn(),
     stops: {
-      '0': true,
-      '1': false,
-      '2': false,
+      0: true,
+      1: false,
+      2: false,
     },
     changeStops: jest.fn(),
   };

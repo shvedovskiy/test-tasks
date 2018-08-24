@@ -10,7 +10,7 @@ describe('<CurrencyList />', () => {
     aliases: {
       'Russian Rouble': 'RUB',
       'US Dollar': 'USD',
-      'Euro': 'EUR',
+      'Euro': 'EUR', /* eslint-disable-line quote-props */
     },
     handleChangeCurrency: jest.fn(),
   };

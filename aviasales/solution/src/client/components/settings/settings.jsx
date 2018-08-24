@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
 
-import Currency from './currency/currency';
-import Filters from './filters/filters';
+import CurrencyContainer from './currency/currency';
+import FiltersContainer from './filters/filters';
 import {
   SettingsContainer,
   CurrencySettings,
@@ -18,10 +18,10 @@ const Settings = () => (
       <Title>
         <TitleText>Валюта</TitleText>
       </Title>
-      <Currency />
+      <CurrencyContainer />
     </CurrencySettings>
     <FiltersSettings>
-      <Filters render={(title, child) => (
+      <FiltersContainer render={(title, child) => (
         <li>
           <Title>
             <TitleText>{title}</TitleText>

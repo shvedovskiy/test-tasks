@@ -7,9 +7,9 @@ import Stops from './stops';
 describe('<Stops />', () => {
   const props = {
     stops: {
-      '0': true,
-      '1': false,
-      '2': false,
+      0: true,
+      1: false,
+      2: false,
     },
     changeStops: jest.fn(),
   };
