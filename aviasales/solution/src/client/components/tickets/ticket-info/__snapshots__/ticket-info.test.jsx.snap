@@ -1,0 +1,422 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TicketInfo /> renders properly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <TicketInfo
+    carrier="S7"
+    destination={
+      Object {
+        "code": "DST",
+        "date": "12 окт 2018, Пт",
+        "name": "Destination Name",
+        "time": "12:00",
+      }
+    }
+    origin={
+      Object {
+        "code": "ORG",
+        "date": "12 окт 2018, Пт",
+        "name": "Origin Name",
+        "time": "12:00",
+      }
+    }
+    stops="2"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <styled__TicketSide>
+          <styled__CarrierLogoPicture>
+            <styled__CarrierLogo
+              logo={
+                Array [
+                  "/static/images/carriers/S7",
+                  "/static/images/carriers/S7@2x",
+                  "/static/images/carriers/S7@3x",
+                ]
+              }
+            />
+            <styled__CarrierLogo
+              alt="S7"
+              logo={
+                Array [
+                  "/static/images/carriers/S7",
+                  "/static/images/carriers/S7@2x",
+                  "/static/images/carriers/S7@3x",
+                ]
+              }
+            />
+          </styled__CarrierLogoPicture>
+          <div />
+        </styled__TicketSide>,
+        <FlightDetailsContainer
+          destination={
+            Object {
+              "code": "DST",
+              "date": "12 окт 2018, Пт",
+              "name": "Destination Name",
+              "time": "12:00",
+            }
+          }
+          origin={
+            Object {
+              "code": "ORG",
+              "date": "12 окт 2018, Пт",
+              "name": "Origin Name",
+              "time": "12:00",
+            }
+          }
+          stops="2"
+        />,
+      ],
+      "transitionName": "tickets",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <styled__CarrierLogoPicture>
+              <styled__CarrierLogo
+                logo={
+                  Array [
+                    "/static/images/carriers/S7",
+                    "/static/images/carriers/S7@2x",
+                    "/static/images/carriers/S7@3x",
+                  ]
+                }
+              />
+              <styled__CarrierLogo
+                alt="S7"
+                logo={
+                  Array [
+                    "/static/images/carriers/S7",
+                    "/static/images/carriers/S7@2x",
+                    "/static/images/carriers/S7@3x",
+                  ]
+                }
+              />
+            </styled__CarrierLogoPicture>,
+            <div />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <styled__CarrierLogo
+                  logo={
+                    Array [
+                      "/static/images/carriers/S7",
+                      "/static/images/carriers/S7@2x",
+                      "/static/images/carriers/S7@3x",
+                    ]
+                  }
+                />,
+                <styled__CarrierLogo
+                  alt="S7"
+                  logo={
+                    Array [
+                      "/static/images/carriers/S7",
+                      "/static/images/carriers/S7@2x",
+                      "/static/images/carriers/S7@3x",
+                    ]
+                  }
+                />,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "logo": Array [
+                    "/static/images/carriers/S7",
+                    "/static/images/carriers/S7@2x",
+                    "/static/images/carriers/S7@3x",
+                  ],
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "alt": "S7",
+                  "logo": Array [
+                    "/static/images/carriers/S7",
+                    "/static/images/carriers/S7@2x",
+                    "/static/images/carriers/S7@3x",
+                  ],
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "div",
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "destination": Object {
+            "code": "DST",
+            "date": "12 окт 2018, Пт",
+            "name": "Destination Name",
+            "time": "12:00",
+          },
+          "origin": Object {
+            "code": "ORG",
+            "date": "12 окт 2018, Пт",
+            "name": "Origin Name",
+            "time": "12:00",
+          },
+          "stops": "2",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <styled__TicketSide>
+            <styled__CarrierLogoPicture>
+              <styled__CarrierLogo
+                logo={
+                  Array [
+                    "/static/images/carriers/S7",
+                    "/static/images/carriers/S7@2x",
+                    "/static/images/carriers/S7@3x",
+                  ]
+                }
+              />
+              <styled__CarrierLogo
+                alt="S7"
+                logo={
+                  Array [
+                    "/static/images/carriers/S7",
+                    "/static/images/carriers/S7@2x",
+                    "/static/images/carriers/S7@3x",
+                  ]
+                }
+              />
+            </styled__CarrierLogoPicture>
+            <div />
+          </styled__TicketSide>,
+          <FlightDetailsContainer
+            destination={
+              Object {
+                "code": "DST",
+                "date": "12 окт 2018, Пт",
+                "name": "Destination Name",
+                "time": "12:00",
+              }
+            }
+            origin={
+              Object {
+                "code": "ORG",
+                "date": "12 окт 2018, Пт",
+                "name": "Origin Name",
+                "time": "12:00",
+              }
+            }
+            stops="2"
+          />,
+        ],
+        "transitionName": "tickets",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <styled__CarrierLogoPicture>
+                <styled__CarrierLogo
+                  logo={
+                    Array [
+                      "/static/images/carriers/S7",
+                      "/static/images/carriers/S7@2x",
+                      "/static/images/carriers/S7@3x",
+                    ]
+                  }
+                />
+                <styled__CarrierLogo
+                  alt="S7"
+                  logo={
+                    Array [
+                      "/static/images/carriers/S7",
+                      "/static/images/carriers/S7@2x",
+                      "/static/images/carriers/S7@3x",
+                    ]
+                  }
+                />
+              </styled__CarrierLogoPicture>,
+              <div />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  <styled__CarrierLogo
+                    logo={
+                      Array [
+                        "/static/images/carriers/S7",
+                        "/static/images/carriers/S7@2x",
+                        "/static/images/carriers/S7@3x",
+                      ]
+                    }
+                  />,
+                  <styled__CarrierLogo
+                    alt="S7"
+                    logo={
+                      Array [
+                        "/static/images/carriers/S7",
+                        "/static/images/carriers/S7@2x",
+                        "/static/images/carriers/S7@3x",
+                      ]
+                    }
+                  />,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "logo": Array [
+                      "/static/images/carriers/S7",
+                      "/static/images/carriers/S7@2x",
+                      "/static/images/carriers/S7@3x",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "alt": "S7",
+                    "logo": Array [
+                      "/static/images/carriers/S7",
+                      "/static/images/carriers/S7@2x",
+                      "/static/images/carriers/S7@3x",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "div",
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "destination": Object {
+              "code": "DST",
+              "date": "12 окт 2018, Пт",
+              "name": "Destination Name",
+              "time": "12:00",
+            },
+            "origin": Object {
+              "code": "ORG",
+              "date": "12 окт 2018, Пт",
+              "name": "Origin Name",
+              "time": "12:00",
+            },
+            "stops": "2",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
