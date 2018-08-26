@@ -10,7 +10,7 @@ export const StopOnlyButton = styled.span`
   right: 0;
   padding-left: 15px;
   padding-right: 15px;
-  background-color: #fff;
+  background-color: var(--container-background);
 
   &::before {
     content: '';
@@ -19,17 +19,17 @@ export const StopOnlyButton = styled.span`
     left: -15px;
     width: 15px;
     height: 100%;
-    background: linear-gradient(90deg, rgba(255,255,255,0.001), #fff 85%);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.001), var(--container-background) 85%);
   }
 
   ${StopsListItem}:hover &,
   ${StopsListItem}:focus-within & {
-    background-color: #f1fcff;
+    background-color: var(--brand-light-blue);
   }
 
   ${StopsListItem}:hover &::before,
   ${StopsListItem}:focus-within &::before {
-    background: linear-gradient(90deg, rgba(255,255,255,0.001), #f1fcff 85%);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.001), var(--brand-light-blue) 85%);
   }
 `;
 
@@ -41,7 +41,7 @@ export const Button = styled.a.attrs({
   position: relative;
   top: 25px;
   line-height: 36px;
-  color: #2196f3;
+  color: var(--brand-blue);
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
@@ -50,15 +50,15 @@ export const Button = styled.a.attrs({
   opacity: 0;
   transition: opacity .15s, top .15s ease-out;
   outline: none;
-  
+
 
   &:hover,
   &:focus {
-    color: #ff9d1b;
+    color: var(--brand-orange);
   }
-  
+
   &:focus {
-    box-shadow: inset 0 0 0 1px #2196f3;
+    box-shadow: inset 0 0 0 1px var(--brand-blue);
   }
 
   ${StopsListItem}:hover &,

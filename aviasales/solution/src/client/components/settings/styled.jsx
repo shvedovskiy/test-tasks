@@ -9,11 +9,11 @@ export const SettingsContainer = styled.div.attrs({
   margin: 0 auto;
   padding-top: 20px;
   padding-bottom: 15px;
-  background-color: #fff;
+  background-color: var(--container-background);
   border-radius: 5px;
-  box-shadow: 0 1px 4px rgba(91, 137, 164, .25);
+  box-shadow: 0 1px 4px var(--blue-shadow-color);
   overflow: hidden;
-  
+
   @media screen and (max-width: 870px) {
     max-width: 750px;
   }
@@ -23,7 +23,7 @@ export const SettingsElement = styled.div`
   flex-basis: 230px;
   flex-grow: 0;
   overflow: hidden;
-  
+
   @media screen and (max-width: 870px) {
     flex-grow: 1;
   }

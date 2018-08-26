@@ -1,3 +1,5 @@
+@import 'settings.css';
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -44,8 +46,8 @@ html {
 
 body {
     width: 100%;
-    background-color: #f3f7fa;
-    color: #4a4a4a;
+    background-color: var(--main-background);
+    color: var(--base-text-color);
     font-family: Open Sans, Helvetica, Verdana, Arial, sans-serif;
     font-size: 12px;
 }

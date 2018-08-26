@@ -17,13 +17,13 @@ export const Logo = styled.a`
   margin-right: auto;
   background: url(${logo}) no-repeat center center;
   outline: none;
-  
+
   @media screen and (min-width: 600px) {
     padding-top: 20px;
     padding-bottom: 15px;
   }
-  
+
   &:focus {
-    outline: 2px solid #2196f3;
+    outline: 2px solid var(--brand-blue);
   }
 `;

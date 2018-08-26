@@ -14,7 +14,6 @@ const MessageContent = styled.span`
   text-align: center;
   font-size: 22px;
   line-height: 35px;
-  
 `;
 
 type Props = {

@@ -6,7 +6,7 @@ import plane from './plane.svg';
 export const FlightDetails = styled.div`
   padding-left: 25px;
   padding-right: 25px;
-  
+
   @media screen and (max-width: 600px) {
     padding-left: 20px;
     padding-right: 20px;
@@ -16,7 +16,7 @@ export const FlightDetails = styled.div`
 export const Route = styled.div`
   display: flex;
   margin-top: 25px;
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
 `;
 
 export const Time = styled.span`
@@ -29,7 +29,7 @@ export const PathWithStops = styled.div`
   flex-grow: 1;
   margin-left: 20px;
   margin-right: 20px;
-  
+
   @media screen and (max-width: 600px) {
     margin-left: 10px;
     margin-right: 10px;
@@ -40,7 +40,7 @@ export const Stops = styled.div`
   height: 10px;
   margin-top: 3px;
   margin-bottom: 3px;
-  color: #8b9497;
+  color: var(--secondary-text-color);
   font-size: 10px;
   text-align: center;
   text-transform: uppercase;
@@ -54,7 +54,7 @@ export const Path = styled.div`
 export const PathLine = styled.div`
   flex-grow: 1;
   height: 1px;
-  background-color: #d2d5d6;
+  background-color: var(--brand-gray);
 `;
 
 export const PathPlane = styled.div`
@@ -88,5 +88,5 @@ export const Name = LocationItem.extend`
 `;
 
 export const Date = LocationItem.extend`
-  color: #8b9497;
+  color: var(--secondary-text-color);
 `;

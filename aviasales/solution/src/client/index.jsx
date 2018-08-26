@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import Search from './components/search/search';
 import configureStore from './store/configureStore';
 import { APP_COMPONENT_SELECTOR } from './config/config';
-import './global.css';
+import './styles/global.css';
 
 
 const rootContainer = document.getElementById(APP_COMPONENT_SELECTOR);

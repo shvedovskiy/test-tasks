@@ -6,9 +6,9 @@ export const SwitchButton = styled.span`
   position: relative;
   height: 40px;
   line-height: 40px;
-  background-color: ${({ checked }) => (checked ? '#2196f3' : '#fff')};
-  border: 1px solid ${({ checked }) => (checked ? '#2196f3' : '#d2d5d6')};
-  color: ${({ checked }) => (checked ? '#fff' : '#2196f3')};
+  background-color: ${({ checked }) => (checked ? 'var(--brand-blue)' : '#fff')};
+  border: 1px solid ${({ checked }) => (checked ? 'var(--brand-blue)' : 'var(--brand-gray)')};
+  color: ${({ checked }) => (checked ? '#fff' : 'var(--brand-blue)')};
   text-align: center;
   letter-spacing: .5px;
   transition: all .3s ease;
@@ -20,24 +20,24 @@ export const SwitchButton = styled.span`
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
   }
-  
+
   &:not(:first-child) {
     margin-left: -1px;
   }
-  
+
   &:last-child {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
   }
-  
+
   &:focus-within {
      box-shadow: inset 0 0 0 1px #fff;
   }
-  
+
   ${({ checked }) => (!checked ? css`
     &:hover {
-       background-color: #f2fcff;
-       border-color: #64b5f5;
+       background-color: var(--brand-light-blue);
+       border-color: var(--brand-blue);
        z-index: 2;
     }
   ` : '')}
