@@ -1,226 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Error /> renders properly 1`] = `
-ShallowWrapper {
-  "length": 1,
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <FetchError
-    message="Some Error"
-    onRetry={[MockFunction]}
-  />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "function",
-    "props": Object {
-      "children": Array [
-        <h2>
-          <span>
-            Билеты загрузить не удалось
-          </span>
-           
-          <span
-            role="img"
-          >
-            😥
-          </span>
-           
-          (
-          Some Error
-          )
-        </h2>,
-        <error__RetryButton
-          onClick={[MockFunction]}
-        >
-          Повторить
-        </error__RetryButton>,
-      ],
-    },
-    "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": Array [
-            <span>
-              Билеты загрузить не удалось
-            </span>,
-            " ",
-            <span
-              role="img"
-            >
-              😥
-            </span>,
-            " ",
-            "(",
-            "Some Error",
-            ")",
-          ],
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Билеты загрузить не удалось",
-            },
-            "ref": null,
-            "rendered": "Билеты загрузить не удалось",
-            "type": "span",
-          },
-          " ",
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "😥",
-              "role": "img",
-            },
-            "ref": null,
-            "rendered": "😥",
-            "type": "span",
-          },
-          " ",
-          "(",
-          "Some Error",
-          ")",
-        ],
-        "type": "h2",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "children": "Повторить",
-          "onClick": [MockFunction],
-        },
-        "ref": null,
-        "rendered": "Повторить",
-        "type": [Function],
-      },
-    ],
-    "type": [Function],
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "function",
-      "props": Object {
-        "children": Array [
-          <h2>
-            <span>
-              Билеты загрузить не удалось
-            </span>
-             
-            <span
-              role="img"
-            >
-              😥
-            </span>
-             
-            (
-            Some Error
-            )
-          </h2>,
-          <error__RetryButton
-            onClick={[MockFunction]}
-          >
-            Повторить
-          </error__RetryButton>,
-        ],
-      },
-      "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [
-              <span>
-                Билеты загрузить не удалось
-              </span>,
-              " ",
-              <span
-                role="img"
-              >
-                😥
-              </span>,
-              " ",
-              "(",
-              "Some Error",
-              ")",
-            ],
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Билеты загрузить не удалось",
-              },
-              "ref": null,
-              "rendered": "Билеты загрузить не удалось",
-              "type": "span",
-            },
-            " ",
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "😥",
-                "role": "img",
-              },
-              "ref": null,
-              "rendered": "😥",
-              "type": "span",
-            },
-            " ",
-            "(",
-            "Some Error",
-            ")",
-          ],
-          "type": "h2",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "children": "Повторить",
-            "onClick": [MockFunction],
-          },
-          "ref": null,
-          "rendered": "Повторить",
-          "type": [Function],
-        },
-      ],
-      "type": [Function],
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-      },
-    },
-  },
-}
+<Message>
+  <h2>
+    <span>
+      Билеты загрузить не удалось
+    </span>
+     
+    <span
+      role="img"
+    >
+      😥
+    </span>
+     
+    (
+    Some Error
+    )
+  </h2>
+  <error__RetryButton
+    onClick={[MockFunction]}
+  >
+    Повторить
+  </error__RetryButton>
+</Message>
 `;

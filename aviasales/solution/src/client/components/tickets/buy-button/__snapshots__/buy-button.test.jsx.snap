@@ -1,129 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<BuyButton /> renders properly 1`] = `
-ShallowWrapper {
-  "length": 1,
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <BuyButton
-    buyClick={[MockFunction]}
-  >
-    12500$
-  </BuyButton>,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "class",
-    "props": Object {
-      "children": Array [
-        <styled__BuyButtonText>
-          Купить
-        </styled__BuyButtonText>,
-        <styled__BuyButtonText>
-          за 
-          12 500$
-        </styled__BuyButtonText>,
-      ],
-      "onClick": [MockFunction],
-      "tabIndex": "0",
-    },
-    "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "children": "Купить",
-        },
-        "ref": null,
-        "rendered": "Купить",
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "children": Array [
-            "за ",
-            "12 500$",
-          ],
-        },
-        "ref": null,
-        "rendered": Array [
-          "за ",
-          "12 500$",
-        ],
-        "type": [Function],
-      },
-    ],
-    "type": [Function],
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "children": Array [
-          <styled__BuyButtonText>
-            Купить
-          </styled__BuyButtonText>,
-          <styled__BuyButtonText>
-            за 
-            12 500$
-          </styled__BuyButtonText>,
-        ],
-        "onClick": [MockFunction],
-        "tabIndex": "0",
-      },
-      "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "children": "Купить",
-          },
-          "ref": null,
-          "rendered": "Купить",
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "children": Array [
-              "за ",
-              "12 500$",
-            ],
-          },
-          "ref": null,
-          "rendered": Array [
-            "за ",
-            "12 500$",
-          ],
-          "type": [Function],
-        },
-      ],
-      "type": [Function],
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-      },
-    },
-  },
-}
+<styled__BuyButtonContainer
+  onClick={[MockFunction]}
+  tabIndex="0"
+>
+  <styled__BuyButtonText>
+    Купить
+    <br />
+    за 
+    1 000 $
+  </styled__BuyButtonText>
+</styled__BuyButtonContainer>
 `;

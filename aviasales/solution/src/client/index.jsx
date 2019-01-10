@@ -8,7 +8,6 @@ import configureStore from './store/configureStore';
 import { APP_COMPONENT_SELECTOR } from './config/config';
 import './styles/global.css';
 
-
 const rootContainer = document.getElementById(APP_COMPONENT_SELECTOR);
 
 if (rootContainer !== null) {

@@ -1,5 +1,7 @@
 // @flow
-import _ from 'lodash';
+import min from 'lodash-es/min';
+import zipObject from 'lodash-es/zipObject';
+import map from 'lodash-es/map';
 
 import * as types from './action-types';
 import type { StopsType } from './types';
@@ -13,10 +15,10 @@ export const changeCurrency = (currency: string) => ({
 export const setStopsFilter = (...stopsCountings: Array<string>) => {
   let stops: StopsType = {};
   if (stopsCountings.length > 0) {
-    const minStop: string = _.min(stopsCountings);
-    stops = _.zipObject(
+    const minStop: string = min(stopsCountings);
+    stops = zipObject(
       stopsCountings,
-      _.map(stopsCountings, (stop: string): boolean => stop === minStop),
+      map(stopsCountings, (stop: string): boolean => stop === minStop),
     );
   }
 

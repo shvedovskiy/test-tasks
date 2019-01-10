@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { connect } from 'react-redux';
-import _ from 'lodash';
+import pickBy from 'lodash-es/pickBy';
 
 import currencyService from 'src/services/currency';
 import { RUSSIAN_ROUBLE, currencyAliases } from 'src/config/currency';
@@ -33,7 +33,7 @@ export class Currency extends React.Component<Props, CurrencyState> {
     currencyService.fetchCurrencies()
       .then(() => {
         const ratesNames = currencyService.getRatesNames();
-        const aliases = _.pickBy(currencyAliases, value => ratesNames.includes(value));
+        const aliases = pickBy(currencyAliases, value => ratesNames.includes(value));
 
         this.setState({ aliases });
       })

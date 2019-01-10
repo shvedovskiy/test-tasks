@@ -17,7 +17,7 @@ describe('config file', () => {
     expect(require('./config').isProd).toBeTruthy();
   });
 
-  it('check production mode if NODE_ENV equals \'development\'', () => {
+  it("check production mode if NODE_ENV equals 'development'", () => {
     process.env.NODE_ENV = 'development';
     expect(require('./config').isProd).toBeFalsy();
   });

@@ -4,7 +4,7 @@ import * as React from 'react';
 import { Header, Logo } from './styled';
 
 
-class Head extends React.Component<{}> {
+export default class Head extends React.Component<{}> {
   shouldComponentUpdate() {
     return false;
   }
@@ -17,5 +17,3 @@ class Head extends React.Component<{}> {
     );
   }
 }
-
-export default Head;

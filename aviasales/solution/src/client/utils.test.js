@@ -1,8 +1,7 @@
 import { pluralStop, splitPrice } from './utils';
 
-
 describe('utility functions', () => {
-  it('pluralize \'stop\' word', () => {
+  it("pluralize 'stop' word", () => {
     expect(pluralStop('0')).toEqual('пересадок');
     expect(pluralStop('1')).toEqual('пересадка');
     expect(pluralStop('2')).toEqual('пересадки');

@@ -5,13 +5,7 @@ import favicon from 'serve-favicon';
 
 import getTickets from './api/tickets';
 import '../shared/env';
-import {
-  STATIC_PATH,
-  address,
-  port,
-  isProd,
-} from '../shared/config';
-
+import { STATIC_PATH, address, port, isProd } from '../shared/config';
 
 const app = express();
 
@@ -34,15 +28,18 @@ app.get('/', (req, res) => {
   res.status(200).sendFile(path.resolve(__dirname, '..', '..', 'dist', 'index.html'));
 });
 
-app.listen(port, (err) => {
+app.listen(port, err => {
   /* eslint-disable no-console */
   if (err) {
     console.error(err);
   } else {
-    console.info(`==> 🌎 Server running on port ${port} ${isProd
-      ? `(production).\nOpen up ${address} in your browser`
-      : `(development).\nOpen up ${address} in your browser.\nKeep "npm run dev:wds" running in an other terminal`
-    }`);
+    console.info(
+      `==> 🌎 Server running on port ${port} ${
+        isProd
+          ? `(production).\nOpen up ${address} in your browser`
+          : `(development).\nOpen up ${address} in your browser.\nKeep "npm run dev:wds" running in an other terminal`
+      }`,
+    );
   }
   /* eslint-enable no-console */
 });

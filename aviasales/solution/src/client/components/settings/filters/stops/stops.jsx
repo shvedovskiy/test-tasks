@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import _ from 'lodash';
+import mapValues from 'lodash-es/mapValues';
 
 import { pluralStop } from 'src/utils';
 import StopsCheckbox from './stops-checkbox/stops-checkbox';
@@ -15,7 +15,7 @@ import {
 
 function _selectAllStops(stops, changeStops) { // eslint-disable-line no-underscore-dangle
   return ({ currentTarget: { checked } }) => {
-    const newStops = _.mapValues(stops, () => checked);
+    const newStops = mapValues(stops, () => checked);
 
     changeStops(newStops);
   };
@@ -29,7 +29,7 @@ function _selectStop(changeStops) { // eslint-disable-line no-underscore-dangle
 
 function _selectOnlyStop(stops, changeStops) { // eslint-disable-line no-underscore-dangle
   return newValue => () => {
-    const newStops = _.mapValues(stops, (__, stop) => stop === newValue);
+    const newStops = mapValues(stops, (__, stop) => stop === newValue);
     changeStops(newStops);
   };
 }
@@ -51,14 +51,14 @@ const Stops = ({ stops, changeStops }: Props) => {
   return (
     <StopsList>
       <StopsListItem>
-        <Label for="stops-all">
+        <Label htmlFor="stops-all">
           <StopsCheckbox onChange={selectAllStops} checked={checkedAll} id="stops-all" />
           <LabelText>Все</LabelText>
         </Label>
       </StopsListItem>
       {Object.keys(stops).map((stop, idx) => (
         <StopsListItem key={stop}>
-          <Label for={`stops-${idx}`}>
+          <Label htmlFor={`stops-${idx}`}>
             <StopsCheckbox
               id={`stops-${idx}`}
               value={stop}

@@ -1,5 +1,5 @@
 // @flow
-import _ from 'lodash';
+import mapValues from 'lodash-es/mapValues';
 
 import { RUSSIAN_ROUBLE, currencyAliases } from 'src/config/currency';
 import { FIXER_API_KEY } from 'shared/config';
@@ -35,7 +35,7 @@ class CurrencyService {
     const { rates } = fetchData;
     if (rates !== null && rates !== undefined) {
       const coefficient = rates[currencyAliases[RUSSIAN_ROUBLE]];
-      const newRates = _.mapValues(rates, value => Number((value / coefficient).toFixed(2)));
+      const newRates = mapValues(rates, value => Number((value / coefficient).toFixed(2)));
       this.rates = {
         ...this.rates,
         ...newRates,

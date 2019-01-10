@@ -3,7 +3,6 @@ import { noun } from 'plural-ru';
 
 import type { Reducer } from './store/types';
 
-
 export function pluralStop(number: string): string {
   return noun(number, 'пересадка', 'пересадки', 'пересадок');
 }

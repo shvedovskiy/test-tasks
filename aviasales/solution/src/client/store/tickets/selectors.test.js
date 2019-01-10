@@ -2,7 +2,6 @@ import Immutable from 'seamless-immutable';
 
 import * as selectors from './selectors';
 
-
 describe('Tickets selectors', () => {
   it('select isFetching', () => {
     const state = Immutable({

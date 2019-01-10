@@ -1,11 +1,11 @@
 // @flow
 import { createSelector } from 'reselect';
-import _ from 'lodash';
+import keys from 'lodash-es/keys';
+import pickBy from 'lodash-es/pickBy';
 
 import type { State as TicketsState } from 'src/store/tickets/types';
 import type { State, StopsType, FiltersType } from './types';
 import * as filterMethods from './filter-methods';
-
 
 export const getCurrency = (state: State): string => state.getIn(['currency']);
 
@@ -19,17 +19,17 @@ export const getStopsFilter = createSelector(
       return null;
     }
     // Return array with allowed stops or empty array if all stops are restricted:
-    return _.keys(_.pickBy(allStops), stop => stop === true);
+    return keys(pickBy(allStops), stop => stop === true);
   },
 );
 
 export const getFilters = (state: State) => ({
   stops: getStopsFilter(state),
   /*
-  * Add filter's state selector here.
-  * If filter isn't active, its selector must return null.
-  * The key must be equal to the name of corresponding filter method.
-  */
+   * Add filter's state selector here.
+   * If filter isn't active, its selector must return null.
+   * The key must be equal to the name of corresponding filter method.
+   */
 });
 
 export const getFilteredIds = (

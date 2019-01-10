@@ -1,5 +1,8 @@
 // @flow
-import _ from 'lodash';
+import map from 'lodash-es/map';
+import sortBy from 'lodash-es/sortBy';
+import keyBy from 'lodash-es/keyBy';
+import uniq from 'lodash-es/uniq';
 
 import ticketService from 'src/services/tickets';
 import { getIsFetching } from 'src/store/rootSelectors';
@@ -37,9 +40,9 @@ const fetchTicketsIfNeeded = (): ThunkAction<State, Actions> => async (dispatch)
 
   try {
     const tickets: Array<TicketType> = await ticketService.getTickets();
-    const ids: Array<string> = _.map(_.sortBy(tickets, t => Number.parseFloat(t.price)), 'id');
-    const ticketsById: TicketsType = _.keyBy(tickets, 'id');
-    const filter: Array<string> = _.uniq(_.map(ticketsById, 'stops'));
+    const ids: Array<string> = map(sortBy(tickets, t => Number.parseFloat(t.price)), 'id');
+    const ticketsById: TicketsType = keyBy(tickets, 'id');
+    const filter: Array<string> = uniq(map(ticketsById, 'stops'));
 
     dispatch(setStopsFilter(...filter));
     dispatch(ticketsFetchingSuccess(ticketsById, ids));
