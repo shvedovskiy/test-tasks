@@ -34,13 +34,13 @@ export const SwitchButton = styled.span`
      box-shadow: inset 0 0 0 1px #fff;
   }
 
-  ${({ checked }) => (!checked ? css`
+  ${({ checked }) => !checked ? css`
     &:hover {
        background-color: var(--brand-light-blue);
        border-color: var(--brand-blue);
        z-index: 2;
     }
-  ` : '')}
+  ` : ''}
 `;
 
 export const Radio = styled.input.attrs({

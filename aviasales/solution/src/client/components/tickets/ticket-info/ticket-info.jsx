@@ -27,7 +27,7 @@ function TicketInfo<T: *>({ children, carrier, ...props }: Props<T>) {
     <TicketInfoContainer transitionName="tickets">
       <TicketSide>
         <CarrierLogoPicture>
-          <CarrierLogoSource logo={logo} />
+          <CarrierLogoSource as="source" logo={logo} />
           <CarrierLogo logo={logo} alt={carrier} />
         </CarrierLogoPicture>
         <div>

@@ -5,8 +5,8 @@ import CurrencyContainer from './currency/currency';
 import FiltersContainer from './filters/filters';
 import {
   SettingsContainer,
+  SettingsElement,
   CurrencySettings,
-  FiltersSettings,
   Title,
   TitleText,
 } from './styled';
@@ -20,7 +20,7 @@ const Settings = () => (
       </Title>
       <CurrencyContainer />
     </CurrencySettings>
-    <FiltersSettings>
+    <SettingsElement as="ul">
       <FiltersContainer render={(title, child) => (
         <li>
           <Title>
@@ -30,7 +30,7 @@ const Settings = () => (
         </li>
       )}
       />
-    </FiltersSettings>
+    </SettingsElement>
   </SettingsContainer>
 );
 

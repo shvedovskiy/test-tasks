@@ -29,11 +29,9 @@ export const SettingsElement = styled.div`
   }
 `;
 
-export const CurrencySettings = SettingsElement.extend`
+export const CurrencySettings = styled(SettingsElement)`
   margin-bottom: 35px;
 `;
-
-export const FiltersSettings = SettingsElement.withComponent('ul');
 
 export const Title = styled.div`
   margin-bottom: 10px;

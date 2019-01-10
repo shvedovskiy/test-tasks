@@ -83,10 +83,10 @@ export const LocationItem = styled.span`
   white-space: nowrap;
 `;
 
-export const Name = LocationItem.extend`
+export const Name = styled(LocationItem)`
   font-weight: 600;
 `;
 
-export const Date = LocationItem.extend`
+export const Date = styled(LocationItem)`
   color: var(--secondary-text-color);
 `;

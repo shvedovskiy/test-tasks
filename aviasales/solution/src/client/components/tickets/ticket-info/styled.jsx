@@ -88,17 +88,17 @@ export const CarrierLogoPicture = styled.picture`
   margin-bottom: 20px;
 `;
 
-export const CarrierLogo = styled.img.attrs({
-  src: ({ logo }) => `${logo[0]}.png`,
-  srcSet: ({ logo }) => `${logo[0]}.png 1x, ${logo[1]}.png 2x, ${logo[2]}.png 3x`,
-})`
+export const CarrierLogo = styled.img.attrs(({ logo }) => ({
+  src: `${logo[0]}.png`,
+  srcSet: `${logo[0]}.png 1x, ${logo[1]}.png 2x, ${logo[2]}.png 3x`,
+}))`
   display: block;
   margin: 0 auto;
   max-height: 35px;
 `;
 
-export const CarrierLogoSource = CarrierLogo.withComponent('source').extend.attrs({
+export const CarrierLogoSource = styled(CarrierLogo).attrs(({ logo }) => ({
   src: null,
-  srcSet: ({ logo }) => `${logo[0]}.webp 1x, ${logo[1]}.webp 2x, ${logo[2]}.webp 3x`,
+  srcSet: `${logo[0]}.webp 1x, ${logo[1]}.webp 2x, ${logo[2]}.webp 3x`,
   type: 'image/webp',
-})``;
+}))``;

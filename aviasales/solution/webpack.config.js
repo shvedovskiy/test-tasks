@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
 const postcssPresetEnv = require('postcss-preset-env');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -14,7 +15,6 @@ const CompressionWebpackPlugin = require('compression-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const dotenv = require('dotenv');
-
 
 dotenv.config();
 
@@ -150,7 +150,7 @@ const production = {
   target: 'web',
   entry: {
     main: './src/client',
-    vendor: ['@babel/polyfill', 'react', 'react-dom', 'redux', 'react-redux', 'react-router-dom', 'dayjs', 'lodash', 'reselect', 'seamless-immutable'],
+    vendor: ['@babel/polyfill', 'react', 'react-dom', 'redux', 'react-redux', 'react-router-dom', 'dayjs', 'reselect', 'seamless-immutable'],
   },
   output: {
     filename: '[name].[chunkhash].js',
@@ -168,7 +168,6 @@ const production = {
               loader: 'css-loader',
               options: {
                 url: false,
-                minimize: true,
                 sourceMap: true,
                 importLoaders: 1,
               },
@@ -180,6 +179,7 @@ const production = {
                 plugins: () => [
                   autoprefixer(),
                   postcssPresetEnv({ stage: 0 }),
+                  cssnano({ preset: 'default' }),
                 ],
                 sourceMap: true,
               },
@@ -228,7 +228,6 @@ const production = {
       allChunks: true,
     }),
     new CompressionWebpackPlugin({
-      asset: '[path].gz[query]',
       algorithm: 'gzip',
       test: new RegExp('\\.(jsx?|css)$'),
       threshold: 10240,
