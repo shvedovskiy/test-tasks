@@ -12,8 +12,7 @@ type Props = {|
 const BuyButton = ({ children, buyClick }: Props) => (
   <BuyButtonContainer onClick={buyClick} tabIndex="0">
     <BuyButtonText>
-      Купить
-      <br />
+      Купить <br />
       за {splitPrice(children)}
     </BuyButtonText>
   </BuyButtonContainer>

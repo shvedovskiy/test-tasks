@@ -1,15 +1,155 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<BuyButton /> renders properly 1`] = `
-<styled__BuyButtonContainer
-  onClick={[MockFunction]}
-  tabIndex="0"
+.c0 {
+  display: block;
+  width: 100%;
+  height: 56px;
+  padding: 0;
+  color: var(--contrast-text-color);
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 22px;
+  background-color: var(--brand-orange);
+  border: 0;
+  border-radius: 5px;
+  box-shadow: 0 1px 0 0 var(--brand-dark-orange),0 2px 1px rgba(0,0,0,.1);
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  overflow: hidden;
+  cursor: pointer;
+  outline: none;
+}
+
+.c0:hover,
+.c0:focus {
+  background-color: var(--brand-light-orange);
+  box-shadow: 0 1px 0 0 var(--brand-dark-orange),0 2px 3px 2px rgba(0,0,0,.1);
+}
+
+.c0:focus {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c0:active {
+  box-shadow: inset 0 1px 0 0 var(--brand-dark-orange);
+}
+
+.c1 {
+  display: block;
+}
+
+<BuyButton
+  buyClick={[MockFunction]}
 >
-  <styled__BuyButtonText>
-    Купить
-    <br />
-    за 
-    1 000 $
-  </styled__BuyButtonText>
-</styled__BuyButtonContainer>
+  <styled__BuyButtonContainer
+    onClick={[MockFunction]}
+    tabIndex="0"
+  >
+    <StyledComponent
+      forwardedComponent={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "styled__BuyButtonContainer-eeTeVX",
+            "isStatic": true,
+            "lastClassName": "c0",
+            "rules": Array [
+              "
+  display: block;
+  width: 100%;
+  height: 56px;
+  padding: 0;
+  color: var(--contrast-text-color);
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 22px;
+  background-color: var(--brand-orange);
+  border: 0;
+  border-radius: 5px;
+  box-shadow: 0 1px 0 0 var(--brand-dark-orange), 0 2px 1px rgba(0, 0, 0, .1);
+  transition: all .3s;
+  overflow: hidden;
+  cursor: pointer;
+  outline: none;
+
+  &:hover,
+  &:focus {
+    background-color: var(--brand-light-orange);
+    box-shadow: 0 1px 0 0 var(--brand-dark-orange), 0 2px 3px 2px rgba(0, 0, 0, .1);
+  }
+
+  &:focus {
+    text-decoration: underline;
+  }
+
+  &:active {
+    box-shadow: inset 0 1px 0 0 var(--brand-dark-orange);
+  }
+",
+            ],
+          },
+          "displayName": "styled__BuyButtonContainer",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "styled__BuyButtonContainer-eeTeVX",
+          "target": "button",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        }
+      }
+      forwardedRef={null}
+      onClick={[MockFunction]}
+      tabIndex="0"
+    >
+      <button
+        className="c0"
+        onClick={[MockFunction]}
+        tabIndex="0"
+      >
+        <styled__BuyButtonText>
+          <StyledComponent
+            forwardedComponent={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": Array [],
+                "componentStyle": ComponentStyle {
+                  "componentId": "styled__BuyButtonText-eUxzdj",
+                  "isStatic": true,
+                  "lastClassName": "c1",
+                  "rules": Array [
+                    "
+  display: block;
+",
+                  ],
+                },
+                "displayName": "styled__BuyButtonText",
+                "foldedComponentIds": Array [],
+                "render": [Function],
+                "styledComponentId": "styled__BuyButtonText-eUxzdj",
+                "target": "span",
+                "toString": [Function],
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              }
+            }
+            forwardedRef={null}
+          >
+            <span
+              className="c1"
+            >
+              Купить 
+              <br />
+              за 
+              1 000 $
+            </span>
+          </StyledComponent>
+        </styled__BuyButtonText>
+      </button>
+    </StyledComponent>
+  </styled__BuyButtonContainer>
+</BuyButton>
 `;

@@ -1,9 +1,8 @@
 // @flow
-import mapValues from 'lodash-es/mapValues';
+import { mapValues } from 'lodash-es';
 
 import { RUSSIAN_ROUBLE, currencyAliases } from 'src/config/currency';
 import { FIXER_API_KEY } from 'shared/config';
-
 
 type RatesType = {
   [string]: number,
@@ -51,7 +50,7 @@ class CurrencyService {
     if (convertIndex !== null && convertIndex !== undefined) {
       result = Number.parseFloat(price) * convertIndex;
     }
-    return (result && !Number.isNaN(result)) ? result : null;
+    return result && !Number.isNaN(result) ? result : null;
   }
 
   getRates(): RatesType {

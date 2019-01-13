@@ -1,19 +1,14 @@
 // @flow
 import React from 'react';
-import mapValues from 'lodash-es/mapValues';
+import { mapValues } from 'lodash-es';
 
 import { pluralStop } from 'src/utils';
 import StopsCheckbox from './stops-checkbox/stops-checkbox';
 import StopOnly from './stop-only/stop-only';
-import {
-  StopsList,
-  StopsListItem,
-  Label,
-  LabelText,
-} from './styled';
+import { StopsList, StopsListItem, Label, LabelText } from './styled';
 
-
-function _selectAllStops(stops, changeStops) { // eslint-disable-line no-underscore-dangle
+// eslint-disable-next-line no-underscore-dangle
+function _selectAllStops(stops, changeStops) {
   return ({ currentTarget: { checked } }) => {
     const newStops = mapValues(stops, () => checked);
 
@@ -21,13 +16,15 @@ function _selectAllStops(stops, changeStops) { // eslint-disable-line no-undersc
   };
 }
 
-function _selectStop(changeStops) { // eslint-disable-line no-underscore-dangle
+// eslint-disable-next-line no-underscore-dangle
+function _selectStop(changeStops) {
   return ({ target: { value, checked } }) => {
     changeStops({ [value]: checked });
   };
 }
 
-function _selectOnlyStop(stops, changeStops) { // eslint-disable-line no-underscore-dangle
+// eslint-disable-next-line no-underscore-dangle
+function _selectOnlyStop(stops, changeStops) {
   return newValue => () => {
     const newStops = mapValues(stops, (__, stop) => stop === newValue);
     changeStops(newStops);
@@ -65,9 +62,7 @@ const Stops = ({ stops, changeStops }: Props) => {
               checked={stops[stop]}
               onChange={selectStop}
             />
-            <LabelText>
-              { stop === '0' ? 'Без пересадок' : `${stop} ${pluralStop(stop)}`}
-            </LabelText>
+            <LabelText>{stop === '0' ? 'Без пересадок' : `${stop} ${pluralStop(stop)}`}</LabelText>
           </Label>
           <StopOnly handleSelect={selectOnlyStop(stop)} />
         </StopsListItem>

@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { connect } from 'react-redux';
-import pickBy from 'lodash-es/pickBy';
+import { pickBy } from 'lodash-es';
 
 import currencyService from 'src/services/currency';
 import { RUSSIAN_ROUBLE, currencyAliases } from 'src/config/currency';
@@ -9,7 +9,6 @@ import { getCurrency } from 'src/store/rootSelectors';
 import { changeCurrency } from 'src/store/settings/actions';
 import type { State } from 'src/store/types';
 import CurrencyList from './currency-list/currency-list';
-
 
 type Props = {|
   selectedCurrency: string,
@@ -30,7 +29,8 @@ export class Currency extends React.Component<Props, CurrencyState> {
   };
 
   componentDidMount() {
-    currencyService.fetchCurrencies()
+    currencyService
+      .fetchCurrencies()
       .then(() => {
         const ratesNames = currencyService.getRatesNames();
         const aliases = pickBy(currencyAliases, value => ratesNames.includes(value));
@@ -63,4 +63,7 @@ const mapStateToProps = (state: State) => ({
   selectedCurrency: getCurrency(state),
 });
 
-export default connect(mapStateToProps, { handleChangeCurrency: changeCurrency })(Currency);
+export default connect(
+  mapStateToProps,
+  { handleChangeCurrency: changeCurrency },
+)(Currency);

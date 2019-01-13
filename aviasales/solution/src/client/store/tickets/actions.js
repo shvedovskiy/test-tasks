@@ -1,21 +1,12 @@
 // @flow
-import map from 'lodash-es/map';
-import sortBy from 'lodash-es/sortBy';
-import keyBy from 'lodash-es/keyBy';
-import uniq from 'lodash-es/uniq';
+import { map, sortBy, keyBy, uniq } from 'lodash-es';
 
 import ticketService from 'src/services/tickets';
 import { getIsFetching } from 'src/store/rootSelectors';
 import { setStopsFilter } from 'src/store/settings/actions';
 import type { ThunkAction } from 'src/store/types';
 import * as types from './action-types';
-import type {
-  State,
-  Actions,
-  TicketsType,
-  TicketType,
-} from './types';
-
+import type { State, Actions, TicketsType, TicketType } from './types';
 
 const shouldFetchTickets = (state: State) => !getIsFetching(state);
 
@@ -34,7 +25,7 @@ export const ticketsFetchingFailure = (errorMessage: string) => ({
   errorMessage,
 });
 
-const fetchTicketsIfNeeded = (): ThunkAction<State, Actions> => async (dispatch) => {
+const fetchTicketsIfNeeded = (): ThunkAction<State, Actions> => async dispatch => {
   dispatch(setStopsFilter());
   dispatch(requestTickets());
 

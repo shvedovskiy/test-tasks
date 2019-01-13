@@ -14,7 +14,7 @@ describe('<BuyButton />', () => {
       buyClick: onBuyClick,
       children: '1000 $',
     };
-    wrapper = shallow(<BuyButton {...props} />);
+    wrapper = mount(<BuyButton {...props} />);
   });
 
   it('renders properly', () => {
@@ -30,7 +30,7 @@ describe('<BuyButton />', () => {
       .children()
       .last()
       .text();
-    expect(price).toBe('1 234 567 €');
+    expect(price).toBe('Купить за 1 234 567 €');
   });
 
   it('calls onBuyClick after buton click', () => {
@@ -38,7 +38,7 @@ describe('<BuyButton />', () => {
     expect(onBuyClick).toHaveBeenCalled();
   });
 
-  xit('has special color when hovered', () => {
+  it('has different color when hovered', () => {
     wrapper.find(BuyButtonContainer).simulate('mouseover');
     expect(wrapper).toHaveStyleRule('background-color', 'var(--brand-orange)');
   });

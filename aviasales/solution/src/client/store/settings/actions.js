@@ -1,11 +1,8 @@
 // @flow
-import min from 'lodash-es/min';
-import zipObject from 'lodash-es/zipObject';
-import map from 'lodash-es/map';
+import { min, zipObject, map } from 'lodash-es';
 
 import * as types from './action-types';
 import type { StopsType } from './types';
-
 
 export const changeCurrency = (currency: string) => ({
   type: types.CHANGE_CURRENCY,

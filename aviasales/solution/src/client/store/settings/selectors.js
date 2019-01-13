@@ -1,7 +1,6 @@
 // @flow
 import { createSelector } from 'reselect';
-import keys from 'lodash-es/keys';
-import pickBy from 'lodash-es/pickBy';
+import { keys, pickBy } from 'lodash-es';
 
 import type { State as TicketsState } from 'src/store/tickets/types';
 import type { State, StopsType, FiltersType } from './types';
